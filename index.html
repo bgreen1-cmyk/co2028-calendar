@@ -11,49 +11,35 @@
 :root{
   --bg:#0f1117;--surface:#161b27;--surface2:#1e2535;--surface3:#242d3f;
   --border:#2a3147;--text:#e8eaf0;--muted:#7a829a;--muted2:#5a6280;--accent:#4f8ef7;
-  --heme:#f05c6e;--resp:#4f8ef7;--renal:#3ecf8e;--gi:#f7a14f;--endo:#b97cf7;--msk:#4fd6f7;--brk:#7a829a;
+  --heme:#f05c6e;--resp:#4f8ef7;--renal:#3ecf8e;--gi:#f7a14f;--endo:#b97cf7;--msk:#4fd6f7;
   --cat-mandatory:#4f8ef7;--cat-faculty:#3ecf8e;--cat-tbl:#b97cf7;
   --cat-cbse:#f05c6e;--cat-session:#4a5168;--cat-itde:#4fd6f7;--cat-exam:#f7a14f;
   --gold:#f7c94f;
 }
 html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px}
 
-/* ─── CONFIG SCREEN ─── */
+/* CONFIG */
 .config-overlay{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;padding:20px}
-.config-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;max-width:540px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.config-box h1{font-size:22px;font-weight:700;color:var(--text);margin-bottom:6px}
+.config-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;max-width:500px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.config-box h1{font-size:22px;font-weight:700;margin-bottom:6px}
 .config-box .sub{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6}
 .config-step{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start}
 .config-num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.config-step-body{flex:1}
 .config-step-body label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:6px}
 .config-step-body input{width:100%;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;outline:none;transition:border-color .15s}
 .config-step-body input:focus{border-color:var(--accent)}
 .config-step-body .hint{font-size:11px;color:var(--muted2);margin-top:5px;line-height:1.5}
 .config-step-body .hint code{background:var(--surface3);padding:1px 6px;border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--accent)}
 .config-btn{width:100%;padding:12px;border-radius:10px;border:none;background:var(--accent);color:white;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;transition:all .15s}
-.config-btn:hover{background:#3a7de8;transform:translateY(-1px)}
-.config-err{font-size:12px;color:#f05c6e;margin-top:8px;min-height:18px;text-align:center}
-.config-demo{margin-top:14px;text-align:center}
-.config-demo button{background:transparent;border:1px solid var(--border);color:var(--muted);padding:8px 20px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .15s}
-.config-demo button:hover{border-color:var(--muted);color:var(--text)}
+.config-btn:hover{background:#3a7de8}
+.config-err{font-size:12px;color:#f05c6e;margin-top:10px;min-height:18px;text-align:center;line-height:1.5}
+.security-note{margin-top:16px;padding:12px;background:rgba(62,207,142,.08);border:1px solid rgba(62,207,142,.2);border-radius:8px;font-size:11px;color:#3ecf8e;line-height:1.6}
 
-/* ─── STATUS BAR ─── */
-.status-bar{background:var(--surface2);border-bottom:1px solid var(--border);padding:6px 24px;
-  display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted)}
-.status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.status-dot.live{background:#3ecf8e;box-shadow:0 0 6px #3ecf8e88;animation:blink 2s infinite}
-.status-dot.offline{background:var(--muted2)}
-.status-dot.loading{background:var(--gold);animation:blink 1s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
-.status-source{font-family:'DM Mono',monospace;color:var(--muted2);font-size:10px}
-.status-right{margin-left:auto;display:flex;align-items:center;gap:10px}
-.status-sync{color:var(--muted2);font-size:10px}
-
-/* ─── HEADER ─── */
-.header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;
-  display:flex;align-items:center;gap:14px;height:56px;position:sticky;top:0;z-index:200}
+/* HEADER */
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:14px;height:56px;position:sticky;top:0;z-index:200}
 .logo{font-size:15px;font-weight:600;display:flex;align-items:center;gap:10px}
-.logo-badge{background:var(--accent);color:white;font-family:'DM Mono',monospace;font-size:11px;padding:3px 8px;border-radius:4px;letter-spacing:.5px}
+.logo-badge{background:var(--accent);color:white;font-family:'DM Mono',monospace;font-size:11px;padding:3px 8px;border-radius:4px}
 .header-center{flex:1;display:flex;justify-content:center}
 .mode-toggle{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--surface2)}
 .mode-btn{padding:6px 18px;background:transparent;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--muted);transition:all .15s}
@@ -62,16 +48,24 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 .header-right{display:flex;align-items:center;gap:8px}
 .btn-sm{padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .15s}
 .btn-sm:hover{background:var(--surface2);color:var(--text)}
-.btn-sm.outlook{border-color:#0078d433;color:#4f8ef7}
 .btn-sm.gold{background:var(--gold);color:#1a1200;border-color:var(--gold);font-weight:700}
-.faculty-badge{background:var(--gold);color:#1a1200;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.5px;animation:blink 2s infinite}
+.btn-sm.outlook{border-color:#0078d433;color:#4f8ef7}
+.faculty-badge{background:var(--gold);color:#1a1200;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
 
-/* ─── LAYOUT ─── */
+/* STATUS */
+.status-bar{background:var(--surface2);border-bottom:1px solid var(--border);padding:6px 24px;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted)}
+.status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.status-dot.live{background:#3ecf8e;box-shadow:0 0 6px #3ecf8e88;animation:blink 2s infinite}
+.status-dot.offline{background:var(--muted2)}
+.status-dot.loading{background:var(--gold);animation:blink 1s infinite}
+.status-right{margin-left:auto;font-size:10px;color:var(--muted2)}
+
+/* LAYOUT */
 .layout{display:flex;min-height:calc(100vh - 56px)}
 
-/* ─── SIDEBAR ─── */
-.sidebar{width:220px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);
-  padding:20px 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto}
+/* SIDEBAR */
+.sidebar{width:220px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:20px 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;display:flex;flex-direction:column}
 .sb-section{margin-bottom:8px}
 .sb-heading{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted2);padding:8px 20px 5px}
 .sb-item{display:flex;align-items:center;gap:10px;padding:8px 20px;font-size:13px;color:var(--muted);cursor:pointer;transition:all .12s;border-left:3px solid transparent}
@@ -80,7 +74,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 .sb-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
 .sb-count{margin-left:auto;font-size:10px;color:var(--muted2);font-family:'DM Mono',monospace}
 
-/* ─── MAIN ─── */
+/* MAIN */
 .main{flex:1;padding:24px;overflow-x:auto;min-width:0}
 .toolbar{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}
 .toolbar-left{flex:1;min-width:0}
@@ -103,10 +97,10 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 .nav-btn{width:30px;height:30px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s}
 .nav-btn:hover{background:var(--surface2);color:var(--text)}
 .week-label{font-size:14px;font-weight:700;font-family:'DM Mono',monospace}
-.block-pill{font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;letter-spacing:.3px}
+.block-pill{font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px}
 .week-dates{font-size:12px;color:var(--muted)}
 
-/* ─── CALENDAR ─── */
+/* CALENDAR */
 .cal-wrap{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;min-width:640px}
 .cal-header{display:grid;grid-template-columns:64px repeat(5,1fr);background:var(--surface2);border-bottom:1px solid var(--border)}
 .ch-cell{padding:10px 8px;text-align:center;border-right:1px solid var(--border)}
@@ -116,14 +110,14 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 .ch-cell.today .ch-num{background:var(--accent);color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;margin:2px auto 0;font-weight:600;font-size:14px}
 .cal-row{display:grid;grid-template-columns:64px repeat(5,1fr);border-bottom:1px solid var(--border);min-height:52px}
 .cal-row:last-child{border-bottom:none}
-.cal-time{padding:8px 8px 8px 6px;font-size:10px;color:var(--muted2);border-right:1px solid var(--border);text-align:right;font-family:'DM Mono',monospace;display:flex;align-items:flex-start;justify-content:flex-end}
+.cal-time{padding:8px 6px 8px 6px;font-size:10px;color:var(--muted2);border-right:1px solid var(--border);text-align:right;font-family:'DM Mono',monospace;display:flex;align-items:flex-start;justify-content:flex-end}
 .cal-cell{border-right:1px solid var(--border);padding:3px;position:relative;min-height:52px}
 .cal-cell:last-child{border-right:none}
 .faculty-mode .cal-cell:hover .add-slot-btn{display:flex}
 .add-slot-btn{display:none;position:absolute;inset:3px;border-radius:5px;border:2px dashed var(--gold);background:rgba(247,201,79,.05);color:var(--gold);font-size:18px;cursor:pointer;align-items:center;justify-content:center;z-index:5}
 .add-slot-btn:hover{background:rgba(247,201,79,.12)}
 
-/* ─── EVENTS ─── */
+/* EVENTS */
 .event{border-radius:5px;padding:5px 7px;font-size:11px;font-weight:500;cursor:pointer;transition:transform .1s,box-shadow .15s;line-height:1.3;height:100%;min-height:44px;display:flex;flex-direction:column;justify-content:center;border-left:3px solid;position:relative;z-index:2;animation:fadeIn .2s ease}
 .event:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.35)}
 @keyframes fadeIn{from{opacity:0;transform:translateY(2px)}to{opacity:1;transform:none}}
@@ -146,31 +140,29 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 .event.ExamReview{background:rgba(247,161,79,.18);border-color:#f7a14f;color:#ffc98a}
 .event.GrandRounds{background:rgba(247,161,79,.18);border-color:#f7a14f;color:#ffc98a}
 
-/* ─── FACULTY PANEL ─── */
+/* FACULTY PANEL */
 .faculty-panel{display:none;position:fixed;top:0;right:0;width:360px;height:100vh;background:var(--surface);border-left:2px solid var(--gold);z-index:250;overflow-y:auto;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,.4)}
 .faculty-panel.open{display:flex}
 .fp-header{padding:18px 20px 14px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(247,201,79,.1) 0%,transparent 60%)}
-.fp-title{font-size:15px;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:8px}
+.fp-title{font-size:15px;font-weight:700;color:var(--gold)}
 .fp-sub{font-size:11px;color:var(--muted);margin-top:4px}
 .fp-body{padding:20px;flex:1}
 .fp-section{margin-bottom:24px}
 .fp-section-title{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
 .form-group{margin-bottom:14px}
 .form-label{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.5px}
-.form-input,.form-select,.form-textarea{width:100%;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;transition:border-color .15s;outline:none}
-.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(247,201,79,.1)}
+.form-input,.form-select{width:100%;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;transition:border-color .15s;outline:none}
+.form-input:focus,.form-select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(247,201,79,.1)}
 .form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a829a' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
 .form-select option{background:var(--surface2)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .color-preview{display:flex;align-items:center;gap:8px;margin-top:6px}
-.color-dot{width:12px;height:12px;border-radius:50%;transition:background .15s}
+.color-dot{width:12px;height:12px;border-radius:50%}
 .btn-full{width:100%;padding:10px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:8px}
 .btn-save{background:var(--gold);color:#1a1200}
-.btn-save:hover{background:#f0bc3a;transform:translateY(-1px)}
+.btn-save:hover{background:#f0bc3a}
 .btn-cancel{background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
-.btn-cancel:hover{background:var(--surface3);color:var(--text)}
 .btn-delete-full{background:rgba(240,92,110,.15);color:#f05c6e;border:1px solid rgba(240,92,110,.3)}
-.btn-delete-full:hover{background:rgba(240,92,110,.25)}
 .change-item{padding:10px 12px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);margin-bottom:8px;font-size:12px}
 .change-item .ch-type{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
 .change-item .ch-title{color:var(--text);font-weight:500}
@@ -179,9 +171,8 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 .change-edited .ch-type{color:var(--gold)}
 .change-deleted .ch-type{color:#f05c6e}
 .fp-footer{padding:16px 20px;border-top:1px solid var(--border);background:var(--surface2)}
-.export-note{font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5}
 
-/* ─── MODAL ─── */
+/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .modal-overlay.open{display:flex}
 .modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:modalIn .2s cubic-bezier(.34,1.56,.64,1)}
@@ -189,7 +180,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 .modal-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:12px}
 .modal-bar{width:4px;border-radius:4px;flex-shrink:0;align-self:stretch;min-height:40px}
 .modal-title{font-size:16px;font-weight:600;line-height:1.4;flex:1}
-.modal-close{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s}
+.modal-close{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .modal-close:hover{background:var(--surface2);color:var(--text)}
 .modal-body{padding:20px 24px}
 .modal-row{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
@@ -199,39 +190,31 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 .modal-footer{padding:0 24px 20px}
 .modal-week{font-size:11px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;font-family:'DM Mono',monospace}
 
-/* ─── MISC ─── */
+/* MISC */
 .empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
 .empty-state .big{font-size:40px;margin-bottom:12px}
-.loading-state{text-align:center;padding:60px 20px;color:var(--muted)}
 .spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
 @keyframes spin{to{transform:rotate(360deg)}}
 .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);padding:12px 22px;border-radius:30px;font-size:13px;font-weight:500;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:opacity .3s;white-space:nowrap;pointer-events:none}
-
-/* ─── LOGIN ─── */
 .login-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:700;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
 .login-overlay.open{display:flex}
-.login-box{background:var(--surface);border:1px solid var(--gold);border-radius:14px;padding:32px;max-width:320px;width:90%;box-shadow:0 20px 60px rgba(247,201,79,.15);text-align:center;animation:modalIn .2s ease}
+.login-box{background:var(--surface);border:1px solid var(--gold);border-radius:14px;padding:32px;max-width:320px;width:90%;text-align:center;animation:modalIn .2s ease}
 .login-box h2{font-size:18px;font-weight:700;color:var(--gold);margin-bottom:6px}
 .login-box p{font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.5}
 .login-box input{width:100%;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Mono',monospace;font-size:16px;text-align:center;letter-spacing:4px;outline:none;margin-bottom:14px;transition:border-color .15s}
 .login-box input:focus{border-color:var(--gold)}
 .login-err{font-size:12px;color:#f05c6e;margin-bottom:10px;min-height:18px}
-.login-box .login-submit{width:100%;padding:10px;border-radius:8px;border:none;background:var(--gold);color:#1a1200;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s}
-.login-box .login-submit:hover{background:#f0bc3a}
-
-/* ─── CONFIRM ─── */
+.login-submit{width:100%;padding:10px;border-radius:8px;border:none;background:var(--gold);color:#1a1200;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer}
 .confirm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:600;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
 .confirm-overlay.open{display:flex}
 .confirm-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;max-width:340px;width:90%;text-align:center;animation:modalIn .15s ease}
 .confirm-box h3{font-size:16px;font-weight:600;margin-bottom:8px;color:#f05c6e}
 .confirm-box p{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
 .confirm-btns{display:flex;gap:10px;justify-content:center}
-.confirm-btns button{padding:9px 22px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--border)}
+.confirm-btns button{padding:9px 22px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--border)}
 #confirmYes{background:#f05c6e;color:white;border-color:#f05c6e}
 #confirmNo{background:var(--surface2);color:var(--muted)}
-
 @media(max-width:768px){.sidebar{display:none}.main{padding:16px}.cal-wrap{min-width:0}.cal-header,.cal-row{grid-template-columns:44px repeat(5,1fr)}.ev-tag,.ev-time{display:none}.ev-title{font-size:10px}.faculty-panel{width:100%}}
-@media(max-width:520px){.cal-header,.cal-row{grid-template-columns:36px repeat(5,1fr)}.ch-day{font-size:8px}}
 </style>
 </head>
 <body>
@@ -240,40 +223,47 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 <div class="config-overlay" id="configOverlay">
   <div class="config-box">
     <h1>📅 CO2028 Calendar Setup</h1>
-    <p class="sub">Connect this calendar to your SharePoint site so all edits are live and shared with everyone instantly.</p>
+    <p class="sub">Connect to your GitHub repository so all edits are live and shared with everyone instantly — no IT needed.</p>
 
     <div class="config-step">
       <div class="config-num">1</div>
-      <div class="config-step-body" style="flex:1">
-        <label>Your SharePoint Site URL</label>
-        <input id="cfgSiteUrl" type="text" placeholder="https://yourschool.sharepoint.com/sites/CO2028" value="">
-        <div class="hint">Find this in your browser's address bar when on your SharePoint site. Example: <code>https://contoso.sharepoint.com/sites/CO2028</code></div>
+      <div class="config-step-body">
+        <label>GitHub Username</label>
+        <input id="cfgUser" type="text" placeholder="e.g. bgreen1-cmyk" value="">
+        <div class="hint">Your GitHub username — visible in your profile URL: <code>github.com/YOUR-USERNAME</code></div>
       </div>
     </div>
 
     <div class="config-step">
       <div class="config-num">2</div>
-      <div class="config-step-body" style="flex:1">
-        <label>SharePoint List Name</label>
-        <input id="cfgListName" type="text" value="CO2028 Academic Calendar" placeholder="CO2028 Academic Calendar">
-        <div class="hint">Must match exactly the name you gave the list when you created it from the CSV.</div>
+      <div class="config-step-body">
+        <label>Repository Name</label>
+        <input id="cfgRepo" type="text" placeholder="co2028-calendar" value="co2028-calendar">
+        <div class="hint">The name of your GitHub repository where the calendar is hosted.</div>
       </div>
     </div>
 
     <div class="config-step">
       <div class="config-num">3</div>
-      <div class="config-step-body" style="flex:1">
-        <label>Faculty PIN (for edit mode)</label>
-        <input id="cfgPin" type="password" value="2028" placeholder="Set a PIN for faculty editing">
-        <div class="hint">Students see read-only view. Faculty enter this PIN to unlock editing.</div>
+      <div class="config-step-body">
+        <label>GitHub Token (Faculty only — students leave blank)</label>
+        <input id="cfgToken" type="password" placeholder="ghp_... (only needed for editing)">
+        <div class="hint">Students leave this blank — they only need to view. Faculty paste their token here to enable editing. Stored only in your browser, never sent anywhere else.</div>
       </div>
     </div>
 
-    <button class="config-btn" onclick="saveConfig()">Connect to SharePoint →</button>
-    <div class="config-err" id="cfgErr"></div>
-    <div class="config-demo">
-      <button onclick="loadDemoMode()">Or use demo mode (no SharePoint needed)</button>
+    <div class="config-step">
+      <div class="config-num">4</div>
+      <div class="config-step-body">
+        <label>Faculty PIN</label>
+        <input id="cfgPin" type="password" placeholder="Set a PIN" value="2028">
+        <div class="hint">Faculty enter this PIN to unlock the edit panel.</div>
+      </div>
     </div>
+
+    <button class="config-btn" onclick="saveConfig()">Connect to GitHub →</button>
+    <div class="config-err" id="cfgErr"></div>
+    <div class="security-note">🔒 Your token is stored only in your browser's local storage. It is never transmitted to any server other than GitHub's official API (api.github.com).</div>
   </div>
 </div>
 
@@ -290,23 +280,20 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
     <span class="faculty-badge" id="facultyBadge" style="display:none">LIVE EDITING</span>
     <button class="btn-sm gold" id="addEventBtn" style="display:none" onclick="openAddForm()">+ Add Event</button>
     <button class="btn-sm outlook" onclick="exportICS()">📅 Export to Outlook</button>
-    <button class="btn-sm" id="reloadBtn" onclick="loadEvents()" title="Refresh from SharePoint">↻</button>
+    <button class="btn-sm" onclick="loadEvents()" title="Refresh">↻</button>
     <button class="btn-sm" onclick="openConfig()">⚙</button>
   </div>
 </div>
 
 <!-- STATUS BAR -->
 <div class="status-bar" id="statusBar" style="display:none">
-  <div class="status-dot" id="statusDot"></div>
+  <div class="status-dot loading" id="statusDot"></div>
   <span id="statusMsg">Connecting...</span>
-  <span class="status-source" id="statusSource"></span>
-  <div class="status-right">
-    <span class="status-sync" id="lastSync"></span>
-  </div>
+  <div class="status-right" id="lastSync"></div>
 </div>
 
 <!-- LAYOUT -->
-<div class="layout" id="layout" style="display:none">
+<div class="layout faculty-mode" id="layout" style="display:none">
   <div class="sidebar">
     <div class="sb-section">
       <div class="sb-heading">Blocks</div>
@@ -325,13 +312,9 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
       <div class="sb-item" onclick="setSidebarCat(this,'TBL')"><div class="sb-dot" style="background:var(--cat-tbl)"></div>TBL</div>
       <div class="sb-item" onclick="setSidebarCat(this,'CBSE')"><div class="sb-dot" style="background:var(--cat-cbse)"></div>CBSE / Exam</div>
     </div>
-    <div class="sb-section" id="connectionInfo" style="padding:16px 20px;border-top:1px solid var(--border);margin-top:auto">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted2);margin-bottom:8px">Data Source</div>
-      <div style="font-size:11px;color:var(--muted);line-height:1.6" id="sourceDetails">—</div>
-    </div>
   </div>
 
-  <div class="main" id="mainArea">
+  <div class="main">
     <div class="toolbar">
       <div class="toolbar-left">
         <div class="toolbar-title">CO2028 Academic Calendar — Fall 2025</div>
@@ -358,7 +341,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
       <span class="block-pill" id="blockPill"></span>
       <span class="week-dates" id="weekDates"></span>
     </div>
-    <div id="calView"><div class="loading-state"><div class="spinner"></div><p>Connecting to SharePoint...</p></div></div>
+    <div id="calView"><div style="text-align:center;padding:60px 20px"><div class="spinner"></div><p style="color:var(--muted)">Loading events...</p></div></div>
   </div>
 
   <!-- FACULTY PANEL -->
@@ -378,8 +361,8 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
       </div>
     </div>
     <div class="fp-footer">
-      <div class="export-note" id="fpDataNote">Changes save directly to SharePoint — visible to everyone instantly.</div>
-      <button class="btn-full" onclick="exportICS()" style="background:#0078d4;color:white;padding:10px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:8px">📅 Export to Outlook (.ics)</button>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5">Changes save directly to GitHub — everyone sees updates within seconds.</div>
+      <button class="btn-full" onclick="exportICS()" style="background:#0078d4;color:white;padding:10px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">📅 Export to Outlook (.ics)</button>
     </div>
   </div>
 </div>
@@ -407,7 +390,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
 <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-box">
     <h3>Delete Event?</h3>
-    <p id="confirmMsg">This will be permanently removed from SharePoint.</p>
+    <p id="confirmMsg">This will be permanently removed.</p>
     <div class="confirm-btns">
       <button id="confirmNo" onclick="document.getElementById('confirmOverlay').classList.remove('open')">Cancel</button>
       <button id="confirmYes">Delete</button>
@@ -420,16 +403,15 @@ html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'D
   <div class="login-box">
     <div style="font-size:32px;margin-bottom:10px">🔐</div>
     <h2>Faculty Access</h2>
-    <p>Enter your faculty PIN to enable live editing. Changes save directly to SharePoint.</p>
-    <input type="password" id="pinInput" placeholder="· · · · · ·" maxlength="10" onkeydown="if(event.key==='Enter')checkPin()">
+    <p>Enter your PIN to enable live editing.</p>
+    <input type="password" id="pinInput" maxlength="10" onkeydown="if(event.key==='Enter')checkPin()">
     <div class="login-err" id="pinErr"></div>
-    <button class="login-submit" onclick="checkPin()">Unlock Faculty Mode</button>
+    <button class="login-submit" onclick="checkPin()">Unlock</button>
     <button style="width:100%;margin-top:8px;padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer" onclick="document.getElementById('loginOverlay').classList.remove('open')">Cancel</button>
   </div>
 </div>
 
 <script>
-// ─── CONSTANTS ───────────────────────────────────────────────
 const BLOCK_COLOR={'Heme/Onc':'#f05c6e','Respiratory':'#4f8ef7','Renal':'#3ecf8e','GI':'#f7a14f','Endocrinology':'#b97cf7','MSK':'#4fd6f7','Break':'#7a829a'};
 const CAT_COLOR={'Mandatory':'#4f8ef7','Faculty Discussion':'#3ecf8e','TBL':'#b97cf7','CBSE':'#f05c6e','Session':'#4a5168','ITDE':'#4fd6f7','Exam Review':'#f7a14f','Grand Rounds':'#f7a14f'};
 const BLOCKS_LIST=['Heme/Onc','Respiratory','Renal','GI','Endocrinology','MSK','Break'];
@@ -437,241 +419,117 @@ const CATS_LIST=['Mandatory','Faculty Discussion','TBL','CBSE','ITDE','Exam Revi
 const HOUR_KEYS=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
 const HOURS=['8 AM','9 AM','10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM'];
 const DAYS=['Mon','Tue','Wed','Thu','Fri'];
-const FACULTY_PIN_KEY='co2028_pin';
-const DEMO_EVENTS = [{"title": "CBSE Optional for Students", "date": "07/11/2025", "start": "08:00", "end": "17:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "CBSE", "desc": "CBSE  Optional for Students"}, {"title": "Faculty Discussion", "date": "07/11/2025", "start": "13:00", "end": "14:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Semester 3 Orientation", "date": "07/07/2025", "start": "08:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Mandatory", "desc": "Mandatory Semester 3  Orientation"}, {"title": "Heme/Onc: Faculty Discussion           (RBCs, WBCs, Lymph Nodes, & Blood Pathogens)", "date": "07/09/2025", "start": "10:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Faculty Discussion", "desc": "Heme/Onc: Faculty Discussion                      (RBCs, WBCs, Lymph Nodes, & Blood Pathogens)"}, {"title": "Clinic/Trip", "date": "07/11/2025", "start": "16:00", "end": "17:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "07/11/2025", "start": "14:00", "end": "15:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "07/11/2025", "start": "11:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "TBL", "desc": "TBL"}, {"title": "ITDE 613", "date": "07/07/2025", "start": "13:00", "end": "15:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Case Based Interactive", "date": "07/11/2025", "start": "12:00", "end": "13:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "07/11/2025", "start": "09:00", "end": "10:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "07/11/2025", "start": "15:00", "end": "16:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "ENGR Events", "date": "07/11/2025", "start": "10:00", "end": "11:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "07/11/2025", "start": "08:00", "end": "09:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Session", "desc": "ENGR"}, {"title": "Heme/Onc:          Faculty Discussion           (Anemia)", "date": "07/10/2025", "start": "10:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 1 (28)", "weekNum": 28, "category": "Faculty Discussion", "desc": "Heme/Onc:                   Faculty Discussion                      (Anemia)"}, {"title": "Heme/Onc:                 Exam Review", "date": "07/16/2025", "start": "09:00", "end": "10:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Exam Review", "desc": "Heme/Onc:                                  Exam Review"}, {"title": "Heme/Onc:                      Faculty Discussion           (Transfusion Med)", "date": "07/15/2025", "start": "11:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Faculty Discussion", "desc": "Heme/Onc:                                           Faculty Discussion                      (Transfusion Med)"}, {"title": "Heme/Onc:                      Faculty Discussion           (Coag, Bleed, Thrombosis)", "date": "07/14/2025", "start": "10:00", "end": "11:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Faculty Discussion", "desc": "Heme/Onc:                                           Faculty Discussion                      (Coag, Bleed, Thrombosis)"}, {"title": "Clinic/Trip", "date": "07/18/2025", "start": "16:00", "end": "17:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Heme/Onc:                      Faculty Discussion           (Anemia Meds & Anticoags)", "date": "07/14/2025", "start": "11:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Faculty Discussion", "desc": "Heme/Onc:                                           Faculty Discussion                      (Anemia Meds & Anticoags)"}, {"title": "ITDE 613", "date": "07/14/2025", "start": "13:00", "end": "15:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "TBL", "date": "07/18/2025", "start": "11:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "TBL", "desc": "TBL"}, {"title": "CST*R Grand Rounds", "date": "07/15/2025", "start": "12:00", "end": "13:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Grand Rounds", "desc": "CST*R Grand Rounds"}, {"title": "Case Based Interactive", "date": "07/18/2025", "start": "12:00", "end": "13:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Session", "desc": "Case Based Interactive"}, {"title": "EBMSR / MSGR", "date": "07/18/2025", "start": "15:00", "end": "16:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "ENGR Lab", "date": "07/18/2025", "start": "09:00", "end": "10:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Session", "desc": "ENGR Lab"}, {"title": "TBL 1: HEMATOLOGY", "date": "07/16/2025", "start": "10:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "TBL", "desc": "Mandatory TBL 1: HEMATOLOGY"}, {"title": "ENGR Events", "date": "07/18/2025", "start": "10:00", "end": "11:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Session", "desc": "ENGR Events"}, {"title": "Heme/Onc Exam I", "date": "07/18/2025", "start": "09:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Mandatory", "desc": "Mandatory Heme/Onc  Exam I"}, {"title": "Faculty Discussion", "date": "07/18/2025", "start": "13:00", "end": "14:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "ENGR", "date": "07/18/2025", "start": "08:00", "end": "09:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Session", "desc": "ENGR"}, {"title": "PoM", "date": "07/18/2025", "start": "14:00", "end": "15:00", "block": "Heme/Onc", "week": "Heme Week 2 (29)", "weekNum": 29, "category": "Session", "desc": "PoM"}, {"title": "ENMED Correlation", "date": "07/22/2025", "start": "13:00", "end": "15:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Mandatory", "desc": "Mandatory                                      ENMED Correlation"}, {"title": "Heme/Onc:                      Faculty Discussion           (Chemotherapy)", "date": "07/22/2025", "start": "11:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Faculty Discussion", "desc": "Heme/Onc:                                           Faculty Discussion                      (Chemotherapy)"}, {"title": "TBL 2: ONCOLOGY", "date": "07/25/2025", "start": "10:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "TBL", "desc": "Mandatory TBL 2: ONCOLOGY"}, {"title": "ENGR", "date": "07/25/2025", "start": "08:00", "end": "09:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Session", "desc": "ENGR"}, {"title": "Heme/Onc:                      Faculty Discussion           (Heme Malignancy)", "date": "07/24/2025", "start": "10:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Faculty Discussion", "desc": "Heme/Onc:                                           Faculty Discussion                      (Heme Malignancy)"}, {"title": "EBMSR / MSGR", "date": "07/25/2025", "start": "15:00", "end": "16:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "ITDE 613", "date": "07/21/2025", "start": "13:00", "end": "15:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Heme/Onc:                      Faculty Discussion           (Oncology, Surg Path)", "date": "07/22/2025", "start": "10:00", "end": "11:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Faculty Discussion", "desc": "Heme/Onc:                                           Faculty Discussion                      (Oncology, Surg Path)"}, {"title": "Faculty Discussion", "date": "07/25/2025", "start": "13:00", "end": "14:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "PoM", "date": "07/25/2025", "start": "14:00", "end": "15:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "07/25/2025", "start": "11:00", "end": "12:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "TBL", "desc": "TBL"}, {"title": "Clinic/Trip", "date": "07/25/2025", "start": "16:00", "end": "17:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Case Based Interactive", "date": "07/25/2025", "start": "12:00", "end": "13:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Session", "desc": "Case Based Interactive"}, {"title": "Heme/Onc:                 Exam Review", "date": "07/25/2025", "start": "09:00", "end": "10:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Exam Review", "desc": "Heme/Onc:                                  Exam Review"}, {"title": "ENGR Lab", "date": "07/25/2025", "start": "09:00", "end": "10:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Session", "desc": "ENGR Lab"}, {"title": "ENGR Events", "date": "07/25/2025", "start": "10:00", "end": "11:00", "block": "Heme/Onc", "week": "Heme Week 3 (30)", "weekNum": 30, "category": "Session", "desc": "ENGR Events"}, {"title": "Respiratory: Pathology Active Learning (Hughes)", "date": "08/01/2025", "start": "09:00", "end": "11:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "Respiratory: Pathology Active Learning (Hughes)"}, {"title": "Faculty Discussion", "date": "08/01/2025", "start": "13:00", "end": "14:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Respiratory: Physiology Active Learning (Slivkoff)", "date": "07/30/2025", "start": "10:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "Respiratory: Physiology Active Learning (Slivkoff)"}, {"title": "Clinic/Trip", "date": "08/01/2025", "start": "16:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "08/01/2025", "start": "14:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "08/01/2025", "start": "11:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "TBL", "desc": "TBL"}, {"title": "ITDE 613", "date": "07/28/2025", "start": "13:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "POM 3 Orientation", "date": "07/29/2025", "start": "13:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Mandatory", "desc": "Mandatory POM 3 Orientation"}, {"title": "Case Based Interactive", "date": "08/01/2025", "start": "12:00", "end": "13:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "08/01/2025", "start": "09:00", "end": "10:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "08/01/2025", "start": "15:00", "end": "16:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "ENGR Events", "date": "08/01/2025", "start": "10:00", "end": "11:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "ENGR Events"}, {"title": "Heme/Onc Exam II [Comprehensive]", "date": "07/28/2025", "start": "09:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Mandatory", "desc": "Mandatory Heme/Onc Exam II [Comprehensive]"}, {"title": "Respiratory: Pharmacology Active Learning (Rogers)", "date": "08/01/2025", "start": "11:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "Respiratory: Pharmacology Active Learning (Rogers)"}, {"title": "ENGR", "date": "08/01/2025", "start": "08:00", "end": "09:00", "block": "Respiratory", "week": "Resp Week 1 (31)", "weekNum": 31, "category": "Session", "desc": "ENGR"}, {"title": "Respiratory: Pharmacology Active Learning (Rogers)", "date": "08/05/2025", "start": "09:00", "end": "10:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "Respiratory:  Pharmacology Active Learning (Rogers)"}, {"title": "ENGR", "date": "08/08/2025", "start": "08:00", "end": "09:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "ENGR"}, {"title": "PoM 3 HEAL", "date": "08/05/2025", "start": "10:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "ITDE 613-GRP A (EIC)", "date": "08/04/2025", "start": "13:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Mandatory", "desc": "Mandatory ITDE 613-GRP A (EIC)"}, {"title": "EBMSR / MSGR", "date": "08/08/2025", "start": "15:00", "end": "16:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Faculty Discussion", "date": "08/08/2025", "start": "13:00", "end": "14:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "PoM", "date": "08/08/2025", "start": "14:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "08/08/2025", "start": "11:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "TBL", "desc": "TBL"}, {"title": "Clinic/Trip", "date": "08/08/2025", "start": "16:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Case Based Interactive", "date": "08/08/2025", "start": "12:00", "end": "13:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "08/08/2025", "start": "09:00", "end": "10:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "ENGR Lab"}, {"title": "Respiratory Exam 1", "date": "08/08/2025", "start": "13:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Mandatory", "desc": "Mandatory Respiratory  Exam 1"}, {"title": "Respiratory: Pathology Active Learning (Paolini)", "date": "08/04/2025", "start": "10:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "Respiratory:  Pathology Active Learning (Paolini)"}, {"title": "ITDE 613-GRP B (EIC)", "date": "08/04/2025", "start": "15:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Mandatory", "desc": "Mandatory ITDE 613-GRP B (EIC)"}, {"title": "ENGR Events", "date": "08/08/2025", "start": "10:00", "end": "11:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "Session", "desc": "ENGR Events"}, {"title": "TBL 1 (Gotur)", "date": "08/06/2025", "start": "10:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 2 (32)", "weekNum": 32, "category": "TBL", "desc": "Mandatory TBL 1 (Gotur)"}, {"title": "Respiratory: Active Learning (Rogers)", "date": "08/13/2025", "start": "11:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "Respiratory:  Active Learning (Rogers)"}, {"title": "TBL 2 (Gotur/Ganguly/Rogers)", "date": "08/15/2025", "start": "10:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "TBL", "desc": "Mandatory TBL 2 (Gotur/Ganguly/Rogers)"}, {"title": "ENGR", "date": "08/15/2025", "start": "08:00", "end": "09:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "ENGR"}, {"title": "EnMed Respiratory Workshop at HMH (1 hr med, 1 hr eng)", "date": "08/12/2025", "start": "10:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Mandatory", "desc": "Mandatory EnMed Respiratory Workshop at HMH (1 hr med, 1 hr eng)"}, {"title": "POM 3 Practice Workshop (whole class)", "date": "08/13/2025", "start": "13:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (whole class)"}, {"title": "Respiratory: Active Learning (Ganguly)", "date": "08/13/2025", "start": "09:00", "end": "11:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "Respiratory:  Active Learning (Ganguly)"}, {"title": "ITDE 613-GRP A (EIC)", "date": "08/11/2025", "start": "13:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Mandatory", "desc": "Mandatory ITDE 613-GRP A (EIC)"}, {"title": "EBMSR / MSGR", "date": "08/15/2025", "start": "15:00", "end": "16:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Faculty Discussion", "date": "08/15/2025", "start": "13:00", "end": "14:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "PoM", "date": "08/15/2025", "start": "14:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "08/15/2025", "start": "11:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "TBL", "desc": "TBL"}, {"title": "Clinic/Trip", "date": "08/15/2025", "start": "16:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Case Based Interactive", "date": "08/15/2025", "start": "12:00", "end": "13:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "Case Based Interactive"}, {"title": "Respiratory: Active Learning (Ganguly)", "date": "08/15/2025", "start": "09:00", "end": "10:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "Respiratory:  Active Learning (Ganguly)"}, {"title": "ENGR Lab", "date": "08/15/2025", "start": "09:00", "end": "10:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "ENGR Lab"}, {"title": "ITDE 613-GRP B (EIC)", "date": "08/11/2025", "start": "15:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Mandatory", "desc": "Mandatory ITDE 613-GRP B (EIC)"}, {"title": "ENGR Events", "date": "08/15/2025", "start": "10:00", "end": "11:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Session", "desc": "ENGR Events"}, {"title": "POM 3 Practice Workshop (whole class)", "date": "08/12/2025", "start": "13:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 3 (33)", "weekNum": 33, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (whole class)"}, {"title": "Faculty Discussion", "date": "08/22/2025", "start": "13:00", "end": "14:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Respiratory: Active Learning (Wilson)", "date": "08/18/2025", "start": "10:00", "end": "11:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "Respiratory:  Active Learning (Wilson)"}, {"title": "Clinic/Trip", "date": "08/22/2025", "start": "16:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Respiratory Exam 2", "date": "08/22/2025", "start": "09:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Mandatory", "desc": "Mandatory Respiratory Exam 2"}, {"title": "PoM", "date": "08/22/2025", "start": "14:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "PoM"}, {"title": "EnMed Correlation (Gotur)", "date": "08/18/2025", "start": "11:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Mandatory", "desc": "Mandatory  EnMed Correlation  (Gotur)"}, {"title": "TBL", "date": "08/22/2025", "start": "11:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "TBL", "desc": "TBL"}, {"title": "ITDE 613", "date": "08/18/2025", "start": "13:00", "end": "15:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Case Based Interactive", "date": "08/22/2025", "start": "12:00", "end": "13:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "Case Based Interactive"}, {"title": "Respiratory: Active Learning (Gotur)", "date": "08/18/2025", "start": "09:00", "end": "10:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "Respiratory:  Active Learning (Gotur)"}, {"title": "ENGR Lab", "date": "08/22/2025", "start": "09:00", "end": "10:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "08/22/2025", "start": "15:00", "end": "16:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "08/19/2025", "start": "13:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "08/22/2025", "start": "10:00", "end": "11:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "08/22/2025", "start": "08:00", "end": "09:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "08/20/2025", "start": "13:00", "end": "17:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "PoM 3 HEAL", "date": "08/19/2025", "start": "10:00", "end": "12:00", "block": "Respiratory", "week": "Resp Week 4 (34)", "weekNum": 34, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "Faculty Discussion                 Pharmacology                        Review of Diuretics                     (Rogers)", "date": "08/27/2025", "start": "09:00", "end": "10:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Faculty Discussion", "desc": "Faculty Discussion                                 Pharmacology                                                Review of Diuretics                                          (Rogers)"}, {"title": "Internal Medicine: Infectious Diseases of the Urinary Tract (Axell-House)", "date": "08/28/2025", "start": "11:00", "end": "12:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "Internal Medicine: Infectious Diseases of the Urinary Tract  (Axell-House)"}, {"title": "Faculty Discussion", "date": "08/29/2025", "start": "13:00", "end": "14:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Faculty Discussion                                           Internal Medicine         Acid-Base Balance (Edwards)", "date": "08/25/2025", "start": "10:00", "end": "11:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Faculty Discussion", "desc": "Faculty Discussion                                                                                     Internal Medicine                 Acid-Base Balance (Edwards)"}, {"title": "CASE STUDIES     Acid-Base and Potassium Balance             (Edwards)", "date": "08/27/2025", "start": "10:00", "end": "12:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "CASE STUDIES          Acid-Base and Potassium Balance                         (Edwards)"}, {"title": "Clinic/Trip", "date": "08/29/2025", "start": "16:00", "end": "17:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "08/29/2025", "start": "14:00", "end": "15:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "PoM"}, {"title": "Faculty Discussion                                           Internal Medicine         Potassium Balance (Edwards)", "date": "08/25/2025", "start": "11:00", "end": "12:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Faculty Discussion", "desc": "Faculty Discussion                                                                                     Internal Medicine                 Potassium Balance (Edwards)"}, {"title": "TBL", "date": "08/29/2025", "start": "11:00", "end": "12:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "TBL", "desc": "TBL"}, {"title": "ITDE 613", "date": "08/25/2025", "start": "13:00", "end": "15:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Case Based Interactive", "date": "08/29/2025", "start": "12:00", "end": "13:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "08/29/2025", "start": "09:00", "end": "10:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "08/29/2025", "start": "15:00", "end": "16:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "POM 3 CHP OSCE (1/2 Class) & Preceptorships (1/2 Class)", "date": "08/26/2025", "start": "13:00", "end": "17:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Mandatory", "desc": "Mandatory POM 3 CHP OSCE  (1/2 Class)  &  Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "08/29/2025", "start": "10:00", "end": "11:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "08/29/2025", "start": "08:00", "end": "09:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 CHP OSCE (1/2 Class) & Preceptorships (1/2 Class)", "date": "08/27/2025", "start": "13:00", "end": "17:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Mandatory", "desc": "Mandatory POM 3 CHP OSCE  (1/2 Class)  &  Preceptorships (1/2 Class)"}, {"title": "Faculty Discussion              CASE STUDIES: Urinalysis  (Levy)", "date": "08/28/2025", "start": "10:00", "end": "11:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Faculty Discussion", "desc": "Faculty Discussion                            CASE STUDIES:  Urinalysis   (Levy)"}, {"title": "PoM 3 HEAL", "date": "08/26/2025", "start": "10:00", "end": "12:00", "block": "Renal", "week": "Renal Week 1 (35)", "weekNum": 35, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "Faculty Discussion", "date": "09/05/2025", "start": "13:00", "end": "14:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Renal/GU EXAM I", "date": "09/05/2025", "start": "13:00", "end": "16:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Mandatory", "desc": "Mandatory Renal/GU  EXAM I"}, {"title": "TBL #1                     EXAM REVIEW", "date": "09/03/2025", "start": "10:00", "end": "12:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "TBL", "desc": "Mandatory                          TBL #1                                          EXAM REVIEW"}, {"title": "Clinic/Trip", "date": "09/05/2025", "start": "16:00", "end": "17:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "09/05/2025", "start": "14:00", "end": "15:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "09/05/2025", "start": "11:00", "end": "12:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "TBL", "desc": "TBL"}, {"title": "Faculty Discussion                 Renal Cystic Disease, Calculi & Tumors (Paolini)", "date": "09/03/2025", "start": "08:00", "end": "10:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Faculty Discussion", "desc": "Faculty Discussion                                 Renal Cystic Disease, Calculi & Tumors  (Paolini)"}, {"title": "Case Based Interactive", "date": "09/05/2025", "start": "12:00", "end": "13:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "09/05/2025", "start": "09:00", "end": "10:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "09/05/2025", "start": "15:00", "end": "16:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Labor Day Holiday", "date": "09/01/2025", "start": "08:00", "end": "17:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Session", "desc": "Labor Day Holiday"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "09/02/2025", "start": "13:00", "end": "17:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "09/05/2025", "start": "10:00", "end": "11:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "09/05/2025", "start": "08:00", "end": "09:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "09/03/2025", "start": "13:00", "end": "17:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "PoM 3 HEAL", "date": "09/02/2025", "start": "10:00", "end": "12:00", "block": "Renal", "week": "Renal Week 2 (36)", "weekNum": 36, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "ENGR", "date": "09/12/2025", "start": "08:00", "end": "09:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "ENGR"}, {"title": "Internal Medicine                 Hypo- and Hypernatremia                  (Adrogue)", "date": "09/08/2025", "start": "10:00", "end": "12:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "Internal Medicine                                 Hypo- and Hypernatremia                                    (Adrogue)"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "09/09/2025", "start": "13:00", "end": "17:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "Pediatrics Fluid Management (Sicilio)", "date": "09/10/2025", "start": "09:00", "end": "10:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "Pediatrics  Fluid Management  (Sicilio)"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "09/10/2025", "start": "13:00", "end": "17:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ITDE 613", "date": "09/08/2025", "start": "13:00", "end": "15:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "EBMSR / MSGR", "date": "09/12/2025", "start": "15:00", "end": "16:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Faculty Discussion", "date": "09/12/2025", "start": "13:00", "end": "14:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "PoM", "date": "09/12/2025", "start": "14:00", "end": "15:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "PoM"}, {"title": "PoM 3 HEAL BBN OSCE", "date": "09/09/2025", "start": "10:00", "end": "12:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL BBN OSCE"}, {"title": "TBL #2             Body Fluid Disorders", "date": "09/10/2025", "start": "10:00", "end": "12:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "TBL", "desc": "Mandatory                                    TBL  #2                          Body Fluid Disorders"}, {"title": "TBL", "date": "09/12/2025", "start": "11:00", "end": "12:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "TBL", "desc": "TBL"}, {"title": "Clinic/Trip", "date": "09/12/2025", "start": "16:00", "end": "17:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Internal Medicine: Acute Kidney Injury (AKI) and Chronic Kidney Disease (CKD)                 (Levy)", "date": "09/11/2025", "start": "10:00", "end": "12:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "Internal Medicine: Acute Kidney Injury (AKI) and Chronic Kidney Disease (CKD)                                  (Levy)"}, {"title": "Case Based Interactive", "date": "09/12/2025", "start": "12:00", "end": "13:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "09/12/2025", "start": "09:00", "end": "10:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "ENGR Lab"}, {"title": "ENGR Events", "date": "09/12/2025", "start": "10:00", "end": "11:00", "block": "Renal", "week": "Renal Week 3 (37)", "weekNum": 37, "category": "Session", "desc": "ENGR Events"}, {"title": "Faculty Discussion", "date": "09/19/2025", "start": "13:00", "end": "14:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "(8:30) Active Learning             Overview of Urology          (Boone)", "date": "09/16/2025", "start": "09:00", "end": "11:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "(8:30) Active Learning                         Overview of Urology                   (Boone)"}, {"title": "PoM 3 HEAL", "date": "09/16/2025", "start": "10:00", "end": "13:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "Clinic/Trip", "date": "09/19/2025", "start": "16:00", "end": "17:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Active Learning                 CASE STUDIES Pathology:  Glomerular Diseases (Hughes)", "date": "09/15/2025", "start": "08:00", "end": "10:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "Active Learning                                  CASE STUDIES Pathology:   Glomerular Diseases  (Hughes)"}, {"title": "PoM", "date": "09/19/2025", "start": "14:00", "end": "15:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "09/19/2025", "start": "11:00", "end": "12:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "TBL", "desc": "TBL"}, {"title": "Renal/GU EXAM II and   CUSTOMIZED COMPREHENSIVE             NBME EXAM", "date": "09/19/2025", "start": "08:00", "end": "13:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Mandatory", "desc": "Mandatory Renal/GU  EXAM II and     CUSTOMIZED COMPREHENSIVE                         NBME EXAM"}, {"title": "Case Based Interactive", "date": "09/19/2025", "start": "12:00", "end": "13:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "09/19/2025", "start": "09:00", "end": "10:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "ENGR Lab"}, {"title": "ITDE 613", "date": "09/15/2025", "start": "13:00", "end": "16:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "EBMSR / MSGR", "date": "09/19/2025", "start": "15:00", "end": "16:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Active Learning             Renal Pathology Review.  (Paolini)", "date": "09/17/2025", "start": "10:00", "end": "13:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "Active Learning                         Renal Pathology Review.   (Paolini)"}, {"title": "ENGR Events", "date": "09/19/2025", "start": "10:00", "end": "11:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "09/19/2025", "start": "08:00", "end": "09:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "ENGR"}, {"title": "(9:30) MANDATORY Blended Engineering Medicine Activity Renal Dialysis and Renal Transplantation", "date": "09/15/2025", "start": "10:00", "end": "13:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Mandatory", "desc": "(9:30) MANDATORY Blended Engineering Medicine Activity Renal Dialysis and Renal Transplantation"}, {"title": "SELF-ASSESSMENT QUIZ #2 Due at 1:00 pm Answer Key posted thereafter", "date": "09/17/2025", "start": "08:00", "end": "09:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "SELF-ASSESSMENT QUIZ #2 Due at 1:00 pm Answer Key posted thereafter"}, {"title": "Last Day Renal", "date": "09/19/2025", "start": "08:00", "end": "09:00", "block": "Renal", "week": "Renal Week 4 (38)", "weekNum": 38, "category": "Session", "desc": "Last Day Renal"}, {"title": "Self Study", "date": "09/25/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Self Study"}, {"title": "Self Study", "date": "09/24/2025", "start": "08:00", "end": "10:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Self Study"}, {"title": "ENGR", "date": "09/26/2025", "start": "08:00", "end": "09:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "ENGR"}, {"title": "PoM 3 HEAL Workshop (IPE)", "date": "09/23/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL Workshop (IPE)"}, {"title": "Active Learning    Pathology of the Oral Cavity, Esophagus, and Stomach (Hughes)", "date": "09/25/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Active Learning        Pathology of the Oral Cavity, Esophagus, and Stomach (Hughes)"}, {"title": "POM 3 CHP OSCE (1/2 Class) & Preceptorships (1/2 Class)", "date": "09/24/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Mandatory", "desc": "Mandatory POM 3 CHP OSCE  (1/2 Class)  &  Preceptorships (1/2 Class)"}, {"title": "[MAND] ITDE 613-GRP A (EIC)", "date": "09/22/2025", "start": "13:00", "end": "15:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "ITDE", "desc": "[MAND] ITDE 613-GRP A (EIC)"}, {"title": "EBMSR / MSGR", "date": "09/26/2025", "start": "15:00", "end": "16:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Self Study", "date": "09/26/2025", "start": "08:00", "end": "12:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Self Study"}, {"title": "Self Study", "date": "09/23/2025", "start": "08:00", "end": "10:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Self Study"}, {"title": "Self Study", "date": "09/25/2025", "start": "08:00", "end": "10:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Self Study"}, {"title": "Faculty Discussion", "date": "09/26/2025", "start": "13:00", "end": "14:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "PoM", "date": "09/26/2025", "start": "14:00", "end": "15:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "PoM"}, {"title": "Active Learning    Physiology of the Gastrointestinal System, (Slivkoff)", "date": "09/24/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Active Learning       Physiology of the Gastrointestinal System, (Slivkoff)"}, {"title": "TBL", "date": "09/26/2025", "start": "11:00", "end": "12:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "TBL", "desc": "TBL"}, {"title": "Clinic/Trip", "date": "09/26/2025", "start": "16:00", "end": "17:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Case Based Interactive", "date": "09/26/2025", "start": "12:00", "end": "13:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "09/26/2025", "start": "09:00", "end": "10:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "ENGR Lab"}, {"title": "Self Study", "date": "09/26/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "Self Study"}, {"title": "[MAND] ITDE 613-GRP B (EIC)", "date": "09/22/2025", "start": "15:00", "end": "17:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "ITDE", "desc": "[MAND] ITDE 613-GRP B (EIC)"}, {"title": "ENGR Events", "date": "09/26/2025", "start": "10:00", "end": "11:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Session", "desc": "ENGR Events"}, {"title": "POM 3 CHP OSCE (1/2 Class) & Preceptorships (1/2 Class)", "date": "09/23/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 1(39)", "weekNum": 39, "category": "Mandatory", "desc": "Mandatory POM 3 CHP OSCE  (1/2 Class)  &  Preceptorships (1/2 Class)"}, {"title": "Active Learning    Pathology of the Pancreas (Paolini)", "date": "10/01/2025", "start": "09:00", "end": "10:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "Active Learning        Pathology of the Pancreas (Paolini)"}, {"title": "Faculty Discussion", "date": "10/03/2025", "start": "13:00", "end": "14:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Clinic/Trip", "date": "10/03/2025", "start": "16:00", "end": "17:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "Clinic/Trip"}, {"title": "TBL 1 Upper GI and Liver Pathology (Basra/Kodali/McCarty?)", "date": "10/01/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "TBL", "desc": "Mandatory TBL 1 Upper GI and Liver Pathology (Basra/Kodali/McCarty?)"}, {"title": "PoM", "date": "10/03/2025", "start": "14:00", "end": "15:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "PoM"}, {"title": "Active Learning     Pathology of the Gallbladder and Biliary Tract (Hughes)", "date": "09/29/2025", "start": "11:00", "end": "12:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "Active Learning          Pathology of the Gallbladder and Biliary Tract (Hughes)"}, {"title": "TBL", "date": "10/03/2025", "start": "11:00", "end": "12:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "TBL", "desc": "TBL"}, {"title": "ITDE 613", "date": "09/29/2025", "start": "13:00", "end": "15:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Case Based Interactive", "date": "10/03/2025", "start": "12:00", "end": "13:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "Case Based Interactive"}, {"title": "Met/GI/Nut Exam I", "date": "10/03/2025", "start": "08:00", "end": "12:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Mandatory", "desc": "Mandatory Met/GI/Nut  Exam I"}, {"title": "ENGR Lab", "date": "10/03/2025", "start": "09:00", "end": "10:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "ENGR Lab"}, {"title": "Active Learning     Pathology of the Liver (Hughes)", "date": "09/29/2025", "start": "09:00", "end": "11:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "Active Learning          Pathology of the Liver (Hughes)"}, {"title": "EBMSR / MSGR", "date": "10/03/2025", "start": "15:00", "end": "16:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "09/30/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "10/03/2025", "start": "10:00", "end": "11:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "10/03/2025", "start": "08:00", "end": "09:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/01/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "PoM 3 HEAL", "date": "09/30/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 2(40)", "weekNum": 40, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "Active Learning         Digestion and Absorption of Nutrients, Fluid, and Electrolytes (Derry)", "date": "10/08/2025", "start": "11:00", "end": "12:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "Active Learning                 Digestion and Absorption of Nutrients, Fluid, and Electrolytes (Derry)"}, {"title": "ENGR", "date": "10/10/2025", "start": "08:00", "end": "09:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "ENGR"}, {"title": "TBL 2 Lower GI Disorders/Pathology (Dacha/Kodali/McCarty?)", "date": "10/10/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "TBL", "desc": "Mandatory  TBL 2  Lower GI Disorders/Pathology  (Dacha/Kodali/McCarty?)"}, {"title": "PoM 3 HEAL BBN OSCE", "date": "10/07/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL BBN OSCE"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/08/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "EBMSR / MSGR", "date": "10/10/2025", "start": "15:00", "end": "16:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "[MAND] ITDE 613- GRP A (EIC)", "date": "10/06/2025", "start": "13:00", "end": "15:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "ITDE", "desc": "[MAND] ITDE 613- GRP A (EIC)"}, {"title": "Faculty Discussion", "date": "10/10/2025", "start": "13:00", "end": "14:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "PoM", "date": "10/10/2025", "start": "14:00", "end": "15:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "10/10/2025", "start": "11:00", "end": "12:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "TBL", "desc": "TBL"}, {"title": "Clinic/Trip", "date": "10/10/2025", "start": "16:00", "end": "17:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "Clinic/Trip"}, {"title": "Case Based Interactive", "date": "10/10/2025", "start": "12:00", "end": "13:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "10/10/2025", "start": "09:00", "end": "10:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "ENGR Lab"}, {"title": "Active Learning    Pathology of the Intestines (Paolini)", "date": "10/06/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "Active Learning        Pathology of the Intestines (Paolini)"}, {"title": "[MAND] ITDE 613-GRP B (EIC)", "date": "10/06/2025", "start": "15:00", "end": "17:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "ITDE", "desc": "[MAND] ITDE 613-GRP B (EIC)"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/07/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "Active Learning         Pathology Appendix/Rectum/Anus (Paolini)", "date": "10/08/2025", "start": "10:00", "end": "11:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "Active Learning                 Pathology Appendix/Rectum/Anus (Paolini)"}, {"title": "ENGR Events", "date": "10/10/2025", "start": "10:00", "end": "11:00", "block": "GI", "week": "GI WEEK 3(41)", "weekNum": 41, "category": "Session", "desc": "ENGR Events"}, {"title": "PoM 3 HEAL", "date": "10/14/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "Met/GI/Nut Exam II", "date": "10/17/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Mandatory", "desc": "Mandatory Met/GI/Nut  Exam II"}, {"title": "Faculty Discussion", "date": "10/17/2025", "start": "13:00", "end": "14:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Active Learning        Regulation of Energy Balance (Derry)", "date": "10/13/2025", "start": "10:00", "end": "11:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "Active Learning                Regulation of Energy Balance (Derry)"}, {"title": "Active Learning          Vitamins and Minerals (Derry)", "date": "10/15/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "Active Learning                    Vitamins and Minerals (Derry)"}, {"title": "Clinic/Trip", "date": "10/17/2025", "start": "16:00", "end": "17:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "10/17/2025", "start": "14:00", "end": "15:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "PoM"}, {"title": "Active Learning    Pharmacology Related to Metabolism, Gastrointestinal System, and Nutrition (Rogers)", "date": "10/13/2025", "start": "11:00", "end": "12:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "Active Learning        Pharmacology Related to Metabolism, Gastrointestinal System, and Nutrition (Rogers)"}, {"title": "TBL", "date": "10/17/2025", "start": "11:00", "end": "12:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "TBL", "desc": "TBL"}, {"title": "ITDE 613", "date": "10/13/2025", "start": "13:00", "end": "15:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Case Based Interactive", "date": "10/17/2025", "start": "12:00", "end": "13:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "10/17/2025", "start": "09:00", "end": "10:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "10/17/2025", "start": "15:00", "end": "16:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/14/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "10/17/2025", "start": "10:00", "end": "11:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "10/17/2025", "start": "08:00", "end": "09:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/15/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "GI WEEK 4(42)", "weekNum": 42, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "PoM 3 HEAL", "date": "10/21/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "Active Learning: Endocrine Physiology             (Slivkoff)", "date": "10/22/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "Active Learning: Endocrine Physiology                          (Slivkoff)"}, {"title": "Active Learning:       Clinical Endocrinology      (Kansara)", "date": "10/24/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "Active Learning:             Clinical Endocrinology            (Kansara)"}, {"title": "ITDE 613 Endoscope Design Competition (EIC)", "date": "10/24/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Mandatory", "desc": "Mandatory ITDE 613  Endoscope Design Competition (EIC)"}, {"title": "Faculty Discussion", "date": "10/24/2025", "start": "13:00", "end": "14:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Active Learning:       Endocrine Pathology      (Hughes)", "date": "10/22/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "Active Learning:             Endocrine Pathology            (Hughes)"}, {"title": "Clinic/Trip", "date": "10/24/2025", "start": "16:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "10/24/2025", "start": "14:00", "end": "15:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "PoM"}, {"title": "Active Learning: Endocrine Pathology             (Paolini)", "date": "10/23/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "Active Learning: Endocrine Pathology                          (Paolini)"}, {"title": "TBL", "date": "10/24/2025", "start": "11:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "TBL", "desc": "TBL"}, {"title": "Case Based Interactive", "date": "10/24/2025", "start": "12:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "10/24/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "ENGR Lab"}, {"title": "Active Learning:       Clinical Endocrinology      (Kansara)", "date": "10/23/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "Active Learning:             Clinical Endocrinology            (Kansara)"}, {"title": "EBMSR / MSGR", "date": "10/24/2025", "start": "15:00", "end": "16:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "REST and RELAX Day", "date": "10/20/2025", "start": "08:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "REST and RELAX Day"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/21/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "10/24/2025", "start": "10:00", "end": "11:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "10/24/2025", "start": "08:00", "end": "09:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 FHP OSCE (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/22/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 1(43)", "weekNum": 43, "category": "Mandatory", "desc": "Mandatory POM 3 FHP OSCE (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "PoM 3 HEAL", "date": "10/28/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "Active Learning:            Pathology Exam Review         (Pathology)", "date": "10/29/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Exam Review", "desc": "Active Learning:                       Pathology Exam Review                  (Pathology)"}, {"title": "Faculty Discussion", "date": "10/31/2025", "start": "13:00", "end": "14:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Active Learning:            Endocrine Pharmacology         (Rogers)", "date": "10/27/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Session", "desc": "Active Learning:                       Endocrine Pharmacology                  (Rogers)"}, {"title": "TBL 1: TBD (Kansara, Paolini) [4.02]", "date": "10/29/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "TBL", "desc": "Mandatory  TBL 1:  TBD  (Kansara, Paolini)  [4.02]"}, {"title": "Clinic/Trip", "date": "10/31/2025", "start": "16:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "10/31/2025", "start": "14:00", "end": "15:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "10/31/2025", "start": "11:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "TBL", "desc": "TBL"}, {"title": "ITDE 613", "date": "10/27/2025", "start": "13:00", "end": "15:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Case Based Interactive", "date": "10/31/2025", "start": "12:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Session", "desc": "Case Based Interactive"}, {"title": "MANDATORY ENDOCRINOLOGY EXAM", "date": "10/31/2025", "start": "08:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Mandatory", "desc": "MANDATORY ENDOCRINOLOGY EXAM"}, {"title": "ENGR Lab", "date": "10/31/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "10/31/2025", "start": "15:00", "end": "16:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "POM 3 FHP OSCE (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/28/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Mandatory", "desc": "Mandatory POM 3 FHP OSCE (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "10/31/2025", "start": "10:00", "end": "11:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "10/31/2025", "start": "08:00", "end": "09:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 SIM (1/2 Class) &     Preceptorships (1/2 Class)", "date": "10/29/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 2(44)", "weekNum": 44, "category": "Mandatory", "desc": "Mandatory POM 3 SIM (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "Faculty Discussion", "date": "11/07/2025", "start": "13:00", "end": "14:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Active Learning: Infectious Diseases of the Reproductive System (Ganguly)", "date": "11/05/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "Active Learning: Infectious Diseases of the Reproductive System (Ganguly)"}, {"title": "Clinic/Trip", "date": "11/07/2025", "start": "16:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "11/07/2025", "start": "14:00", "end": "15:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "PoM"}, {"title": "Active Learning:  Reproductive Pharmacology (Rogers)", "date": "11/03/2025", "start": "11:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "Active Learning:   Reproductive Pharmacology  (Rogers)"}, {"title": "TBL", "date": "11/07/2025", "start": "11:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "TBL", "desc": "TBL"}, {"title": "ITDE 613", "date": "11/03/2025", "start": "13:00", "end": "15:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Case Based Interactive", "date": "11/07/2025", "start": "12:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "11/07/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "ENGR Lab"}, {"title": "Active Learning:        Female Repro Sys Pathology (Paolini)", "date": "11/03/2025", "start": "09:00", "end": "11:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "Active Learning:                Female Repro Sys Pathology  (Paolini)"}, {"title": "EBMSR / MSGR", "date": "11/07/2025", "start": "15:00", "end": "16:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "11/04/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "11/07/2025", "start": "10:00", "end": "11:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "11/07/2025", "start": "08:00", "end": "09:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)", "date": "11/05/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Mandatory", "desc": "Mandatory POM 3 Practice Workshop (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "PoM 3 HEAL", "date": "11/04/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "Active Learning:        Clinical Gynecology (TBD)", "date": "11/06/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 3(45)", "weekNum": 45, "category": "Session", "desc": "Active Learning:                Clinical Gynecology  (TBD)"}, {"title": "ENGR", "date": "11/14/2025", "start": "08:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "ENGR"}, {"title": "PoM 3 HEAL", "date": "11/11/2025", "start": "10:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "EBMSR / MSGR", "date": "11/14/2025", "start": "15:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Faculty Discussion", "date": "11/14/2025", "start": "13:00", "end": "15:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Active Learning: Physiology of Pregnancy Priya", "date": "11/10/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "Active Learning:  Physiology of Pregnancy Priya"}, {"title": "Active Learning: Male Repro System Pathology (Paolini)", "date": "11/13/2025", "start": "11:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "Active Learning:  Male Repro System Pathology  (Paolini)"}, {"title": "ITDE 613", "date": "11/10/2025", "start": "13:00", "end": "16:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "TBL", "date": "11/14/2025", "start": "11:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "TBL", "desc": "TBL"}, {"title": "Active Learning:   Clinical Obstetrics (TBD)", "date": "11/12/2025", "start": "10:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "Active Learning:     Clinical Obstetrics (TBD)"}, {"title": "PoM", "date": "11/14/2025", "start": "14:00", "end": "16:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "PoM"}, {"title": "Active Learning: Pharmacology of Pregnancy Rogers", "date": "11/10/2025", "start": "11:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "Active Learning:  Pharmacology of Pregnancy Rogers"}, {"title": "Active Learning:   Clinical Obstetrics (TBD)", "date": "11/13/2025", "start": "09:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "Active Learning:     Clinical Obstetrics  (TBD)"}, {"title": "ENGR Lab", "date": "11/14/2025", "start": "09:00", "end": "11:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "ENGR Lab"}, {"title": "Case Based Interactive", "date": "11/14/2025", "start": "12:00", "end": "14:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Events", "date": "11/14/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 4(46)", "weekNum": 46, "category": "Session", "desc": "ENGR Events"}, {"title": "PoM 3 HEAL", "date": "11/18/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Mandatory", "desc": "Mandatory PoM 3 HEAL"}, {"title": "TBL 2: TBD (Paolini, TBD) [4.02]", "date": "11/18/2025", "start": "08:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "TBL", "desc": "Mandatory  TBL 2:  TBD  (Paolini, TBD)  [4.02]"}, {"title": "[] Mass Causality Day", "date": "11/21/2025", "start": "08:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Mandatory", "desc": "[Mandatory] Mass Causality Day"}, {"title": "Faculty Discussion", "date": "11/21/2025", "start": "13:00", "end": "14:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Active Learning: Clinical Fertility and Sexual Dysfunction", "date": "11/17/2025", "start": "10:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "Active Learning: Clinical Fertility and Sexual Dysfunction"}, {"title": "Clinic/Trip", "date": "11/21/2025", "start": "16:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "11/21/2025", "start": "14:00", "end": "15:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "11/21/2025", "start": "11:00", "end": "12:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "TBL", "desc": "TBL"}, {"title": "MANDATORY  REPRODUCTIVE MEDICINE EXAM  COMPREHENSIVE NBME EXAM", "date": "11/20/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Mandatory", "desc": "MANDATORY   REPRODUCTIVE MEDICINE EXAM   COMPREHENSIVE NBME EXAM"}, {"title": "ITDE 613", "date": "11/17/2025", "start": "13:00", "end": "15:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Case Based Interactive", "date": "11/21/2025", "start": "12:00", "end": "13:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "Case Based Interactive"}, {"title": "Active Learning: Pharmacology for Male Reproductive Health (Rogers)", "date": "11/17/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "Active Learning:  Pharmacology for Male Reproductive Health (Rogers)"}, {"title": "ENGR Lab", "date": "11/21/2025", "start": "09:00", "end": "10:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "11/21/2025", "start": "15:00", "end": "16:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "POM 3 FHP OSCE (1/2 Class) &     Preceptorships (1/2 Class)", "date": "11/18/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Mandatory", "desc": "Mandatory POM 3 FHP OSCE (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ENGR Events", "date": "11/21/2025", "start": "10:00", "end": "11:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "11/21/2025", "start": "08:00", "end": "09:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Session", "desc": "ENGR"}, {"title": "POM 3 SIM (1/2 Class) &     Preceptorships (1/2 Class)", "date": "11/19/2025", "start": "13:00", "end": "17:00", "block": "Endocrinology", "week": "Endo Week 5(47)", "weekNum": 47, "category": "Mandatory", "desc": "Mandatory POM 3 SIM (1/2 Class)  &          Preceptorships (1/2 Class)"}, {"title": "ITDE 613", "date": "11/25/2025", "start": "10:00", "end": "12:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Mandatory", "desc": "Mandatory ITDE 613"}, {"title": "Thanksgiving", "date": "11/26/2025", "start": "08:00", "end": "17:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "Thanksgiving"}, {"title": "Thanksgiving", "date": "11/28/2025", "start": "08:00", "end": "17:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "Thanksgiving"}, {"title": "Faculty Discussion", "date": "11/28/2025", "start": "13:00", "end": "14:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "POM 3 Final OSCE", "date": "11/24/2025", "start": "08:00", "end": "12:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Mandatory", "desc": "Mandatory POM 3 Final OSCE"}, {"title": "Clinic/Trip", "date": "11/28/2025", "start": "16:00", "end": "17:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "11/28/2025", "start": "14:00", "end": "15:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "11/28/2025", "start": "11:00", "end": "12:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "TBL", "desc": "TBL"}, {"title": "Case Based Interactive", "date": "11/28/2025", "start": "12:00", "end": "13:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "11/28/2025", "start": "09:00", "end": "10:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "ENGR Lab"}, {"title": "POM 3 Final OSCE", "date": "11/24/2025", "start": "13:00", "end": "17:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Mandatory", "desc": "Mandatory POM 3 Final OSCE"}, {"title": "EBMSR / MSGR", "date": "11/28/2025", "start": "15:00", "end": "16:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "EBM Librarian Discussion", "date": "11/25/2025", "start": "09:00", "end": "10:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Mandatory", "desc": "Mandatory EBM Librarian Discussion"}, {"title": "ENGR Events", "date": "11/28/2025", "start": "10:00", "end": "11:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "ENGR Events"}, {"title": "Thanksgiving", "date": "11/27/2025", "start": "08:00", "end": "17:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "Thanksgiving"}, {"title": "ENGR", "date": "11/28/2025", "start": "08:00", "end": "09:00", "block": "GI", "week": "Thanksgiving (48)", "weekNum": 48, "category": "Session", "desc": "ENGR"}, {"title": "EBM: Faculty discussion (Active Session)", "date": "12/05/2025", "start": "09:00", "end": "10:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Faculty Discussion", "desc": "EBM: Faculty discussion (Active Session)"}, {"title": "Faculty Discussion", "date": "12/05/2025", "start": "13:00", "end": "14:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "EBM: Faculty discussion (Active Session)", "date": "12/03/2025", "start": "10:00", "end": "12:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Faculty Discussion", "desc": "EBM: Faculty discussion (Active Session)"}, {"title": "Clinic/Trip", "date": "12/05/2025", "start": "16:00", "end": "17:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "Clinic/Trip"}, {"title": "EBM: Problem Session #1", "date": "12/05/2025", "start": "10:00", "end": "12:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Mandatory", "desc": "Mandatory EBM: Problem Session #1"}, {"title": "PoM", "date": "12/05/2025", "start": "14:00", "end": "15:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "12/05/2025", "start": "11:00", "end": "12:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "TBL", "desc": "TBL"}, {"title": "MSK: Orthopedic Lecture Series", "date": "12/05/2025", "start": "08:00", "end": "09:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "MSK:  Orthopedic Lecture Series"}, {"title": "MSK: Orthopedic Lecture Series", "date": "12/03/2025", "start": "08:00", "end": "09:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "MSK:  Orthopedic Lecture Series"}, {"title": "Case Based Interactive", "date": "12/05/2025", "start": "12:00", "end": "13:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "12/05/2025", "start": "09:00", "end": "10:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "12/05/2025", "start": "15:00", "end": "16:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "CBSE", "date": "12/01/2025", "start": "08:00", "end": "17:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Mandatory", "desc": "Mandatory  CBSE"}, {"title": "PoM Debrief", "date": "12/03/2025", "start": "13:00", "end": "15:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "PoM Debrief"}, {"title": "ENGR Events", "date": "12/05/2025", "start": "10:00", "end": "11:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "12/05/2025", "start": "08:00", "end": "09:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "ENGR"}, {"title": "MSK: Orthopedic Lecture Series", "date": "12/02/2025", "start": "08:00", "end": "09:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "MSK:  Orthopedic Lecture Series"}, {"title": "MSK: Orthopedic Lecture Series", "date": "12/04/2025", "start": "08:00", "end": "09:00", "block": "MSK", "week": "MSK Week 1(49)", "weekNum": 49, "category": "Session", "desc": "MSK:  Orthopedic Lecture Series"}, {"title": "ITDE 613 Final Exam", "date": "12/08/2025", "start": "13:00", "end": "15:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Mandatory", "desc": "Mandatory ITDE 613 Final Exam"}, {"title": "EBM: Faculty discussion (Active Session)", "date": "12/09/2025", "start": "09:00", "end": "10:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Faculty Discussion", "desc": "EBM: Faculty discussion (Active Session)"}, {"title": "PoM 3 Remediation-if needed", "date": "12/11/2025", "start": "13:00", "end": "17:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "PoM 3 Remediation-if needed"}, {"title": "ENGR", "date": "12/12/2025", "start": "08:00", "end": "09:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "ENGR"}, {"title": "EBM: Problem Session #2", "date": "12/09/2025", "start": "10:00", "end": "12:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Mandatory", "desc": "Mandatory EBM: Problem Session #2"}, {"title": "MSK/Integ Exam 1", "date": "12/11/2025", "start": "10:00", "end": "12:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Mandatory", "desc": "Mandatory MSK/Integ Exam 1"}, {"title": "- MSK TBL 3.19 (1:00-2:30) Rheumatologic Disease", "date": "12/09/2025", "start": "13:00", "end": "15:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "TBL", "desc": "Mandatory - MSK TBL 3.19 (1:00-2:30) Rheumatologic Disease"}, {"title": "EBMSR / MSGR", "date": "12/12/2025", "start": "15:00", "end": "16:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Faculty Discussion", "date": "12/12/2025", "start": "13:00", "end": "14:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "PoM", "date": "12/12/2025", "start": "14:00", "end": "15:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "PoM"}, {"title": "MSK: Faculty Discussion", "date": "12/08/2025", "start": "08:00", "end": "10:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Faculty Discussion", "desc": "MSK: Faculty Discussion"}, {"title": "TBL", "date": "12/12/2025", "start": "11:00", "end": "12:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "TBL", "desc": "TBL"}, {"title": "Clinic/Trip", "date": "12/12/2025", "start": "16:00", "end": "17:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "Clinic/Trip"}, {"title": "MD/PhD Seminar Series", "date": "12/10/2025", "start": "12:00", "end": "13:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "MD/PhD  Seminar Series"}, {"title": "Case Based Interactive", "date": "12/12/2025", "start": "12:00", "end": "13:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "12/12/2025", "start": "09:00", "end": "10:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "ENGR Lab"}, {"title": "ENGR Events", "date": "12/12/2025", "start": "10:00", "end": "11:00", "block": "MSK", "week": "MSK Week 2(50)", "weekNum": 50, "category": "Session", "desc": "ENGR Events"}, {"title": "ENGR", "date": "12/19/2025", "start": "08:00", "end": "09:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Session", "desc": "ENGR"}, {"title": "-MSK TBL 3.20 Skin Signs of Systemic Disease", "date": "12/16/2025", "start": "10:00", "end": "12:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "TBL", "desc": "Mandatory -MSK TBL 3.20 Skin Signs of Systemic Disease"}, {"title": "EBMSR / MSGR", "date": "12/19/2025", "start": "15:00", "end": "16:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Faculty Discussion", "date": "12/19/2025", "start": "13:00", "end": "14:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "PoM", "date": "12/19/2025", "start": "14:00", "end": "15:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Session", "desc": "PoM"}, {"title": "EBM Final Exam", "date": "12/18/2025", "start": "10:00", "end": "12:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Mandatory", "desc": "Mandatory EBM Final Exam"}, {"title": "TBL", "date": "12/19/2025", "start": "11:00", "end": "12:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "TBL", "desc": "TBL"}, {"title": "Clinic/Trip", "date": "12/19/2025", "start": "16:00", "end": "17:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Session", "desc": "Clinic/Trip"}, {"title": "MSK: Dermatolopathology Case-Based Reviews and Exam Review", "date": "12/16/2025", "start": "08:00", "end": "11:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Exam Review", "desc": "MSK:  Dermatolopathology  Case-Based Reviews and  Exam Review"}, {"title": "Case Based Interactive", "date": "12/19/2025", "start": "12:00", "end": "13:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "12/19/2025", "start": "09:00", "end": "10:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Session", "desc": "ENGR Lab"}, {"title": "MSK: Faculty Discussion and Exam Review", "date": "12/15/2025", "start": "10:00", "end": "12:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Faculty Discussion", "desc": "MSK:  Faculty Discussion and Exam Review"}, {"title": "No Class Grades Due", "date": "12/19/2025", "start": "08:00", "end": "17:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Session", "desc": "No Class Grades Due"}, {"title": "MSK/Integ Exam 2", "date": "12/18/2025", "start": "08:00", "end": "11:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Mandatory", "desc": "Mandatory MSK/Integ Exam 2"}, {"title": "ENGR Events", "date": "12/19/2025", "start": "10:00", "end": "11:00", "block": "MSK", "week": "MSK Week 3 (51)", "weekNum": 51, "category": "Session", "desc": "ENGR Events"}, {"title": "Christmas Eve", "date": "12/24/2025", "start": "08:00", "end": "17:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "Christmas Eve"}, {"title": "Break", "date": "12/26/2025", "start": "08:00", "end": "17:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "Break"}, {"title": "Faculty Discussion", "date": "12/26/2025", "start": "13:00", "end": "14:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Faculty Discussion", "desc": "Faculty Discussion"}, {"title": "Clinic/Trip", "date": "12/26/2025", "start": "16:00", "end": "17:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "Clinic/Trip"}, {"title": "PoM", "date": "12/26/2025", "start": "14:00", "end": "15:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "PoM"}, {"title": "TBL", "date": "12/26/2025", "start": "11:00", "end": "12:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "TBL", "desc": "TBL"}, {"title": "Case Based Interactive", "date": "12/26/2025", "start": "12:00", "end": "13:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "Case Based Interactive"}, {"title": "ENGR Lab", "date": "12/26/2025", "start": "09:00", "end": "10:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "ENGR Lab"}, {"title": "EBMSR / MSGR", "date": "12/26/2025", "start": "15:00", "end": "16:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "EBMSR / MSGR"}, {"title": "Break", "date": "12/22/2025", "start": "08:00", "end": "17:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "Break"}, {"title": "Break", "date": "12/23/2025", "start": "08:00", "end": "17:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "Break"}, {"title": "ENGR Events", "date": "12/26/2025", "start": "10:00", "end": "11:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "ENGR Events"}, {"title": "Christmas Day", "date": "12/25/2025", "start": "08:00", "end": "17:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "Christmas Day"}, {"title": "ENGR", "date": "12/26/2025", "start": "08:00", "end": "09:00", "block": "Break", "week": "Break (25)", "weekNum": 52, "category": "Session", "desc": "ENGR"}];
 
-// ─── STATE ───────────────────────────────────────────────────
-let CFG = {};
-let EVENTS = [];
-let WEEKS = [];
-let currentWeekIdx = 0;
-let currentFilter = 'All';
-let currentView = 'week';
-let isFacultyMode = false;
-let isSharePoint = false;
-let spDigest = null;
-let sessionLog = [];
-let editingId = null;
-let prefillDate = '', prefillHour = '';
-let pendingDeleteId = '';
+let CFG={}, EVENTS=[], WEEKS=[];
+let currentWeekIdx=0, currentFilter='All', currentView='week';
+let isFacultyMode=false, editingId=null, prefillDate='', prefillHour='';
+let pendingDeleteId='', sessionLog=[];
+let ghFileSha=''; // GitHub file SHA needed for updates
 
-// ─── CONFIG ──────────────────────────────────────────────────
+// ── CONFIG ────────────────────────────────────────────────────
 function loadConfig(){
-  try{ CFG = JSON.parse(localStorage.getItem('co2028_cfg')||'{}'); }catch(e){ CFG={}; }
-  return !!(CFG.siteUrl && CFG.listName);
+  try{CFG=JSON.parse(localStorage.getItem('co2028_gh_cfg')||'{}');}catch(e){CFG={};}
+  return !!(CFG.user && CFG.repo);
 }
 function saveConfig(){
-  const siteUrl = document.getElementById('cfgSiteUrl').value.trim().replace(/\/$/,'');
-  const listName = document.getElementById('cfgListName').value.trim();
-  const pin = document.getElementById('cfgPin').value.trim();
-  if(!siteUrl){ document.getElementById('cfgErr').textContent='Please enter your SharePoint site URL.'; return; }
-  if(!listName){ document.getElementById('cfgErr').textContent='Please enter the list name.'; return; }
-  CFG = {siteUrl, listName, pin: pin||'2028'};
-  localStorage.setItem('co2028_cfg', JSON.stringify(CFG));
+  const user=document.getElementById('cfgUser').value.trim();
+  const repo=document.getElementById('cfgRepo').value.trim();
+  const token=document.getElementById('cfgToken').value.trim();
+  const pin=document.getElementById('cfgPin').value.trim();
+  if(!user){document.getElementById('cfgErr').textContent='Please enter your GitHub username.';return;}
+  if(!repo){document.getElementById('cfgErr').textContent='Please enter your repository name.';return;}
+  CFG={user,repo,token,pin:pin||'2028'};
+  localStorage.setItem('co2028_gh_cfg',JSON.stringify(CFG));
   document.getElementById('configOverlay').style.display='none';
   initApp();
 }
 function openConfig(){
-  document.getElementById('cfgSiteUrl').value = CFG.siteUrl||'';
-  document.getElementById('cfgListName').value = CFG.listName||'CO2028 Academic Calendar';
-  document.getElementById('cfgPin').value = CFG.pin||'2028';
+  document.getElementById('cfgUser').value=CFG.user||'';
+  document.getElementById('cfgRepo').value=CFG.repo||'co2028-calendar';
+  document.getElementById('cfgToken').value=CFG.token||'';
+  document.getElementById('cfgPin').value=CFG.pin||'2028';
   document.getElementById('cfgErr').textContent='';
   document.getElementById('configOverlay').style.display='flex';
 }
-function loadDemoMode(){
-  CFG = {siteUrl:'', listName:'', pin:'2028', demo:true};
-  localStorage.setItem('co2028_cfg', JSON.stringify(CFG));
-  document.getElementById('configOverlay').style.display='none';
-  initApp();
+
+// ── GITHUB API ────────────────────────────────────────────────
+const DATA_FILE = 'events.json';
+
+function ghHeaders(){
+  const h={'Accept':'application/vnd.github.v3+json'};
+  if(CFG.token) h['Authorization']='token '+CFG.token;
+  return h;
 }
 
-// ─── SHAREPOINT API ──────────────────────────────────────────
-async function getDigest(){
-  if(spDigest) return spDigest;
-  try{
-    const r = await fetch(`${CFG.siteUrl}/_api/contextinfo`, {
-      method:'POST', headers:{'Accept':'application/json;odata=verbose','Content-Length':'0'}
-    });
-    const d = await r.json();
-    spDigest = d.d.GetContextWebInformation.FormDigestValue;
-    setTimeout(()=>{ spDigest=null; }, 1700000); // refresh before 30min expiry
-    return spDigest;
-  }catch(e){ return null; }
-}
-
-async function spGet(endpoint){
-  const r = await fetch(`${CFG.siteUrl}/_api/${endpoint}`, {
-    headers:{'Accept':'application/json;odata=verbose'}
-  });
-  if(!r.ok) throw new Error(`SP GET failed: ${r.status}`);
-  return (await r.json()).d;
-}
-
-async function spPost(endpoint, body){
-  const digest = await getDigest();
-  const r = await fetch(`${CFG.siteUrl}/_api/${endpoint}`, {
-    method:'POST',
-    headers:{
-      'Accept':'application/json;odata=verbose',
-      'Content-Type':'application/json;odata=verbose',
-      'X-RequestDigest': digest
-    },
-    body: JSON.stringify(body)
-  });
-  if(!r.ok) throw new Error(`SP POST failed: ${r.status}`);
-  return (await r.json()).d;
-}
-
-async function spPatch(endpoint, body){
-  const digest = await getDigest();
-  const r = await fetch(`${CFG.siteUrl}/_api/${endpoint}`, {
-    method:'POST',
-    headers:{
-      'Accept':'application/json;odata=verbose',
-      'Content-Type':'application/json;odata=verbose',
-      'X-RequestDigest': digest,
-      'X-HTTP-Method':'MERGE',
-      'If-Match':'*'
-    },
-    body: JSON.stringify(body)
-  });
-  if(r.status!==204 && !r.ok) throw new Error(`SP PATCH failed: ${r.status}`);
-}
-
-async function spDelete(itemId){
-  const digest = await getDigest();
-  const listEnc = encodeURIComponent(CFG.listName);
-  const r = await fetch(`${CFG.siteUrl}/_api/web/lists/getbytitle('${listEnc}')/items(${itemId})`, {
-    method:'POST',
-    headers:{
-      'Accept':'application/json;odata=verbose',
-      'X-RequestDigest': digest,
-      'X-HTTP-Method':'DELETE',
-      'If-Match':'*'
-    }
-  });
-  if(r.status!==204 && !r.ok) throw new Error(`SP DELETE failed: ${r.status}`);
-}
-
-// Map SharePoint item → event object
-function spItemToEvent(item){
-  // StartDateTime and EndDateTime are ISO strings from SharePoint
-  let date='', start='08:00', end='09:00';
-  if(item.StartDateTime){
-    const d = new Date(item.StartDateTime);
-    date = `${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}/${d.getFullYear()}`;
-    start = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-  }
-  if(item.EndDateTime){
-    const d = new Date(item.EndDateTime);
-    end = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
-  }
-  return {
-    _id: String(item.Id),
-    _spId: item.Id,
-    title: item.Title||'',
-    date, start, end,
-    block: item.Block||'',
-    week: item.WeekName||'',
-    weekNum: item.WeekNumber||0,
-    category: item.Category||'Session',
-    desc: item.Description0||item.Description||''
-  };
-}
-
-// Map event object → SharePoint fields
-function eventToSpFields(e){
-  const [mo,dy,yr] = e.date.split('/');
-  const [sh,sm] = e.start.split(':');
-  const [eh,em] = e.end.split(':');
-  const startDt = new Date(yr,mo-1,dy,sh,sm).toISOString();
-  const endDt   = new Date(yr,mo-1,dy,eh,em).toISOString();
-  return {
-    '__metadata':{'type':'SP.Data.CO2028_x0020_Academic_x0020_CalendarListItem'},
-    'Title': e.title,
-    'StartDateTime': startDt,
-    'EndDateTime': endDt,
-    'Block': e.block,
-    'WeekName': e.week,
-    'WeekNumber': e.weekNum,
-    'Category': e.category,
-    'Description0': e.desc||e.title
-  };
-}
-
-// ─── LOAD EVENTS ─────────────────────────────────────────────
 async function loadEvents(){
-  setStatus('loading','Fetching events...');
-  document.getElementById('calView').innerHTML='<div class="loading-state"><div class="spinner"></div><p>Loading from SharePoint...</p></div>';
-
-  if(CFG.demo){
-    EVENTS = DEMO_EVENTS.map((e,i)=>({...e, _id:'d'+i, _spId:null}));
-    isSharePoint = false;
-    setStatus('offline','Demo mode — changes are local only');
-    document.getElementById('sourceDetails').innerHTML='<strong style="color:var(--gold)">Demo Mode</strong><br>Changes are browser-local only.<br>Connect SharePoint for live sync.';
-    document.getElementById('fpDataNote').textContent='Demo mode: changes are stored locally. Connect SharePoint for real-time sync.';
-    finishLoad();
-    return;
-  }
-
+  setStatus('loading','Loading events...');
+  document.getElementById('calView').innerHTML='<div style="text-align:center;padding:60px 20px"><div class="spinner"></div><p style="color:var(--muted)">Loading from GitHub...</p></div>';
   try{
-    const listEnc = encodeURIComponent(CFG.listName);
-    // Fetch up to 1000 items (multiple pages if needed)
-    let allItems = [];
-    let url = `web/lists/getbytitle('${listEnc}')/items?$top=500&$select=Id,Title,StartDateTime,EndDateTime,Block,WeekName,WeekNumber,Category,Description0`;
-    while(url){
-      const d = await spGet(url);
-      allItems = allItems.concat(d.results||[]);
-      url = d.__next ? d.__next.replace(CFG.siteUrl+'/_api/','') : null;
+    // Use raw content URL — no auth needed, no CORS issues
+    const rawUrl=`https://raw.githubusercontent.com/${CFG.user}/${CFG.repo}/main/${DATA_FILE}?t=${Date.now()}`;
+    const r=await fetch(rawUrl);
+    if(!r.ok) throw new Error(`Could not load events.json (${r.status}). Make sure the file exists in your repo.`);
+    EVENTS=await r.json();
+    // Also get SHA for future updates (needs token)
+    if(CFG.token){
+      try{
+        const meta=await fetch(`https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${DATA_FILE}`,{headers:ghHeaders()});
+        if(meta.ok){const d=await meta.json();ghFileSha=d.sha;}
+      }catch(e){}
     }
-    EVENTS = allItems.map(spItemToEvent);
-    isSharePoint = true;
-    setStatus('live',`Live — ${EVENTS.length} events from SharePoint`);
-    document.getElementById('sourceDetails').innerHTML=`<strong style="color:#3ecf8e">● Live SharePoint</strong><br><span style="word-break:break-all;font-size:10px">${CFG.siteUrl}</span><br><em>${CFG.listName}</em>`;
-    document.getElementById('fpDataNote').textContent='Changes save directly to SharePoint — visible to everyone instantly.';
+    setStatus('live',`Live — ${EVENTS.length} events`);
     document.getElementById('lastSync').textContent='Last sync: '+new Date().toLocaleTimeString();
-    finishLoad();
+    WEEKS=buildWeeks();
+    buildWeekDrawer();
+    render();
   }catch(err){
-    console.error(err);
-    setStatus('offline','SharePoint error — using demo data');
-    showToast('⚠️ Could not reach SharePoint. Using demo data. Check your site URL.');
-    EVENTS = DEMO_EVENTS.map((e,i)=>({...e, _id:'d'+i, _spId:null}));
-    isSharePoint = false;
-    finishLoad();
+    setStatus('offline','Error: '+err.message.substring(0,60));
+    showToast('❌ '+err.message);
+    document.getElementById('calView').innerHTML=`<div class="empty-state"><div class="big">❌</div><p>${err.message}</p><p style="margin-top:10px;font-size:11px">Make sure <strong>events.json</strong> exists in your GitHub repo.</p></div>`;
   }
 }
 
-function finishLoad(){
-  WEEKS = buildWeeks();
-  buildWeekDrawer();
-  render();
-}
-
-function setStatus(state, msg){
-  const dot = document.getElementById('statusDot');
-  dot.className = 'status-dot ' + state;
-  document.getElementById('statusMsg').textContent = msg;
-}
-
-// ─── WEEKS ───────────────────────────────────────────────────
-function buildWeeks(){
-  const map={}, seen=new Set();
-  EVENTS.forEach(e=>{
-    if(!seen.has(e.weekNum)){ seen.add(e.weekNum); map[e.weekNum]={num:e.weekNum,name:e.week,block:e.block}; }
+async function saveEventsToGitHub(){
+  if(!CFG.token) throw new Error('No GitHub token — open ⚙ settings and add your token to enable saving.');
+  const content=btoa(unescape(encodeURIComponent(JSON.stringify(EVENTS,null,2))));
+  const body={message:'Update calendar events',content,sha:ghFileSha};
+  const r=await fetch(`https://api.github.com/repos/${CFG.user}/${CFG.repo}/contents/${DATA_FILE}`,{
+    method:'PUT',headers:{...ghHeaders(),'Content-Type':'application/json'},
+    body:JSON.stringify(body)
   });
+  if(!r.ok){const t=await r.text();throw new Error(`GitHub save failed (${r.status}): ${t.substring(0,100)}`);}
+  const d=await r.json();
+  ghFileSha=d.content.sha; // update SHA for next save
+}
+
+// ── INIT ──────────────────────────────────────────────────────
+function initApp(){
+  document.getElementById('configOverlay').style.display='none';
+  document.getElementById('appHeader').style.display='flex';
+  document.getElementById('statusBar').style.display='flex';
+  document.getElementById('layout').style.display='flex';
+  loadEvents();
+}
+
+// ── STATUS ────────────────────────────────────────────────────
+function setStatus(state,msg){
+  document.getElementById('statusDot').className='status-dot '+state;
+  document.getElementById('statusMsg').textContent=msg;
+}
+
+// ── WEEKS / NAV ───────────────────────────────────────────────
+function buildWeeks(){
+  const map={},seen=new Set();
+  EVENTS.forEach(e=>{if(!seen.has(e.weekNum)){seen.add(e.weekNum);map[e.weekNum]={num:e.weekNum,name:e.week,block:e.block};}});
   return Object.values(map).sort((a,b)=>a.num-b.num);
 }
-
 function buildWeekDrawer(){
-  const d=document.getElementById('weekDrawer');
-  d.innerHTML=WEEKS.map((w,i)=>{
+  document.getElementById('weekDrawer').innerHTML=WEEKS.map((w,i)=>{
     const col=BLOCK_COLOR[w.block]||'#7a829a';
     const lbl=w.name.replace(/\s*\(\d+\)/,'').replace(/WEEK/i,'Wk').replace(/Week/,'Wk');
     return `<button class="wk-btn${i===currentWeekIdx?' active':''}" style="${i===currentWeekIdx?'background:'+col+';border-color:'+col:''}" onclick="jumpToWeek(${i})">${lbl}</button>`;
   }).join('');
 }
-
-// ─── NAVIGATION ──────────────────────────────────────────────
 function jumpToWeek(i){currentWeekIdx=i;buildWeekDrawer();render();}
 function prevWeek(){if(currentWeekIdx>0){currentWeekIdx--;buildWeekDrawer();render();}}
 function nextWeek(){if(currentWeekIdx<WEEKS.length-1){currentWeekIdx++;buildWeekDrawer();render();}}
@@ -681,16 +539,11 @@ function setSidebarBlock(el,block){
   if(block!=='All'){const i=WEEKS.findIndex(w=>w.block===block);if(i>=0){currentWeekIdx=i;buildWeekDrawer();render();return;}}
   render();
 }
-function setSidebarCat(el,cat){
-  currentFilter=cat;
-  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
-  const ch=document.querySelector(`.filter-chip[data-cat="${cat}"]`);if(ch)ch.classList.add('active');
-  render();
-}
+function setSidebarCat(el,cat){currentFilter=cat;document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));const ch=document.querySelector(`.filter-chip[data-cat="${cat}"]`);if(ch)ch.classList.add('active');render();}
 function setFilter(el,cat){currentFilter=cat;document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');render();}
 function setView(v,btn){currentView=v;document.querySelectorAll('.vt-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render();}
 
-// ─── TIME HELPERS ────────────────────────────────────────────
+// ── TIME ──────────────────────────────────────────────────────
 function fmtTime(t){const[h,m]=t.split(':').map(Number);return`${h>12?h-12:h===0?12:h}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`;}
 function fmtDate(d){const[mo,dy,yr]=d.split('/');return new Date(yr,mo-1,dy).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});}
 function getWeekDates(){
@@ -704,11 +557,10 @@ function getWeekDates(){
   return Array.from({length:5},(_,i)=>{const dd=new Date(mon);dd.setDate(mon.getDate()+i);return`${String(dd.getMonth()+1).padStart(2,'0')}/${String(dd.getDate()).padStart(2,'0')}/${dd.getFullYear()}`;});
 }
 
-// ─── RENDER ──────────────────────────────────────────────────
+// ── RENDER ────────────────────────────────────────────────────
 function render(){
   if(!WEEKS.length)return;
-  const w=WEEKS[currentWeekIdx];
-  const col=BLOCK_COLOR[w.block]||'#7a829a';
+  const w=WEEKS[currentWeekIdx],col=BLOCK_COLOR[w.block]||'#7a829a';
   document.getElementById('weekLabel').textContent=`Week ${w.num}`;
   const pill=document.getElementById('blockPill');
   pill.textContent=w.block;pill.style.background=col+'22';pill.style.color=col;pill.style.border='1px solid '+col+'55';
@@ -718,18 +570,12 @@ function render(){
     const d1=new Date(2025,+mo1-1,+dy1),d2=new Date(2025,+mo2-1,+dy2);
     document.getElementById('weekDates').textContent=d1.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' – '+d2.toLocaleDateString('en-US',{month:'short',day:'numeric'})+', 2025';
   }
-  const evCount=EVENTS.filter(e=>e.weekNum===w.num).length;
-  document.getElementById('toolbarSub').textContent=`Fall 2025 · ${EVENTS.length} events · ${evCount} this week · ${isSharePoint?'Live SharePoint':'Demo'}`;
+  document.getElementById('toolbarSub').textContent=`Fall 2025 · ${EVENTS.length} events · ${EVENTS.filter(e=>e.weekNum===w.num).length} this week`;
   renderChangeLog();
-  if(currentView==='week')renderWeek(dates);else renderList(dates);
+  if(currentView==='week')renderWeek(dates);else renderList();
 }
 
-function evClass(e){
-  if(e.category==='Faculty Discussion')return'Faculty';
-  if(e.category==='Exam Review')return'ExamReview';
-  if(e.category==='Grand Rounds')return'GrandRounds';
-  return e.category.replace(/\s/g,'');
-}
+function evClass(e){if(e.category==='Faculty Discussion')return'Faculty';if(e.category==='Exam Review')return'ExamReview';if(e.category==='Grand Rounds')return'GrandRounds';return e.category.replace(/\s/g,'');}
 
 function renderWeek(dates){
   const w=WEEKS[currentWeekIdx];
@@ -744,14 +590,12 @@ function renderWeek(dates){
   html+='</div>';
   HOUR_KEYS.forEach((hk,hi)=>{
     html+=`<div class="cal-row"><div class="cal-time">${HOURS[hi]}</div>`;
-    dates.forEach((ds)=>{
+    dates.forEach(ds=>{
       const cellEvs=evs.filter(e=>e.date===ds&&e.start===hk);
       html+=`<div class="cal-cell" onclick="handleCellClick(event,'${ds}','${hk}')">`;
       if(isFacultyMode)html+=`<div class="add-slot-btn" onclick="openAddForm('${ds}','${hk}');event.stopPropagation()">+</div>`;
       cellEvs.forEach(e=>{
-        const dur=Math.max(1,parseInt(e.end)-parseInt(e.start));
-        const hp=dur*52-6;
-        const ec=evClass(e);
+        const dur=Math.max(1,parseInt(e.end)-parseInt(e.start)),hp=dur*52-6,ec=evClass(e);
         const ej=JSON.stringify(e).replace(/'/g,'&#39;').replace(/"/g,'&quot;');
         html+=`<div class="event ${ec}" style="min-height:${hp}px" onclick="handleEventClick(event,${ej})">
           <div class="ev-tag">${e.category}</div>
@@ -768,11 +612,11 @@ function renderWeek(dates){
     html+='</div>';
   });
   html+='</div>';
-  if(!evs.length)html=`<div class="empty-state"><div class="big">📭</div><p>No events match this filter for Week ${w.num}.</p></div>`;
+  if(!evs.length)html=`<div class="empty-state"><div class="big">📭</div><p>No events match this filter.</p></div>`;
   document.getElementById('calView').innerHTML=html;
 }
 
-function renderList(dates){
+function renderList(){
   const w=WEEKS[currentWeekIdx];
   const evs=EVENTS.filter(e=>e.weekNum===w.num&&(currentFilter==='All'||e.category===currentFilter)).sort((a,b)=>a.date.localeCompare(b.date)||a.start.localeCompare(b.start));
   if(!evs.length){document.getElementById('calView').innerHTML=`<div class="empty-state"><div class="big">📭</div><p>No events found.</p></div>`;return;}
@@ -781,8 +625,7 @@ function renderList(dates){
   Object.keys(byDate).sort().forEach(date=>{
     html+=`<div style="margin-bottom:22px"><div style="font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)">${fmtDate(date)}</div>`;
     byDate[date].forEach(e=>{
-      const col=CAT_COLOR[e.category]||'#4a5168';
-      const ec=evClass(e);
+      const col=CAT_COLOR[e.category]||'#4a5168',ec=evClass(e);
       const ej=JSON.stringify(e).replace(/'/g,'&#39;').replace(/"/g,'&quot;');
       html+=`<div class="event ${ec}" style="min-height:auto;flex-direction:row;align-items:center;gap:14px;margin-bottom:7px;padding:10px 14px;border-radius:8px" onclick="handleEventClick(event,${ej})">
         <div style="font-family:'DM Mono',monospace;font-size:10px;color:${col};white-space:nowrap;min-width:90px">${fmtTime(e.start)}<br>${fmtTime(e.end)}</div>
@@ -795,14 +638,12 @@ function renderList(dates){
     });
     html+='</div>';
   });
-  html+='</div>';
-  document.getElementById('calView').innerHTML=html;
+  document.getElementById('calView').innerHTML=html+'</div>';
 }
 
-// ─── EVENTS ──────────────────────────────────────────────────
+// ── INTERACTIONS ──────────────────────────────────────────────
 function handleEventClick(ev,e){ev.stopPropagation();if(isFacultyMode)return;openModal(e);}
 function handleCellClick(ev,date,hour){if(!isFacultyMode)return;if(ev.target.closest('.event'))return;openAddForm(date,hour);}
-
 function openModal(e){
   const col=CAT_COLOR[e.category]||'#4a5168';
   document.getElementById('modalBar').style.background=col;
@@ -814,25 +655,14 @@ function openModal(e){
   document.getElementById('modalOverlay').classList.add('open');
 }
 
-// ─── FACULTY AUTH ────────────────────────────────────────────
-function requestFacultyMode(){
-  document.getElementById('pinInput').value='';
-  document.getElementById('pinErr').textContent='';
-  document.getElementById('loginOverlay').classList.add('open');
-  setTimeout(()=>document.getElementById('pinInput').focus(),100);
-}
-function checkPin(){
-  const val=document.getElementById('pinInput').value.trim();
-  if(val===(CFG.pin||'2028')){document.getElementById('loginOverlay').classList.remove('open');setMode('faculty');}
-  else{document.getElementById('pinErr').textContent='Incorrect PIN. Try again.';document.getElementById('pinInput').value='';}
-}
+// ── FACULTY AUTH ──────────────────────────────────────────────
+function requestFacultyMode(){document.getElementById('pinInput').value='';document.getElementById('pinErr').textContent='';document.getElementById('loginOverlay').classList.add('open');setTimeout(()=>document.getElementById('pinInput').focus(),100);}
+function checkPin(){const val=document.getElementById('pinInput').value.trim();if(val===(CFG.pin||'2028')){document.getElementById('loginOverlay').classList.remove('open');setMode('faculty');}else{document.getElementById('pinErr').textContent='Incorrect PIN.';document.getElementById('pinInput').value='';}}
 function setMode(mode){
   isFacultyMode=mode==='faculty';
-  document.querySelector('.mode-btn.active')?.classList.remove('active','faculty-active');
-  document.querySelectorAll('.mode-btn').forEach(b=>{
-    if(b.textContent.includes('Student'))b.classList.toggle('active',!isFacultyMode);
-    if(b.textContent.includes('Faculty'))b.classList.toggle('faculty-active',isFacultyMode);
-  });
+  document.querySelectorAll('.mode-btn').forEach(b=>{b.classList.remove('active','faculty-active');});
+  if(!isFacultyMode)document.querySelectorAll('.mode-btn')[0].classList.add('active');
+  else document.querySelectorAll('.mode-btn')[1].classList.add('faculty-active');
   document.getElementById('facultyPanel').classList.toggle('open',isFacultyMode);
   document.getElementById('facultyBadge').style.display=isFacultyMode?'':'none';
   document.getElementById('addEventBtn').style.display=isFacultyMode?'':'none';
@@ -841,48 +671,39 @@ function setMode(mode){
   render();
 }
 
-// ─── FACULTY FORM ────────────────────────────────────────────
+// ── FORM ──────────────────────────────────────────────────────
 function blockFromWeek(wn){if(wn<=30)return'Heme/Onc';if(wn<=34)return'Respiratory';if(wn<=38)return'Renal';if(wn<=42)return'GI';if(wn<=47)return'Endocrinology';if(wn<=51)return'MSK';return'Break';}
 function weekNameFor(wn){const w=WEEKS.find(w=>w.num===wn);return w?w.name:'Week '+wn;}
-
 function formHTML(e,isEdit){
-  const w=WEEKS[currentWeekIdx];
-  const date=e?e.date:(prefillDate||'');
-  const defBlock=e?e.block:blockFromWeek(w.num);
-  const defCat=e?e.category:'Mandatory';
+  const w=WEEKS[currentWeekIdx],defBlock=e?e.block:blockFromWeek(w.num),defCat=e?e.category:'Mandatory';
   const blockOpts=BLOCKS_LIST.map(b=>`<option value="${b}" ${defBlock===b?'selected':''}>${b}</option>`).join('');
   const catOpts=CATS_LIST.map(c=>`<option value="${c}" ${defCat===c?'selected':''}>${c}</option>`).join('');
   const weekOpts=WEEKS.map(wk=>`<option value="${wk.num}" ${(e?e.weekNum:w.num)===wk.num?'selected':''}>${wk.name}</option>`).join('');
-  const timeOpts=(vals)=>vals.map(t=>`<option value="${t}" ${(e?e[vals===startTimes?'start':'end']:(prefillHour||'08:00'))===t?'selected':''}>${fmtTime(t)}</option>`).join('');
   const startTimes=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
   const endTimes=['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00'];
-  return`<div class="form-group"><label class="form-label">Title *</label><input class="form-input" id="ff_title" value="${(e?e.title:'').replace(/"/g,'&quot;')}" placeholder="e.g. Faculty Discussion (Anemia)"></div>
+  return`<div class="form-group"><label class="form-label">Title *</label><input class="form-input" id="ff_title" value="${(e?e.title:'').replace(/"/g,'&quot;')}" placeholder="e.g. Faculty Discussion"></div>
   <div class="form-group"><label class="form-label">Week</label><select class="form-select" id="ff_week" onchange="updateFormBlock()">${weekOpts}</select></div>
-  <div class="form-group"><label class="form-label">Date * (MM/DD/YYYY)</label><input class="form-input" id="ff_date" placeholder="MM/DD/YYYY" value="${date}"></div>
+  <div class="form-group"><label class="form-label">Date * (MM/DD/YYYY)</label><input class="form-input" id="ff_date" placeholder="MM/DD/YYYY" value="${e?e.date:(prefillDate||'')}"></div>
   <div class="form-row">
     <div class="form-group"><label class="form-label">Start</label><select class="form-select" id="ff_start">${startTimes.map(t=>`<option value="${t}" ${(e?e.start:(prefillHour||'08:00'))===t?'selected':''}>${fmtTime(t)}</option>`).join('')}</select></div>
     <div class="form-group"><label class="form-label">End</label><select class="form-select" id="ff_end">${endTimes.map(t=>`<option value="${t}" ${(e?e.end:'09:00')===t?'selected':''}>${fmtTime(t)}</option>`).join('')}</select></div>
   </div>
   <div class="form-group"><label class="form-label">Category</label><select class="form-select" id="ff_cat" onchange="updateCatPreview()">${catOpts}</select>
-    <div class="color-preview"><div class="color-dot" id="catDot" style="background:${CAT_COLOR[defCat]||'#4f8ef7'}"></div><span style="font-size:11px;color:${CAT_COLOR[defCat]||'#4f8ef7'}" id="catLabel">${defCat}</span></div>
-  </div>
+    <div class="color-preview"><div class="color-dot" id="catDot" style="background:${CAT_COLOR[defCat]||'#4f8ef7'}"></div><span style="font-size:11px;color:${CAT_COLOR[defCat]||'#4f8ef7'}" id="catLabel">${defCat}</span></div></div>
   <div class="form-group"><label class="form-label">Block</label><select class="form-select" id="ff_block" onchange="updateBlockPreview()">${blockOpts}</select>
-    <div class="color-preview"><div class="color-dot" id="blockDot" style="background:${BLOCK_COLOR[defBlock]||'#7a829a'}"></div><span style="font-size:11px;color:${BLOCK_COLOR[defBlock]||'#7a829a'}" id="blockLabel">${defBlock}</span></div>
-  </div>
+    <div class="color-preview"><div class="color-dot" id="blockDot" style="background:${BLOCK_COLOR[defBlock]||'#7a829a'}"></div><span style="font-size:11px;color:${BLOCK_COLOR[defBlock]||'#7a829a'}" id="blockLabel">${defBlock}</span></div></div>
   <div style="display:flex;flex-direction:column;gap:8px;margin-top:18px">
-    <button class="btn-full btn-save" onclick="saveForm()">💾 ${isEdit?'Save to SharePoint':'Add to SharePoint'}</button>
+    <button class="btn-full btn-save" id="saveBtn" onclick="saveForm()">💾 ${isEdit?'Save Changes':'Add Event'}</button>
     ${isEdit?`<button class="btn-full btn-delete-full" onclick="confirmDelete(null,'${editingId}')">🗑 Delete Event</button>`:''}
     <button class="btn-full btn-cancel" onclick="closeForm()">Cancel</button>
   </div>`;
 }
-
-function updateCatPreview(){const v=document.getElementById('ff_cat').value;const col=CAT_COLOR[v]||'#4a5168';document.getElementById('catDot').style.background=col;document.getElementById('catLabel').textContent=v;document.getElementById('catLabel').style.color=col;}
-function updateBlockPreview(){const v=document.getElementById('ff_block').value;const col=BLOCK_COLOR[v]||'#7a829a';document.getElementById('blockDot').style.background=col;document.getElementById('blockLabel').textContent=v;document.getElementById('blockLabel').style.color=col;}
-function updateFormBlock(){const wn=parseInt(document.getElementById('ff_week').value);document.getElementById('ff_block').value=blockFromWeek(wn);updateBlockPreview();}
-
+function updateCatPreview(){const v=document.getElementById('ff_cat').value,col=CAT_COLOR[v]||'#4a5168';document.getElementById('catDot').style.background=col;document.getElementById('catLabel').textContent=v;document.getElementById('catLabel').style.color=col;}
+function updateBlockPreview(){const v=document.getElementById('ff_block').value,col=BLOCK_COLOR[v]||'#7a829a';document.getElementById('blockDot').style.background=col;document.getElementById('blockLabel').textContent=v;document.getElementById('blockLabel').style.color=col;}
+function updateFormBlock(){document.getElementById('ff_block').value=blockFromWeek(parseInt(document.getElementById('ff_week').value));updateBlockPreview();}
 function openAddForm(date,hour){if(!isFacultyMode)return;editingId=null;prefillDate=date||'';prefillHour=hour||'08:00';document.getElementById('fpSub').textContent='Adding new event';document.getElementById('fpForm').innerHTML=formHTML(null,false);document.getElementById('facultyPanel').scrollTop=0;}
 function openEditForm(ev,e){if(ev)ev.stopPropagation();editingId=e._id;document.getElementById('fpSub').textContent='Editing: '+e.title.substring(0,30);document.getElementById('fpForm').innerHTML=formHTML(e,true);document.getElementById('facultyPanel').scrollTop=0;}
-function closeForm(){editingId=null;document.getElementById('fpForm').innerHTML='<div style="text-align:center;padding:30px 0;color:var(--muted)"><div style="font-size:28px;margin-bottom:10px">👆</div><div style="font-size:12px;line-height:1.6">Click an event to edit,<br>or click a time slot to add,<br>or press <strong style="color:var(--gold)">+ Add Event</strong> above.</div></div>';document.getElementById('fpSub').textContent='Click an event to edit · Click a slot to add';}
+function closeForm(){editingId=null;document.getElementById('fpForm').innerHTML='<div style="text-align:center;padding:30px 0;color:var(--muted)"><div style="font-size:28px;margin-bottom:10px">👆</div><div style="font-size:12px;line-height:1.6">Click an event to edit,<br>or a time slot to add,<br>or press <strong style="color:var(--gold)">+ Add Event</strong>.</div></div>';document.getElementById('fpSub').textContent='Click an event to edit · Click a slot to add';}
 
 async function saveForm(){
   const title=document.getElementById('ff_title').value.trim();
@@ -894,65 +715,47 @@ async function saveForm(){
   const weekNum=parseInt(document.getElementById('ff_week').value);
   if(!title||!date){showToast('⚠️ Title and Date are required.');return;}
   if(start>=end){showToast('⚠️ End time must be after start time.');return;}
-
-  const btn=document.querySelector('#fpForm .btn-save');
-  btn.textContent='Saving...';btn.disabled=true;
-
-  const ev={title,date,start,end,category:cat,block,weekNum,week:weekNameFor(weekNum),desc:title};
-
+  const btn=document.getElementById('saveBtn');
+  btn.textContent='Saving to GitHub...';btn.disabled=true;
+  const ev={title,date,start,end,category:cat,block,weekNum,week:weekNameFor(weekNum),desc:title,_id:editingId||(Date.now()+'')};
   try{
-    if(isSharePoint){
-      const fields=eventToSpFields(ev);
-      const listEnc=encodeURIComponent(CFG.listName);
-      if(editingId){
-        const spId=EVENTS.find(e=>e._id===editingId)?._spId;
-        if(spId) await spPatch(`web/lists/getbytitle('${listEnc}')/items(${spId})`,fields);
-        const i=EVENTS.findIndex(e=>e._id===editingId);
-        if(i>=0) EVENTS[i]={...EVENTS[i],...ev};
-        addLog('edited',ev);showToast('✅ Event updated in SharePoint!');
-      }else{
-        const created=await spPost(`web/lists/getbytitle('${listEnc}')/items`,fields);
-        const newEv={...ev,_id:String(created.Id),_spId:created.Id};
-        EVENTS.push(newEv);
-        addLog('added',ev);showToast('✅ Event added to SharePoint!');
-      }
-    }else{
-      // Demo mode: local only
-      if(editingId){const i=EVENTS.findIndex(e=>e._id===editingId);if(i>=0)EVENTS[i]={...EVENTS[i],...ev};addLog('edited',ev);showToast('✅ Updated (demo — not saved to SharePoint)');}
-      else{const ne={...ev,_id:'demo_'+Date.now(),_spId:null};EVENTS.push(ne);addLog('added',ev);showToast('✅ Added (demo — not saved to SharePoint)');}
-    }
+    if(editingId){const i=EVENTS.findIndex(e=>e._id===editingId);if(i>=0)EVENTS[i]=ev;}
+    else EVENTS.push(ev);
+    await saveEventsToGitHub();
+    addLog(editingId?'edited':'added',ev);
+    showToast(editingId?'✅ Event updated — live for everyone!':'✅ Event added — live for everyone!');
     closeForm();WEEKS=buildWeeks();buildWeekDrawer();render();
   }catch(err){
-    console.error(err);
-    showToast('❌ Save failed: '+err.message);
-    btn.textContent='💾 Save to SharePoint';btn.disabled=false;
+    showToast('❌ '+err.message);
+    btn.textContent='💾 Save Changes';btn.disabled=false;
   }
 }
 
-// ─── DELETE ──────────────────────────────────────────────────
+// ── DELETE ────────────────────────────────────────────────────
 function confirmDelete(ev,id){
   if(ev)ev.stopPropagation();
   pendingDeleteId=id;
   const e=EVENTS.find(e=>e._id===id);
-  document.getElementById('confirmMsg').textContent=`"${(e?e.title:'this event').substring(0,50)}" will be permanently removed${isSharePoint?' from SharePoint':''}.`;
+  document.getElementById('confirmMsg').textContent=`Delete "${(e?e.title:'this event').substring(0,50)}"?`;
   document.getElementById('confirmYes').onclick=()=>{doDelete();document.getElementById('confirmOverlay').classList.remove('open');};
   document.getElementById('confirmOverlay').classList.add('open');
 }
-
 async function doDelete(){
-  const e=EVENTS.find(e=>e._id===pendingDeleteId);
-  if(!e)return;
+  const e=EVENTS.find(e=>e._id===pendingDeleteId);if(!e)return;
+  const btn=document.getElementById('confirmYes');btn.textContent='Deleting...';btn.disabled=true;
   try{
-    if(isSharePoint&&e._spId) await spDelete(e._spId);
     EVENTS=EVENTS.filter(ev=>ev._id!==pendingDeleteId);
-    addLog('deleted',e);showToast('🗑 Deleted'+(isSharePoint?' from SharePoint':''));
+    await saveEventsToGitHub();
+    addLog('deleted',e);showToast('🗑 Deleted — live for everyone!');
     closeForm();WEEKS=buildWeeks();buildWeekDrawer();render();
   }catch(err){
-    showToast('❌ Delete failed: '+err.message);
+    EVENTS.push(e); // rollback
+    showToast('❌ '+err.message);
   }
+  btn.textContent='Delete';btn.disabled=false;
 }
 
-// ─── CHANGE LOG ──────────────────────────────────────────────
+// ── CHANGE LOG ────────────────────────────────────────────────
 function addLog(type,e){sessionLog.unshift({type,title:e.title,date:e.date,start:e.start,end:e.end,cat:e.category,ts:new Date().toLocaleTimeString()});}
 function renderChangeLog(){
   if(!isFacultyMode)return;
@@ -961,45 +764,24 @@ function renderChangeLog(){
   document.getElementById('changeLog').innerHTML=sessionLog.slice(0,8).map(e=>`<div class="change-item change-${e.type}"><div class="ch-type">${e.type==='added'?'✦ Added':e.type==='edited'?'✎ Edited':'✕ Deleted'}</div><div class="ch-title">${e.title.substring(0,45)}</div><div class="ch-meta">${e.date} · ${fmtTime(e.start)}–${fmtTime(e.end)} · ${e.cat} · ${e.ts}</div></div>`).join('');
 }
 
-// ─── ICS EXPORT ──────────────────────────────────────────────
+// ── ICS EXPORT ────────────────────────────────────────────────
 function exportICS(){
-  function toIcsDt(dateStr,timeStr){const[mo,dy,yr]=dateStr.split('/');const[hr,mn]=timeStr.split(':');return`${yr}${mo}${dy}T${hr}${mn}00`;}
+  function toIcsDt(d,t){const[mo,dy,yr]=d.split('/');const[hr,mn]=t.split(':');return`${yr}${mo}${dy}T${hr}${mn}00`;}
   function esc(s){return(s||'').replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\n/g,'\\n');}
-  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CO2028 Academic Calendar//Fall 2025//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:CO2028 Academic Calendar \u2014 Fall 2025'];
-  EVENTS.forEach((e,i)=>{
-    lines.push('BEGIN:VEVENT',`UID:co2028-${e.weekNum}-${i}@academicCalendar`,`DTSTART:${toIcsDt(e.date,e.start)}`,`DTEND:${toIcsDt(e.date,e.end)}`,`SUMMARY:${esc(e.title.replace(/\s{2,}/g,' ').trim())}`,`DESCRIPTION:${esc('Block: '+e.block+' | Week: '+e.week+' | Category: '+e.category)}`,`CATEGORIES:${esc(e.category)}`,'STATUS:CONFIRMED','END:VEVENT');
-  });
+  const lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//CO2028//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:CO2028 Academic Calendar'];
+  EVENTS.forEach((e,i)=>{lines.push('BEGIN:VEVENT',`UID:co2028-${i}@cal`,`DTSTART:${toIcsDt(e.date,e.start)}`,`DTEND:${toIcsDt(e.date,e.end)}`,`SUMMARY:${esc(e.title)}`,`CATEGORIES:${esc(e.category)}`,'STATUS:CONFIRMED','END:VEVENT');});
   lines.push('END:VCALENDAR');
-  const blob=new Blob([lines.join('\r\n')],{type:'text/calendar;charset=utf-8'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CO2028_Calendar.ics';a.click();
-  showToast('✅ ICS downloaded — open it to import into Outlook');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([lines.join('\r\n')],{type:'text/calendar'}));a.download='CO2028_Calendar.ics';a.click();
+  showToast('✅ Downloaded — open to import into Outlook');
 }
 
-// ─── TOAST ───────────────────────────────────────────────────
-function showToast(msg){
-  let t=document.getElementById('toast');
-  if(!t){t=document.createElement('div');t.id='toast';t.className='toast';document.body.appendChild(t);}
-  t.textContent=msg;t.style.opacity='1';
-  clearTimeout(t._t);t._t=setTimeout(()=>{t.style.opacity='0';},4000);
-}
+// ── TOAST ─────────────────────────────────────────────────────
+function showToast(msg){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';t.className='toast';document.body.appendChild(t);}t.textContent=msg;t.style.opacity='1';clearTimeout(t._t);t._t=setTimeout(()=>{t.style.opacity='0';},4500);}
 
-// ─── INIT ────────────────────────────────────────────────────
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape'){document.getElementById('modalOverlay').classList.remove('open');document.getElementById('confirmOverlay').classList.remove('open');closeForm();}});
 
-function initApp(){
-  document.getElementById('configOverlay').style.display='none';
-  document.getElementById('appHeader').style.display='flex';
-  document.getElementById('statusBar').style.display='flex';
-  document.getElementById('layout').style.display='flex';
-  loadEvents();
-}
-
-// On page load
-if(loadConfig()){
-  initApp();
-}else{
-  document.getElementById('configOverlay').style.display='flex';
-}
+if(loadConfig())initApp();
+else document.getElementById('configOverlay').style.display='flex';
 </script>
 </body>
 </html>
