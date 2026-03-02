@@ -5086,17 +5086,5 @@
     "category": "Session",
     "desc": "ENGR",
     "_id": "e423"
-  },
-  {
-    "title": "Green-123",
-    "date": "07/08/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "category": "Mandatory",
-    "block": "Heme/Onc",
-    "weekNum": 28,
-    "week": "Heme Week 1 (28)",
-    "desc": "Green-123",
-    "_id": "1772329046978"
   }
 ]
