@@ -24,18 +24,6 @@
     "_id": "e1"
   },
   {
-    "title": "Semester 3 Orientation",
-    "date": "07/07/2025",
-    "start": "08:00",
-    "end": "12:00",
-    "block": "Heme/Onc",
-    "week": "Heme Week 1 (28)",
-    "weekNum": 28,
-    "category": "Mandatory",
-    "desc": "Mandatory Semester 3  Orientation",
-    "_id": "e2"
-  },
-  {
     "title": "Heme/Onc: Faculty Discussion           (RBCs, WBCs, Lymph Nodes, & Blood Pathogens)",
     "date": "07/09/2025",
     "start": "10:00",
