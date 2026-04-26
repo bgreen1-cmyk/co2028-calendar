@@ -401,6 +401,18 @@ html,body{min-height:100vh;background:var(--bg);color:var(--black);font-family:'
 .block-filter-select:focus{border-color:var(--accent)}
 .block-filter-select option{background:var(--surface);color:var(--text)}
 
+
+/* Session name datalist */
+input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+
+
+/* NOTES TEXTAREA */
+.form-input[rows]{font-family:'DM Sans',sans-serif;font-size:12px}
+.m-val[style*="pre-wrap"]{font-size:12px;color:var(--muted);background:var(--surface2);padding:8px 10px;border-radius:6px;border:1px solid var(--border);margin-top:2px}
+
+
+.m-sub-btn[data-m="M0"].active{background:#E65100 !important;border-color:#E65100 !important;color:white !important}
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
@@ -567,32 +579,27 @@ html,body{min-height:100vh;background:var(--bg);color:var(--black);font-family:'
     <!-- TIER 2: M1/M2 sub-filter (shown when single year selected) -->
     <div class="m-sub-row" id="mSubRow">
       <span style="font-size:10px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Class:</span>
-      <button class="m-sub-btn active" data-m="M1" onclick="setMSub(this,'M1')">M1</button>
+      <button class="m-sub-btn active" data-m="M0" onclick="setMSub(this,'M0')">M0</button>
+      <button class="m-sub-btn" data-m="M1" onclick="setMSub(this,'M1')">M1</button>
       <button class="m-sub-btn" data-m="M2" onclick="setMSub(this,'M2')">M2</button>
     </div>
 
     <!-- COLOR LEGEND -->
     <div class="legend-row" id="colorLegend">
-      <span class="legend-label">Year (right stripe):</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#C62828;margin-right:4px"></span>2029</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#1565C0;margin-right:4px"></span>2030</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#2E7D32;margin-right:4px"></span>2031</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#6A1B9A;margin-right:4px"></span>2032</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#BF360C;margin-right:4px"></span>2033</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#00695C;margin-right:4px"></span>2034</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#4527A0;margin-right:4px"></span>2035</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#E65100;margin-right:4px"></span>2036</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#00838F;margin-right:4px"></span>2037</span>
-      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#558B2F;margin-right:4px"></span>2038</span>
+      <span class="legend-label">Calendar:</span>
+      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#E65100;margin-right:4px"></span>M0</span>
+      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#1565C0;margin-right:4px"></span>M1</span>
+      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#2E7D32;margin-right:4px"></span>M2</span>
       <span style="width:1px;height:16px;background:var(--border);flex-shrink:0;margin:0 4px"></span>
       <span class="legend-label">Type (left stripe):</span>
-      <span class="legend-item"><span class="legend-dot" style="background:#4f8ef7"></span>Mandatory</span>
-      <span class="legend-item"><span class="legend-dot" style="background:#3ecf8e"></span>Faculty Discussion</span>
       <span class="legend-item"><span class="legend-dot" style="background:#b97cf7"></span>TBL</span>
-      <span class="legend-item"><span class="legend-dot" style="background:#f05c6e"></span>CBSE</span>
-      <span class="legend-item"><span class="legend-dot" style="background:#4fd6f7"></span>ITDE</span>
-      <span class="legend-item"><span class="legend-dot" style="background:#f7a14f"></span>Exam</span>
-      <span class="legend-item"><span class="legend-dot" style="background:#4a5168"></span>Session</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#3ecf8e"></span>CBL</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#C62828"></span>OSCE/Exam</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#1565C0"></span>Orientation</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#00838F"></span>Lab</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#F9A825"></span>Workshop</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#424242"></span>Blackout</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#607D8B"></span>Other</span>
     </div>
     <div class="filter-row">
       <span class="filter-label">Show:</span>
@@ -667,6 +674,7 @@ html,body{min-height:100vh;background:var(--bg);color:var(--black);font-family:'
       <div class="modal-row" id="modalExamRow" style="display:none"><div class="m-icon">📋</div><div><div class="m-label">Exam</div><div class="m-val" id="modalExam"></div></div></div>
       <div class="modal-row" id="modalGroupRow" style="display:none"><div class="m-icon">👥</div><div><div class="m-label">Group Assigned</div><div class="m-val" id="modalGroup"></div></div></div>
       <div class="modal-row" id="modalLocationRow" style="display:none"><div class="m-icon">📍</div><div><div class="m-label">Session Location</div><div class="m-val" id="modalLocation"></div></div></div>
+      <div class="modal-row" id="modalNotesRow" style="display:none"><div class="m-icon">📌</div><div><div class="m-label">Additional Information</div><div class="m-val" id="modalNotes" style="white-space:pre-wrap;line-height:1.6"></div></div></div>
       <div class="modal-row" id="modalYearRow" style="display:none"><div class="m-icon">🎓</div><div><div class="m-label">Calendar</div><div class="m-val" id="modalYear"></div></div></div>
       <div class="modal-row"><div class="m-icon">📚</div><div><div class="m-label">Block</div><div class="m-val" id="modalBlock"></div></div></div>
     </div>
@@ -744,8 +752,8 @@ const BLOCK_COLOR=(()=>{
   });
   return c;
 })();
-const CAT_COLOR={'Mandatory':'#4f8ef7','Faculty Discussion':'#3ecf8e','TBL':'#b97cf7','CBSE':'#f05c6e','Session':'#4a5168','ITDE':'#4fd6f7','Exam Review':'#f7a14f','Grand Rounds':'#f7a14f'};
-const CATS_LIST=['Mandatory','Faculty Discussion','TBL','CBSE','ITDE','Exam Review','Session','Grand Rounds'];
+const CAT_COLOR={"Abdominal Clinical Application Session": "#4a5168", "Assigned Students Only POM1: OSCE Midpoint Retake": "#C62828", "BLACKOUT": "#424242", "CV Clinical Application Session": "#4a5168", "Cardiovascular: CBL": "#3ecf8e", "Cardiovascular: Cardiac Imaging & Echocardiography Clinic": "#607D8B", "Cardiovascular: Cardiac Physical Exam / Murmur Clinic": "#607D8B", "Cardiovascular: ENGR/MED Blended Session": "#4a5168", "Cardiovascular: Orientation": "#1565C0", "Cardiovascular: TBL": "#b97cf7", "Clinical Cadaver Integration Presentation": "#8E24AA", "Comprehensive Final OSCE": "#C62828", "Comprehensive OSCE Simulation Open Lab": "#C62828", "EBM Librarian Discussion": "#26A69A", "EBM: Problem Session": "#26A69A", "Endo / Repro: TBL": "#b97cf7", "FHP Workshop": "#F9A825", "FOM II: CBL": "#3ecf8e", "FOM II: Introduction to Precision Medicine": "#43A047", "FOM II: Orientation": "#1565C0", "FOM II: TBL": "#b97cf7", "Final OSCE Remediation (If needed)": "#C62828", "First day of POM 3 Orientation": "#1565C0", "FoM I / MGA: Orientation": "#1565C0", "FoM I / MGA: TBL": "#b97cf7", "FoM I: Lab": "#00838F", "Focused Encounter Workshop (BBN related)": "#F9A825", "GI / Nutr: CBL": "#3ecf8e", "GI / Nutr: TBL": "#b97cf7", "Group A  POM1: CV PE": "#1565C0", "Group A POM 1: Intro to an OSCE": "#C62828", "Group A POM 3 FHP OSCE": "#C62828", "Group A POM1: ABD CR": "#1565C0", "Group A POM1: ABD/MSK I PE": "#1565C0", "Group A POM1: CV Application Session": "#1565C0", "Group A POM1: CV CR": "#1565C0", "Group A POM1: Check-off Vital Signs": "#1565C0", "Group A POM1: Final OSCE": "#C62828", "Group A POM1: HEENT CR": "#1565C0", "Group A POM1: HEENT PE": "#1565C0", "Group A POM1: LC Facilitated Open Lab": "#00838F", "Group A POM1: MSK 2/Derm PE": "#1565C0", "Group A POM1: NEURO CR": "#1565C0", "Group A POM1: NEURO/Derm PE": "#1565C0", "Group A POM1: OSCE Practice": "#C62828", "Group A POM1: PETA Session: CV": "#1565C0", "Group A POM1: PULM PE": "#1565C0", "Group A POM1: Pulm CR": "#1565C0", "Group A POM1: w/LC Small Groups": "#1565C0", "Group B POM1: ABD CR": "#2E7D32", "Group B POM1: ABD/MSK I PE": "#2E7D32", "Group B POM1: CV Application Session": "#2E7D32", "Group B POM1: CV CR": "#2E7D32", "Group B POM1: Check-off Vital Signs": "#2E7D32", "Group B POM1: Final OSCE": "#C62828", "Group B POM1: HEENT CR": "#2E7D32", "Group B POM1: HEENT PE": "#2E7D32", "Group B POM1: LC Facilitated Open Lab": "#00838F", "Group B POM1: MSK 2/Derm PE": "#2E7D32", "Group B POM1: NEURO CR": "#2E7D32", "Group B POM1: NEURO/Derm PE": "#2E7D32", "Group B POM1: OSCE Practice": "#C62828", "Group B POM1: PETA Session: CV": "#2E7D32", "Group B POM1: PULM PE": "#2E7D32", "Group B POM1: Pulm CR": "#2E7D32", "Group B POM1: w/LC Small Groups": "#2E7D32", "Group C POM1: ABD CR": "#6A1B9A", "Group C POM1: ABD/MSK I PE": "#6A1B9A", "Group C POM1: CV Application Session": "#6A1B9A", "Group C POM1: CV CR": "#6A1B9A", "Group C POM1: Check-off Vital Signs": "#6A1B9A", "Group C POM1: Final OSCE": "#C62828", "Group C POM1: HEENT CR": "#6A1B9A", "Group C POM1: HEENT PE": "#6A1B9A", "Group C POM1: LC Facilitated Open Lab": "#00838F", "Group C POM1: MSK 2/Derm PE": "#6A1B9A", "Group C POM1: NEURO CR": "#6A1B9A", "Group C POM1: NEURO/Derm PE": "#6A1B9A", "Group C POM1: OSCE Practice": "#C62828", "Group C POM1: PETA Session: CV": "#6A1B9A", "Group C POM1: PULM PE": "#6A1B9A", "Group C POM1: Pulm CR": "#6A1B9A", "Group C POM1: w/LC Small Groups": "#6A1B9A", "Group D POM1: ABD CR": "#BF360C", "Group D POM1: ABD/MSK I PE": "#BF360C", "Group D POM1: CV Application Session": "#BF360C", "Group D POM1: CV CR": "#BF360C", "Group D POM1: Check-off Vital Signs": "#BF360C", "Group D POM1: Final OSCE": "#C62828", "Group D POM1: HEENT CR": "#BF360C", "Group D POM1: HEENT PE": "#BF360C", "Group D POM1: LC Facilitated Open Lab": "#00838F", "Group D POM1: MSK 2/Derm PE": "#BF360C", "Group D POM1: NEURO CR": "#BF360C", "Group D POM1: NEURO/Derm PE": "#BF360C", "Group D POM1: OSCE Practice": "#C62828", "Group D POM1: PETA Session: CV": "#BF360C", "Group D POM1: PULM PE": "#BF360C", "Group D POM1: Pulm CR": "#BF360C", "Group D POM1: w/LC Small Groups": "#BF360C", "Heme / Onc: CBL": "#3ecf8e", "Heme / Onc: TBL": "#b97cf7", "Immunology: CBL": "#3ecf8e", "Immunology: TBL": "#b97cf7", "Intro to Clinical Reasoning": "#43A047", "Intro to EBM": "#26A69A", "Intro to OSCE": "#C62828", "Intro to Ultrasound": "#00ACC1", "MSK: CBL": "#3ecf8e", "MSK: TBL": "#b97cf7", "Neuro: CBL": "#3ecf8e", "Neuro: TBL": "#b97cf7", "Orientation": "#1565C0", "POM 1: Orientation": "#1565C0", "POM 2: Orientation": "#1565C0", "POM 3: Orientation": "#1565C0", "Pulmonary: CBL": "#3ecf8e", "Pulmonary: TBL": "#b97cf7", "Renal: CBL": "#3ecf8e", "Renal: TBL": "#b97cf7", "Simulation Session": "#E65100", "TBL": "#b97cf7", "Ultrasound Lab": "#00838F", "Vital Signs Workshop": "#F9A825", "Mandatory": "#4f8ef7", "Faculty Discussion": "#3ecf8e", "CBSE": "#f05c6e", "Session": "#4a5168", "ITDE": "#4fd6f7", "Exam Review": "#f7a14f", "Grand Rounds": "#f7a14f"};
+const CATS_LIST=["Abdominal Clinical Application Session", "Assigned Students Only POM1: OSCE Midpoint Retake", "BLACKOUT", "CV Clinical Application Session", "Cardiovascular: CBL", "Cardiovascular: Cardiac Imaging & Echocardiography Clinic", "Cardiovascular: Cardiac Physical Exam / Murmur Clinic", "Cardiovascular: ENGR/MED Blended Session", "Cardiovascular: Orientation", "Cardiovascular: TBL", "Clinical Cadaver Integration Presentation", "Comprehensive Final OSCE", "Comprehensive OSCE Simulation Open Lab", "EBM Librarian Discussion", "EBM: Problem Session", "Endo / Repro: TBL", "FHP Workshop", "FOM II: CBL", "FOM II: Introduction to Precision Medicine", "FOM II: Orientation", "FOM II: TBL", "Final OSCE Remediation (If needed)", "First day of POM 3 Orientation", "FoM I / MGA: Orientation", "FoM I / MGA: TBL", "FoM I: Lab", "Focused Encounter Workshop (BBN related)", "GI / Nutr: CBL", "GI / Nutr: TBL", "Group A  POM1: CV PE", "Group A POM 1: Intro to an OSCE", "Group A POM 3 FHP OSCE", "Group A POM1: ABD CR", "Group A POM1: ABD/MSK I PE", "Group A POM1: CV Application Session", "Group A POM1: CV CR", "Group A POM1: Check-off Vital Signs", "Group A POM1: Final OSCE", "Group A POM1: HEENT CR", "Group A POM1: HEENT PE", "Group A POM1: LC Facilitated Open Lab", "Group A POM1: MSK 2/Derm PE", "Group A POM1: NEURO CR", "Group A POM1: NEURO/Derm PE", "Group A POM1: OSCE Practice", "Group A POM1: PETA Session: CV", "Group A POM1: PULM PE", "Group A POM1: Pulm CR", "Group A POM1: w/LC Small Groups", "Group B POM1: ABD CR", "Group B POM1: ABD/MSK I PE", "Group B POM1: CV Application Session", "Group B POM1: CV CR", "Group B POM1: Check-off Vital Signs", "Group B POM1: Final OSCE", "Group B POM1: HEENT CR", "Group B POM1: HEENT PE", "Group B POM1: LC Facilitated Open Lab", "Group B POM1: MSK 2/Derm PE", "Group B POM1: NEURO CR", "Group B POM1: NEURO/Derm PE", "Group B POM1: OSCE Practice", "Group B POM1: PETA Session: CV", "Group B POM1: PULM PE", "Group B POM1: Pulm CR", "Group B POM1: w/LC Small Groups", "Group C POM1: ABD CR", "Group C POM1: ABD/MSK I PE", "Group C POM1: CV Application Session", "Group C POM1: CV CR", "Group C POM1: Check-off Vital Signs", "Group C POM1: Final OSCE", "Group C POM1: HEENT CR", "Group C POM1: HEENT PE", "Group C POM1: LC Facilitated Open Lab", "Group C POM1: MSK 2/Derm PE", "Group C POM1: NEURO CR", "Group C POM1: NEURO/Derm PE", "Group C POM1: OSCE Practice", "Group C POM1: PETA Session: CV", "Group C POM1: PULM PE", "Group C POM1: Pulm CR", "Group C POM1: w/LC Small Groups", "Group D POM1: ABD CR", "Group D POM1: ABD/MSK I PE", "Group D POM1: CV Application Session", "Group D POM1: CV CR", "Group D POM1: Check-off Vital Signs", "Group D POM1: Final OSCE", "Group D POM1: HEENT CR", "Group D POM1: HEENT PE", "Group D POM1: LC Facilitated Open Lab", "Group D POM1: MSK 2/Derm PE", "Group D POM1: NEURO CR", "Group D POM1: NEURO/Derm PE", "Group D POM1: OSCE Practice", "Group D POM1: PETA Session: CV", "Group D POM1: PULM PE", "Group D POM1: Pulm CR", "Group D POM1: w/LC Small Groups", "Heme / Onc: CBL", "Heme / Onc: TBL", "Immunology: CBL", "Immunology: TBL", "Intro to Clinical Reasoning", "Intro to EBM", "Intro to OSCE", "Intro to Ultrasound", "MSK: CBL", "MSK: TBL", "Neuro: CBL", "Neuro: TBL", "Orientation", "POM 1: Orientation", "POM 2: Orientation", "POM 3: Orientation", "Pulmonary: CBL", "Pulmonary: TBL", "Renal: CBL", "Renal: TBL", "Simulation Session", "TBL", "Ultrasound Lab", "Vital Signs Workshop", "Mandatory", "Faculty Discussion", "CBSE", "ITDE", "Exam Review", "Grand Rounds", "Session"];
 const HOUR_KEYS=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
 const HOURS=['8 AM','9 AM','10 AM','11 AM','12 PM','1 PM','2 PM','3 PM','4 PM'];
 const DAYS=['Mon','Tue','Wed','Thu','Fri'];
@@ -1053,10 +1061,11 @@ function openModal(e){
   const col=mCalColor(e);
   const catColModal=CAT_COLOR[e.category]||'#4a5168';
   document.getElementById('modalBar').style.background=`linear-gradient(to bottom,${catColModal} 0%,${catColModal} 50%,${col} 50%,${col} 100%)`;
+  document.getElementById('modalCat').style.color=col;
   document.getElementById('modalTitle').textContent=e.title.replace(/\s{2,}/g,' ').trim();
   document.getElementById('modalCat').textContent=`${e.calYear||'2028'} ${e.mCal||'M1'} · ${e.category}`;document.getElementById('modalCat').style.color=col;
   document.getElementById('modalDate').textContent=`${fmtDate(e.date)}, ${fmtTime(e.start)} – ${fmtTime(e.end)}`;
-  const heal=e.heal||'';const exam=e.exam||'';const grp=e.group||'';const loc=e.location||'';
+  const heal=e.heal||'';const exam=e.exam||'';const grp=e.group||'';const loc=e.location||'';const notes=e.notes||'';
   document.getElementById('modalHealRow').style.display=heal?'flex':'none';
   if(document.getElementById('modalHeal'))document.getElementById('modalHeal').textContent=heal;
   document.getElementById('modalExamRow').style.display=exam?'flex':'none';
@@ -1065,6 +1074,8 @@ function openModal(e){
   if(document.getElementById('modalGroup'))document.getElementById('modalGroup').textContent=grp;
   document.getElementById('modalLocationRow').style.display=loc?'flex':'none';
   if(document.getElementById('modalLocation'))document.getElementById('modalLocation').textContent=loc;
+  document.getElementById('modalNotesRow').style.display=notes?'flex':'none';
+  if(document.getElementById('modalNotes'))document.getElementById('modalNotes').textContent=notes;
   if(document.getElementById('modalYearRow')){const yr=e.calYear||'';document.getElementById('modalYearRow').style.display=yr?'flex':'none';document.getElementById('modalYear').textContent=yr;}
   document.getElementById('modalBlock').innerHTML=`<span style="color:${BLOCK_COLOR[e.block]||'#fff'}">${e.block}</span>`;
   document.getElementById('modalWeek').textContent=e.week;
@@ -1100,7 +1111,10 @@ function formHTML(e,isEdit){
   const weekOpts=WEEKS.map(wk=>`<option value="${wk.num}" ${(e?e.weekNum:w.num)===wk.num?'selected':''}>${wk.name}</option>`).join('');
   const startTimes=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
   const endTimes=['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00'];
-  return`<div class="form-group"><label class="form-label">[MAND] Session Name *</label><input class="form-input" id="ff_title" value="${(e?e.title:'').replace(/"/g,'&quot;')}" placeholder="e.g. POM 1: What's a Physician"></div>
+  return`<div class="form-group"><label class="form-label">[MAND] Session Name *</label>
+    <input class="form-input" id="ff_title" list="sessionNameList" value="${(e?e.title:'').replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" placeholder="Type or select a session name" autocomplete="off">
+    <datalist id="sessionNameList">${SESSION_NAMES.map(s=>`<option value="${s}"></option>`).join('')}</datalist>
+  </div>
   <div class="form-group"><label class="form-label">Active Learning / HEAL Session</label><input class="form-input" id="ff_heal" value="${(e&&e.heal?e.heal:'').replace(/"/g,'&quot;')}" placeholder="e.g. POM 2: HEAL"></div>
   <div class="form-group"><label class="form-label">Exam</label><input class="form-input" id="ff_exam" value="${(e&&e.exam?e.exam:'').replace(/"/g,'&quot;')}" placeholder="e.g. POM 2: Final OSCE"></div>
   <div class="form-group"><label class="form-label">Group Assigned</label><input class="form-input" id="ff_group" value="${(e&&e.group?e.group:'').replace(/"/g,'&quot;')}" placeholder="e.g. Group A, All Students"></div>
@@ -1119,6 +1133,7 @@ function formHTML(e,isEdit){
       <option value="2038" ${(e&&e.calYear==='2038')?'selected':''}>2038</option>
     </select></div>
     <div class="form-group"><label class="form-label">Class *</label><select class="form-select" id="ff_mcal">
+      <option value="M0" ${(e&&e.mCal==='M0')?'selected':''}>M0 — Pre-Matriculation</option>
       <option value="M1" ${(!e||!e.mCal||e.mCal==='M1')?'selected':''}>M1</option>
       <option value="M2" ${(e&&e.mCal==='M2')?'selected':''}>M2</option>
     </select></div>
@@ -1152,6 +1167,7 @@ function closeForm(){editingId=null;document.getElementById('fpForm').innerHTML=
 
 // ── TWO-TIER TAB SYSTEM ──────────────────────────────────────
 // ── YEAR + M1/M2 FILTER SYSTEM ───────────────────────────────
+const SESSION_NAMES = ["Abdominal Clinical Application Session", "Assigned Students Only POM1: OSCE Midpoint Retake", "BLACKOUT", "CV Clinical Application Session", "Cardiovascular: CBL", "Cardiovascular: Cardiac Imaging & Echocardiography Clinic", "Cardiovascular: Cardiac Physical Exam / Murmur Clinic", "Cardiovascular: ENGR/MED Blended Session", "Cardiovascular: Orientation", "Cardiovascular: TBL", "Clinical Cadaver Integration Presentation", "Comprehensive Final OSCE", "Comprehensive OSCE Simulation Open Lab", "EBM Librarian Discussion", "EBM: Problem Session", "Endo / Repro: TBL", "FHP Workshop", "FOM II: CBL", "FOM II: Introduction to Precision Medicine", "FOM II: Orientation", "FOM II: TBL", "Final OSCE Remediation (If needed)", "First day of POM 3 Orientation", "FoM I / MGA: Orientation", "FoM I / MGA: TBL", "FoM I: Lab Focused Encounter Workshop (BBN related)", "GI / Nutr: CBL", "GI / Nutr: TBL", "Group A  POM1: CV PE", "Group A POM 1: Intro to an OSCE", "Group A POM 3 FHP OSCE", "Group A POM1: ABD CR", "Group A POM1: ABD/MSK I PE", "Group A POM1: CV Application Session", "Group A POM1: CV CR", "Group A POM1: Check-off Vital Signs", "Group A POM1: Final OSCE", "Group A POM1: HEENT CR", "Group A POM1: HEENT PE", "Group A POM1: LC Facilitated Open Lab", "Group A POM1: MSK 2/Derm PE", "Group A POM1: NEURO CR", "Group A POM1: NEURO/Derm PE", "Group A POM1: OSCE Practice", "Group A POM1: PETA Session: CV", "Group A POM1: PULM PE", "Group A POM1: Pulm CR", "Group A POM1: w/LC Small Groups", "Group B POM1: ABD CR", "Group B POM1: ABD/MSK I PE", "Group B POM1: CV Application Session", "Group B POM1: CV CR", "Group B POM1: Check-off Vital Signs", "Group B POM1: Final OSCE", "Group B POM1: HEENT CR", "Group B POM1: HEENT PE", "Group B POM1: LC Facilitated Open Lab", "Group B POM1: MSK 2/Derm PE", "Group B POM1: NEURO CR", "Group B POM1: NEURO/Derm PE", "Group B POM1: OSCE Practice", "Group B POM1: PETA Session: CV", "Group B POM1: PULM PE", "Group B POM1: Pulm CR", "Group B POM1: w/LC Small Groups", "Group C POM1: ABD CR", "Group C POM1: ABD/MSK I PE", "Group C POM1: CV Application Session", "Group C POM1: CV CR", "Group C POM1: Check-off Vital Signs", "Group C POM1: Final OSCE", "Group C POM1: HEENT CR", "Group C POM1: HEENT PE", "Group C POM1: LC Facilitated Open Lab", "Group C POM1: MSK 2/Derm PE", "Group C POM1: NEURO CR", "Group C POM1: NEURO/Derm PE", "Group C POM1: OSCE Practice", "Group C POM1: PETA Session: CV", "Group C POM1: PULM PE", "Group C POM1: Pulm CR", "Group C POM1: w/LC Small Groups", "Group D POM1: ABD CR", "Group D POM1: ABD/MSK I PE", "Group D POM1: CV Application Session", "Group D POM1: CV CR", "Group D POM1: Check-off Vital Signs", "Group D POM1: Final OSCE", "Group D POM1: HEENT CR", "Group D POM1: HEENT PE", "Group D POM1: LC Facilitated Open Lab", "Group D POM1: MSK 2/Derm PE", "Group D POM1: NEURO CR", "Group D POM1: NEURO/Derm PE", "Group D POM1: OSCE Practice", "Group D POM1: PETA Session: CV", "Group D POM1: PULM PE", "Group D POM1: Pulm CR", "Group D POM1: w/LC Small Groups", "Heme / Onc: CBL", "Heme / Onc: TBL", "Immunology: CBL", "Immunology: TBL", "Intro to Clinical Reasoning", "Intro to EBM", "Intro to OSCE", "Intro to Ultrasound", "MSK: CBL", "MSK: TBL", "Neuro: CBL", "Neuro: TBL", "Orientation", "POM 1: Orientation", "POM 2: Orientation", "POM 3: Orientation", "Pulmonary: CBL", "Pulmonary: TBL", "Renal: CBL", "Renal: TBL", "Simulation Session", "TBL", "Ultrasound Lab", "Vital Signs Workshop"];
 const COHORT_YEARS=['2029','2030','2031','2032','2033','2034','2035','2036','2037','2038'];
 const YEAR_COLORS={'2029':'#C62828','2030':'#1565C0','2031':'#2E7D32','2032':'#6A1B9A','2033':'#BF360C','2034':'#00695C','2035':'#4527A0','2036':'#E65100','2037':'#00838F','2038':'#558B2F'};
 
@@ -1172,7 +1188,7 @@ function defaultMSub(yr){
 }
 function loadVisibility(){
   try{const v=localStorage.getItem('enmed_cal_vis');if(v)calendarVisibility=JSON.parse(v);}catch(e){}
-  COHORT_YEARS.forEach(y=>['M1','M2'].forEach(m=>{
+  COHORT_YEARS.forEach(y=>['M0','M1','M2'].forEach(m=>{
     const key=y+'-'+m;
     if(calendarVisibility[key]===undefined)calendarVisibility[key]=true;
   }));
@@ -1185,7 +1201,7 @@ function saveVisibility(){
   // Re-evaluate currentMSub in case the active class was just hidden
   if(!selectedYears.has('All')&&selectedYears.size===1){
     const yr=[...selectedYears][0];
-    if(calendarVisibility[yr+'-'+currentMSub]===false)currentMSub=defaultMSub(yr);
+    if(currentMSub!=='M0'&&calendarVisibility[yr+'-'+currentMSub]===false)currentMSub=defaultMSub(yr);
   }
   updateYearUI();
   updateYearTabBadges();
@@ -1195,7 +1211,7 @@ function saveVisibility(){
 function renderVisibilityToggles(){
   if(!isFacultyMode)return;
   const el=document.getElementById('visibilityToggles');if(!el)return;
-  el.innerHTML=COHORT_YEARS.map(y=>['M1','M2'].map(m=>{
+  el.innerHTML=COHORT_YEARS.map(y=>['M0','M1','M2'].map(m=>{
     const key=y+'-'+m;
     const on=calendarVisibility[key]!==false;
     const col=YEAR_COLORS[y]||'#888';
@@ -1311,7 +1327,7 @@ function updateYearUI(){
   document.querySelectorAll('.yr-check-label').forEach(el=>{
     const yr=el.dataset.yr;
     if(!isFacultyMode && yr!=='All'){
-      const anyVisible=calendarVisibility[yr+'-M1']!==false||calendarVisibility[yr+'-M2']!==false;
+      const anyVisible=calendarVisibility[yr+'-M0']!==false||calendarVisibility[yr+'-M1']!==false||calendarVisibility[yr+'-M2']!==false;
       el.style.display=anyVisible?'':'none';
     } else {
       el.style.display='';
@@ -1348,7 +1364,7 @@ function updateYearUI(){
       else{b.style.background='';b.style.borderColor='';b.style.color='';}
       // Hide M sub-button if hidden in student mode
       if(!isFacultyMode){
-        b.style.display=calendarVisibility[yr+'-'+b.dataset.m]!==false?'':'none';
+        b.style.display=(b.dataset.m==='M0'?calendarVisibility[yr+'-M0']!==false:calendarVisibility[yr+'-'+b.dataset.m]!==false)?'':'none';
       } else {b.style.display='';}
     });
   } else {
@@ -1422,14 +1438,10 @@ function updateTabCounts(){
 
 // ── MCAL COLOR ────────────────────────────────────────────────
 function mCalColor(e){
-  const yr=String(e.calYear||'2028');
-  const base=YEAR_COLORS[yr]||'#500000';
-  // M2 gets a slightly lighter shade to distinguish within same year
-  if((e.mCal||'M1')==='M2'){
-    // blend toward white slightly
-    return base+'CC'; // add alpha — but for solid we use the base
-  }
-  return base;
+  const m=e.mCal||'M1';
+  if(m==='M0')return'#E65100';
+  if(m==='M2')return'#2E7D32';
+  return'#1565C0';
 }
 function yearColor(yr){return YEAR_COLORS[String(yr)]||'#500000';}
 function yearClass(ev){
@@ -1632,6 +1644,7 @@ function parseBulkRows(rows){
     const calYear=String(row[5]||'').trim();
     const mCal=String(row[6]||'M1').trim();
     const presenter=String(row[13]||'').trim();
+    const notes=String(row[14]||'').trim();
     
     // Date parsing — handle Excel serial numbers and string dates
     let dateStr='';
@@ -1674,7 +1687,7 @@ function parseBulkRows(rows){
 
     bulkParsed.push({
       _id:Date.now()+'_'+i,
-      title,heal,exam,group,location,mCal,calYear,presenter,
+      title,heal,exam,group,location,mCal,calYear,presenter,notes,
       date:dateStr,start,end,
       category:CAT_LIST.includes(category)?category:'Session',
       block:BLK_LIST.includes(block)?block:blockFromWeek(weekNum||28),
@@ -1702,7 +1715,7 @@ function renderBulkPreview(){
     showToast('⚠️ No data rows found. Make sure you are using the EnMed template.');
     return;
   }
-  const cols=['Session Name','HEAL','Exam','Group','Location','Calendar','Year','Date','Start','End','Category','Block','Errors'];
+  const cols=['Session Name','HEAL','Exam','Group','Location','Calendar','Year','Date','Start','End','Category','Block','Add. Info','Errors'];
   let tbl=`<table><tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr>`;
   bulkParsed.forEach(r=>{
     const cls=r._valid?'ok':'err';
@@ -1763,6 +1776,7 @@ async function saveForm(){
   const exam=(document.getElementById('ff_exam')||{value:''}).value.trim();
   const group=(document.getElementById('ff_group')||{value:''}).value.trim();
   const location=(document.getElementById('ff_location')||{value:''}).value.trim();
+  const notes=(document.getElementById('ff_notes')||{value:''}).value.trim();
   const ev={title,date,start,end,category:cat,block,weekNum,week:weekNameFor(weekNum),desc:title,calYear,mCal,heal,exam,group,location,_id:editingId||(Date.now()+'')};
   try{
     if(editingId){const i=EVENTS.findIndex(e=>e._id===editingId);if(i>=0)EVENTS[i]=ev;}
