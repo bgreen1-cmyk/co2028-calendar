@@ -413,6 +413,20 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
 .m-sub-btn[data-m="M0"].active{background:#E65100 !important;border-color:#E65100 !important;color:white !important}
 
+
+/* MCAL FILTER CHECKS */
+.yr-check-label[data-mc="All"].checked{border-color:var(--maroon);color:var(--maroon);background:rgba(80,0,0,.07)}
+.yr-check-label[data-mc="All"].checked .yr-check-box{border-color:var(--maroon);background:var(--maroon)}
+.yr-check-label[data-mc="M0"].checked{border-color:#E65100;color:#E65100;background:rgba(230,81,0,.07)}
+.yr-check-label[data-mc="M0"].checked .yr-check-box{border-color:#E65100;background:#E65100}
+.yr-check-label[data-mc="M1"].checked{border-color:#1565C0;color:#1565C0;background:rgba(21,101,192,.07)}
+.yr-check-label[data-mc="M1"].checked .yr-check-box{border-color:#1565C0;background:#1565C0}
+.yr-check-label[data-mc="M2"].checked{border-color:#2E7D32;color:#2E7D32;background:rgba(46,125,50,.07)}
+.yr-check-label[data-mc="M2"].checked .yr-check-box{border-color:#2E7D32;background:#2E7D32}
+.yr-check-label[data-mc="Student Affairs"].checked{border-color:#6A1B9A;color:#6A1B9A;background:rgba(106,27,154,.07)}
+.yr-check-label[data-mc="Student Affairs"].checked .yr-check-box{border-color:#6A1B9A;background:#6A1B9A}
+.yr-check-label .yr-check-box::after{background:white}
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </head>
@@ -478,7 +492,6 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
   <div class="header-right">
     <span class="faculty-badge" id="facultyBadge" style="display:none">LIVE EDITING</span>
     <button class="btn-sm gold" id="addEventBtn" style="display:none" onclick="openAddForm()">+ Add Event</button>
-    <button class="btn-sm outlook" onclick="exportICS()">Export to Outlook</button>
     <button class="btn-sm" onclick="loadEvents()" title="Refresh">↻</button>
     <button class="btn-sm" onclick="openConfig()">⚙</button>
     <button class="btn-sm" onclick="window.print()">Print</button>
@@ -494,7 +507,7 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 
 <!-- LAYOUT -->
 <div class="layout faculty-mode" id="layout" style="display:none">
-  <div class="sidebar">
+  <div class="sidebar" id="sidebarFilters" style="display:none">
     <div class="sb-section">
       <div class="sb-heading">By Year</div>
       <select class="block-filter-select" id="yearFilterSelect" onchange="setYearSidebar(this.value)">
@@ -538,50 +551,24 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
       <button class="today-btn" onclick="goToToday()">Today</button>
     </div>
 
-    <!-- TIER 1: YEAR CHECKBOXES -->
-    <div class="year-checks" id="yearChecks">
-      <label class="yr-check-label checked" data-yr="All" onclick="toggleYear('All')">
-        <div class="yr-check-box"></div>All Years <span class="yr-count" id="cnt-All"></span>
+    <!-- CALENDAR FILTER: M0 / M1 / M2 / Student Affairs -->
+    <div class="year-checks" id="calFilterRow" style="margin-bottom:10px">
+      <label class="yr-check-label checked" data-mc="All" onclick="toggleMCal('All')">
+        <div class="yr-check-box"></div>All
       </label>
       <div class="mcal-divider"></div>
-      <label class="yr-check-label" data-yr="2029" onclick="toggleYear('2029')">
-        <div class="yr-check-box"></div>2029 <span class="yr-count" id="cnt-2029"></span>
+      <label class="yr-check-label" data-mc="M0" onclick="toggleMCal('M0')">
+        <div class="yr-check-box"></div>M0
       </label>
-      <label class="yr-check-label" data-yr="2030" onclick="toggleYear('2030')">
-        <div class="yr-check-box"></div>2030 <span class="yr-count" id="cnt-2030"></span>
+      <label class="yr-check-label" data-mc="M1" onclick="toggleMCal('M1')">
+        <div class="yr-check-box"></div>M1
       </label>
-      <label class="yr-check-label" data-yr="2031" onclick="toggleYear('2031')">
-        <div class="yr-check-box"></div>2031 <span class="yr-count" id="cnt-2031"></span>
+      <label class="yr-check-label" data-mc="M2" onclick="toggleMCal('M2')">
+        <div class="yr-check-box"></div>M2
       </label>
-      <label class="yr-check-label" data-yr="2032" onclick="toggleYear('2032')">
-        <div class="yr-check-box"></div>2032 <span class="yr-count" id="cnt-2032"></span>
+      <label class="yr-check-label" data-mc="Student Affairs" onclick="toggleMCal('Student Affairs')">
+        <div class="yr-check-box"></div>Student Affairs
       </label>
-      <label class="yr-check-label" data-yr="2033" onclick="toggleYear('2033')">
-        <div class="yr-check-box"></div>2033 <span class="yr-count" id="cnt-2033"></span>
-      </label>
-      <label class="yr-check-label" data-yr="2034" onclick="toggleYear('2034')">
-        <div class="yr-check-box"></div>2034 <span class="yr-count" id="cnt-2034"></span>
-      </label>
-      <label class="yr-check-label" data-yr="2035" onclick="toggleYear('2035')">
-        <div class="yr-check-box"></div>2035 <span class="yr-count" id="cnt-2035"></span>
-      </label>
-      <label class="yr-check-label" data-yr="2036" onclick="toggleYear('2036')">
-        <div class="yr-check-box"></div>2036 <span class="yr-count" id="cnt-2036"></span>
-      </label>
-      <label class="yr-check-label" data-yr="2037" onclick="toggleYear('2037')">
-        <div class="yr-check-box"></div>2037 <span class="yr-count" id="cnt-2037"></span>
-      </label>
-      <label class="yr-check-label" data-yr="2038" onclick="toggleYear('2038')">
-        <div class="yr-check-box"></div>2038 <span class="yr-count" id="cnt-2038"></span>
-      </label>
-    </div>
-
-    <!-- TIER 2: M1/M2 sub-filter (shown when single year selected) -->
-    <div class="m-sub-row" id="mSubRow">
-      <span style="font-size:10px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px">Class:</span>
-      <button class="m-sub-btn active" data-m="M0" onclick="setMSub(this,'M0')">M0</button>
-      <button class="m-sub-btn" data-m="M1" onclick="setMSub(this,'M1')">M1</button>
-      <button class="m-sub-btn" data-m="M2" onclick="setMSub(this,'M2')">M2</button>
     </div>
 
     <!-- COLOR LEGEND -->
@@ -590,6 +577,7 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
       <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#E65100;margin-right:4px"></span>M0</span>
       <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#1565C0;margin-right:4px"></span>M1</span>
       <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#2E7D32;margin-right:4px"></span>M2</span>
+      <span class="legend-item"><span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#6A1B9A;margin-right:4px"></span>Student Affairs</span>
       <span style="width:1px;height:16px;background:var(--border);flex-shrink:0;margin:0 4px"></span>
       <span class="legend-label">Type (left stripe):</span>
       <span class="legend-item"><span class="legend-dot" style="background:#b97cf7"></span>TBL</span>
@@ -651,7 +639,6 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     </div>
     <div class="fp-footer">
       <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5">Changes save directly to GitHub — everyone sees updates within seconds.</div>
-      <button class="btn-full" onclick="exportICS()" style="background:var(--maroon);color:white;padding:10px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Export to Outlook (.ics)</button>
       <button class="btn-full" onclick="openBulkUpload()" style="background:#1565C0;color:white;padding:10px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;margin-top:0">📤 Bulk Upload (.xlsx)</button>
     </div>
   </div>
@@ -670,8 +657,7 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     </div>
     <div class="modal-body">
       <div class="modal-row"><div class="m-icon">🗓</div><div><div class="m-label">Date &amp; Time</div><div class="m-val" id="modalDate"></div></div></div>
-      <div class="modal-row" id="modalHealRow" style="display:none"><div class="m-icon">🧠</div><div><div class="m-label">Active Learning / HEAL Session</div><div class="m-val" id="modalHeal"></div></div></div>
-      <div class="modal-row" id="modalExamRow" style="display:none"><div class="m-icon">📋</div><div><div class="m-label">Exam</div><div class="m-val" id="modalExam"></div></div></div>
+      <div class="modal-row" id="modalMandRow" style="display:none"><div class="m-icon">⚠️</div><div><div class="m-label">Mandatory Attendance</div><div class="m-val" id="modalMand" style="font-weight:700;color:#C62828"></div></div></div>
       <div class="modal-row" id="modalGroupRow" style="display:none"><div class="m-icon">👥</div><div><div class="m-label">Group Assigned</div><div class="m-val" id="modalGroup"></div></div></div>
       <div class="modal-row" id="modalLocationRow" style="display:none"><div class="m-icon">📍</div><div><div class="m-label">Session Location</div><div class="m-val" id="modalLocation"></div></div></div>
       <div class="modal-row" id="modalNotesRow" style="display:none"><div class="m-icon">📌</div><div><div class="m-label">Additional Information</div><div class="m-val" id="modalNotes" style="white-space:pre-wrap;line-height:1.6"></div></div></div>
@@ -862,6 +848,7 @@ function initApp(){
   loadVisibility();
   populateBlockDropdown();
   populateYearDropdown();
+  updateMCalUI();
   document.getElementById('configOverlay').style.display='none'; // always hidden for guests
   document.getElementById('appHeader').style.display='flex';
   document.getElementById('statusBar').style.display='flex';
@@ -1065,11 +1052,9 @@ function openModal(e){
   document.getElementById('modalTitle').textContent=e.title.replace(/\s{2,}/g,' ').trim();
   document.getElementById('modalCat').textContent=`${e.calYear||'2028'} ${e.mCal||'M1'} · ${e.category}`;document.getElementById('modalCat').style.color=col;
   document.getElementById('modalDate').textContent=`${fmtDate(e.date)}, ${fmtTime(e.start)} – ${fmtTime(e.end)}`;
-  const heal=e.heal||'';const exam=e.exam||'';const grp=e.group||'';const loc=e.location||'';const notes=e.notes||'';
-  document.getElementById('modalHealRow').style.display=heal?'flex':'none';
-  if(document.getElementById('modalHeal'))document.getElementById('modalHeal').textContent=heal;
-  document.getElementById('modalExamRow').style.display=exam?'flex':'none';
-  if(document.getElementById('modalExam'))document.getElementById('modalExam').textContent=exam;
+  const mand=e.mand||'No';const grp=e.group||'';const loc=e.location||'';const notes=e.notes||'';
+  document.getElementById('modalMandRow').style.display=mand==='Yes'?'flex':'none';
+  if(document.getElementById('modalMand'))document.getElementById('modalMand').textContent='Required';
   document.getElementById('modalGroupRow').style.display=grp?'flex':'none';
   if(document.getElementById('modalGroup'))document.getElementById('modalGroup').textContent=grp;
   document.getElementById('modalLocationRow').style.display=loc?'flex':'none';
@@ -1091,12 +1076,14 @@ function setMode(mode){
   if(!isFacultyMode)document.querySelectorAll('.mode-btn')[0].classList.add('active');
   else document.querySelectorAll('.mode-btn')[1].classList.add('faculty-active');
   document.getElementById('facultyPanel').classList.toggle('open',isFacultyMode);
+  document.getElementById('sidebarFilters').style.display=isFacultyMode?'':'none';
   document.getElementById('facultyBadge').style.display=isFacultyMode?'':'none';
   document.getElementById('addEventBtn').style.display=isFacultyMode?'':'none';
   document.getElementById('layout').classList.toggle('faculty-mode',isFacultyMode);
   if(!isFacultyMode)closeForm();
   renderVisibilityToggles();
   populateYearDropdown();
+  updateMCalUI();
   updateYearUI();  // show/hide tabs based on visibility
   render();
 }
@@ -1111,14 +1098,13 @@ function formHTML(e,isEdit){
   const weekOpts=WEEKS.map(wk=>`<option value="${wk.num}" ${(e?e.weekNum:w.num)===wk.num?'selected':''}>${wk.name}</option>`).join('');
   const startTimes=['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00'];
   const endTimes=['09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00'];
-  return`<div class="form-group"><label class="form-label">[MAND] Session Name *</label>
-    <input class="form-input" id="ff_title" list="sessionNameList" value="${(e?e.title:'').replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" placeholder="Type or select a session name" autocomplete="off">
-    <datalist id="sessionNameList">${SESSION_NAMES.map(s=>`<option value="${s}"></option>`).join('')}</datalist>
-  </div>
-  <div class="form-group"><label class="form-label">Active Learning / HEAL Session</label><input class="form-input" id="ff_heal" value="${(e&&e.heal?e.heal:'').replace(/"/g,'&quot;')}" placeholder="e.g. POM 2: HEAL"></div>
-  <div class="form-group"><label class="form-label">Exam</label><input class="form-input" id="ff_exam" value="${(e&&e.exam?e.exam:'').replace(/"/g,'&quot;')}" placeholder="e.g. POM 2: Final OSCE"></div>
-  <div class="form-group"><label class="form-label">Group Assigned</label><input class="form-input" id="ff_group" value="${(e&&e.group?e.group:'').replace(/"/g,'&quot;')}" placeholder="e.g. Group A, All Students"></div>
-  <div class="form-group"><label class="form-label">Session Location</label><input class="form-input" id="ff_location" value="${(e&&e.location?e.location:'').replace(/"/g,'&quot;')}" placeholder="e.g. Room 212 A/B, EnMed Tower"></div>
+  return`<div class="form-group"><label class="form-label">[MAND]</label><select class="form-select" id="ff_mand">
+    <option value="No" \${(!e||!e.mand||e.mand==='No')?'selected':''}>No</option>
+    <option value="Yes" \${(e&&e.mand==='Yes')?'selected':''}>Yes</option>
+  </select></div>
+  <div class="form-group"><label class="form-label">Session Name *</label><input class="form-input" id="ff_title" value="\${(e?e.title:'').replace(/"/g,'&quot;')}" placeholder="e.g. POM 1: What's a Physician — free text"></div>
+  <div class="form-group"><label class="form-label">Group Assigned</label><input class="form-input" id="ff_group" value="\${(e&&e.group?e.group:'').replace(/"/g,'&quot;')}" placeholder="e.g. Group A, All Students"></div>
+  <div class="form-group"><label class="form-label">Session Location</label><input class="form-input" id="ff_location" value="\${(e&&e.location?e.location:'').replace(/"/g,'&quot;')}" placeholder="e.g. Room 212 A/B, EnMed Tower"></div>
   <div class="form-row">
     <div class="form-group"><label class="form-label">Cohort Year *</label><select class="form-select" id="ff_calyear">
       <option value="2029" ${(!e||!e.calYear||e.calYear==='2029')?'selected':''}>2029</option>
@@ -1172,6 +1158,7 @@ const COHORT_YEARS=['2029','2030','2031','2032','2033','2034','2035','2036','203
 const YEAR_COLORS={'2029':'#C62828','2030':'#1565C0','2031':'#2E7D32','2032':'#6A1B9A','2033':'#BF360C','2034':'#00695C','2035':'#4527A0','2036':'#E65100','2037':'#00838F','2038':'#558B2F'};
 
 let selectedYears=new Set(['All']);
+let selectedMCals=new Set(['All']); // M0/M1/M2/Student Affairs
 let currentMSub='M1';
 
 // Calendar visibility (faculty controlled, stored in localStorage)
@@ -1229,6 +1216,40 @@ function toggleVisibility(key,el){
   el.querySelector('span:last-child').textContent=calendarVisibility[key]?'Visible':'Hidden';
 }
 
+
+// ── MCAL FILTER (M0/M1/M2/Student Affairs) ───────────────────
+function toggleMCal(mc){
+  if(mc==='All'){
+    selectedMCals=new Set(['All']);
+  } else {
+    selectedMCals.delete('All');
+    if(selectedMCals.has(mc)){
+      selectedMCals.delete(mc);
+      if(selectedMCals.size===0) selectedMCals=new Set(['All']);
+    } else {
+      selectedMCals.add(mc);
+      const allOptions=new Set(['M0','M1','M2','Student Affairs']);
+      if([...allOptions].every(v=>selectedMCals.has(v))) selectedMCals=new Set(['All']);
+    }
+  }
+  updateMCalUI();
+  updateTitle();
+  render();
+}
+function updateMCalUI(){
+  document.querySelectorAll('.yr-check-label[data-mc]').forEach(el=>{
+    const mc=el.dataset.mc;
+    // In student mode: hide if visibility is off for ALL years for this mCal
+    if(!isFacultyMode && mc!=='All'){
+      const anyVisible=COHORT_YEARS.some(yr=>calendarVisibility[yr+'-'+mc]!==false);
+      el.style.display=anyVisible?'':'none';
+    } else {
+      el.style.display='';
+    }
+    const checked=selectedMCals.has('All')?mc==='All':(mc!=='All'&&selectedMCals.has(mc));
+    el.classList.toggle('checked', checked);
+  });
+}
 function toggleYear(yr){
   if(yr==='All'){
     selectedYears=new Set(['All']);
@@ -1292,6 +1313,10 @@ function populateYearDropdown(){
   if(!sel)return;
   // Remove all except first "All" option
   while(sel.options.length>1)sel.remove(1);
+  // Add Student Affairs as first option
+  const saOpt=document.createElement('option');
+  saOpt.value='SA';saOpt.textContent='Student Affairs';
+  sel.appendChild(saOpt);
   COHORT_YEARS.forEach(yr=>{
     // In student mode: skip years where both M1 and M2 are hidden
     if(!isFacultyMode){
@@ -1374,11 +1399,20 @@ function updateYearUI(){
 }
 function updateTitle(){
   const t=document.getElementById('toolbarTitle');if(!t)return;
-  if(selectedYears.has('All')||selectedYears.size===0){t.textContent='EnMed Calendar';return;}
-  const yrs=[...selectedYears].sort();
-  const mLabel=currentMSub&&currentMSub!=='All'?' — '+currentMSub:'';
-  if(yrs.length===1){t.textContent=`${yrs[0]}${mLabel} Calendar`;}
-  else{t.textContent=yrs.join(' / ')+mLabel+' Calendar';}
+  // If MCal filter is specific
+  if(!selectedMCals.has('All')&&selectedMCals.size===1){
+    const mc=[...selectedMCals][0];
+    const labels={'M0':'M0 Pre-Matriculation','M1':'M1','M2':'M2','Student Affairs':'Student Affairs'};
+    t.textContent=(labels[mc]||mc)+' Calendar';return;
+  }
+  if(!selectedMCals.has('All')&&selectedMCals.size>1){
+    t.textContent=[...selectedMCals].join(' / ')+' Calendar';return;
+  }
+  if(!selectedYears.has('All')&&selectedYears.size>0){
+    const yrs=[...selectedYears].sort();
+    t.textContent=(yrs.length===1?yrs[0]:yrs.join(' / '))+' Calendar';return;
+  }
+  t.textContent='EnMed Calendar';
 }
 
 // ── TODAY BUTTON ──────────────────────────────────────────────
@@ -1441,6 +1475,7 @@ function mCalColor(e){
   const m=e.mCal||'M1';
   if(m==='M0')return'#E65100';
   if(m==='M2')return'#2E7D32';
+  if(m==='Student Affairs')return'#6A1B9A';
   return'#1565C0';
 }
 function yearColor(yr){return YEAR_COLORS[String(yr)]||'#500000';}
@@ -1453,16 +1488,18 @@ function filteredEvents(){
   return EVENTS.filter(e=>{
     const blockOk=currentBlockFilter==='All'||(e.block||'')===currentBlockFilter;
     const catOk=currentFilter==='All'||e.category===currentFilter;
-    const evYear=String(e.calYear||'2028');
+    const evYear=String(e.calYear||'2029');
     const evMCal=e.mCal||'M1';
-    // Check visibility (student mode respects visibility; faculty sees all)
+    // Visibility check (student mode)
     if(!isFacultyMode){
       const key=evYear+'-'+evMCal;
       if(calendarVisibility[key]===false)return false;
     }
+    // Year sidebar filter
     const yrOk=selectedYears.has('All')||selectedYears.has(evYear);
-    const mOk=currentMSub==='All'||evMCal===currentMSub;
-    return catOk&&yrOk&&mOk&&blockOk;
+    // M-cal header filter
+    const mcOk=selectedMCals.has('All')||selectedMCals.has(evMCal);
+    return catOk&&yrOk&&mcOk&&blockOk;
   });
 }
 
@@ -1576,8 +1613,6 @@ function applyCatalogSession(){
   if(!s)return;
   const set=(id,v)=>{const el=document.getElementById(id);if(el&&v)el.value=v;};
   set('ff_title',s.name);
-  set('ff_heal',s.heal);
-  set('ff_exam',s.exam);
   set('ff_group',s.group);
   set('ff_location',s.location);
   // Set calendar year and M-cal
@@ -1636,15 +1671,14 @@ function parseBulkRows(rows){
 
   rows.forEach((row,i)=>{
     if(!row[0]&&!row[5]&&!row[7])return; // skip fully empty rows
-    const title=String(row[0]||'').trim();
-    const heal=String(row[1]||'').trim();
-    const exam=String(row[2]||'').trim();
-    const group=String(row[3]||'').trim();
-    const location=String(row[4]||'').trim();
-    const calYear=String(row[5]||'').trim();
-    const mCal=String(row[6]||'M1').trim();
-    const presenter=String(row[13]||'').trim();
-    const notes=String(row[14]||'').trim();
+    const mand=String(row[0]||'No').trim()||'No';
+    const title=String(row[1]||'').trim();
+    const group=String(row[2]||'').trim();
+    const location=String(row[3]||'').trim();
+    const calYear=String(row[4]||'').trim();
+    const mCal=String(row[5]||'M1').trim();
+    const presenter=String(row[12]||'').trim();
+    const notes=String(row[13]||'').trim();
     
     // Date parsing — handle Excel serial numbers and string dates
     let dateStr='';
@@ -1659,6 +1693,11 @@ function parseBulkRows(rows){
       dateStr=`${String(d.m).padStart(2,'0')}/${String(d.d).padStart(2,'0')}/${d.y}`;
     } else {
       dateStr=String(rawDate||'').trim();
+      // Normalize M/D/YYYY → MM/DD/YYYY
+      if(dateStr && !dateStr.match(/^\d{2}\//)){
+        const dp=dateStr.split('/');
+        if(dp.length===3)dateStr=`${dp[0].padStart(2,'0')}/${dp[1].padStart(2,'0')}/${dp[2]}`;
+      }
     }
 
     // Time parsing
@@ -1666,7 +1705,10 @@ function parseBulkRows(rows){
       if(!v)return'';
       if(v instanceof Date)return`${String(v.getHours()).padStart(2,'0')}:${String(v.getMinutes()).padStart(2,'0')}`;
       if(typeof v==='number'){const h=Math.floor(v*24);const m=Math.round((v*24-h)*60);return`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;}
-      return String(v).trim();
+      const ts=String(v).trim();
+      // Normalize H:MM → HH:MM
+      if(ts.match(/^\d:\d{2}$/))return'0'+ts;
+      return ts;
     }
     const start=parseTime(row[8]);
     const end=parseTime(row[9]);
@@ -1677,8 +1719,8 @@ function parseBulkRows(rows){
     // Validate
     const errs=[];
     if(!title)errs.push('Missing session name');
-    if(!['M1','M2'].includes(mCal))errs.push(`Invalid class: "${mCal}" — use M1 or M2`);
-    if(!['2026','2027','2028','2029','2030','2031'].includes(calYear))errs.push(`Invalid cohort year: "${calYear}" — use 2026–2031`);
+    if(!['M0','M1','M2'].includes(mCal))errs.push(`Invalid class: "${mCal}" — use M0, M1, or M2`);
+    if(!['2026','2027','2028','2029','2030','2031'].includes(calYear))errs.push(`Invalid cohort year: "${calYear}" — use 2029–2038`);
     if(!/^\d{2}\/\d{2}\/\d{4}$/.test(dateStr))errs.push(`Invalid date: "${dateStr}"`);
     if(!/^\d{2}:\d{2}$/.test(start))errs.push(`Invalid start time: "${start}"`);
     if(!/^\d{2}:\d{2}$/.test(end))errs.push(`Invalid end time: "${end}"`);
@@ -1687,7 +1729,7 @@ function parseBulkRows(rows){
 
     bulkParsed.push({
       _id:Date.now()+'_'+i,
-      title,heal,exam,group,location,mCal,calYear,presenter,notes,
+      title,mand,group,location,mCal,calYear,presenter,notes,
       date:dateStr,start,end,
       category:CAT_LIST.includes(category)?category:'Session',
       block:BLK_LIST.includes(block)?block:blockFromWeek(weekNum||28),
@@ -1715,7 +1757,7 @@ function renderBulkPreview(){
     showToast('⚠️ No data rows found. Make sure you are using the EnMed template.');
     return;
   }
-  const cols=['Session Name','HEAL','Exam','Group','Location','Calendar','Year','Date','Start','End','Category','Block','Add. Info','Errors'];
+  const cols=['MAND','Session Name','Group','Location','Year','Class','Date','Start','End','Category','Block','Week','Presenter','Notes','Errors'];
   let tbl=`<table><tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr>`;
   bulkParsed.forEach(r=>{
     const cls=r._valid?'ok':'err';
@@ -1772,12 +1814,11 @@ async function saveForm(){
   btn.textContent='Saving to GitHub...';btn.disabled=true;
   const calYear=document.getElementById('ff_calyear').value||'2028';
   const mCal=(document.getElementById('ff_mcal')||{value:'M1'}).value||'M1';
-  const heal=(document.getElementById('ff_heal')||{value:''}).value.trim();
-  const exam=(document.getElementById('ff_exam')||{value:''}).value.trim();
+  const mand=(document.getElementById('ff_mand')||{value:'No'}).value;
   const group=(document.getElementById('ff_group')||{value:''}).value.trim();
   const location=(document.getElementById('ff_location')||{value:''}).value.trim();
   const notes=(document.getElementById('ff_notes')||{value:''}).value.trim();
-  const ev={title,date,start,end,category:cat,block,weekNum,week:weekNameFor(weekNum),desc:title,calYear,mCal,heal,exam,group,location,_id:editingId||(Date.now()+'')};
+  const ev={title,date,start,end,category:cat,block,weekNum,week:weekNameFor(weekNum),desc:title,calYear,mCal,mand,group,location,_id:editingId||(Date.now()+'')};
   try{
     if(editingId){const i=EVENTS.findIndex(e=>e._id===editingId);if(i>=0)EVENTS[i]=ev;}
     else EVENTS.push(ev);
@@ -1878,5 +1919,452 @@ initApp();
   </div>
 </div>
 
+</body>
+</html    tbl+=`<tr class="\${cls}">
+      <td>\${r.mand||'No'}</td>
+      <td>\${r.title.substring(0,35)}</td>
+      <td>\${r.group}</td>
+      <td>\${(r.location||'').substring(0,20)}</td>
+      <td>\${r.calYear}</td>
+      <td>\${r.mCal}</td>
+      <td>\${r.date}</td>
+      <td>\${r.start}</td>
+      <td>\${r.end}</td>
+      <td>\${r.category}</td>
+      <td>\${(r.block||'').substring(0,15)}</td>
+      <td>\${r.weekNum||''}</td>
+      <td>\${(r.presenter||'').substring(0,15)}</td>
+      <td>\${(r.notes||'').substring(0,20)}</td>
+      <td style="color:\${r._valid?'#3ecf8e':'#f05c6e'}">\${errText}</td>
+    </tr>`;YPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M1 Calendar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --maroon:#500000;
+  --accent:#500000;
+  --maroon-dk:#3a0000;
+  --maroon-lt:#6a0000;
+  --gray-dk:#474747;
+  --gray-md:#8d8d8d;
+  --white:#ffffff;
+  --black:#000000;
+  --bg:#f5f5f5;
+  --surface:#ffffff;
+  --surface2:#f7f3f3;
+  --surface3:#efe8e8;
+  --border:#d8cccc;
+  --border-dk:#b8a8a8;
+  --text:#000000;
+  --muted:#474747;
+  --muted2:#636363;
+  /* Event/block colors unchanged */
+  --heme:#f05c6e;--resp:#4f8ef7;--renal:#3ecf8e;--gi:#f7a14f;
+  --endo:#b97cf7;--msk:#4fd6f7;--brk:#7a829a;
+  --cat-mandatory:#4f8ef7;--cat-faculty:#3ecf8e;--cat-tbl:#b97cf7;
+  --cat-cbse:#f05c6e;--cat-session:#4a5168;--cat-itde:#4fd6f7;--cat-exam:#f7a14f;
+}
+html,body{min-height:100vh;background:var(--bg);color:var(--black);font-family:'DM Sans',sans-serif;font-size:14px}
+
+/* CONFIG */
+.config-overlay{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;padding:20px}
+.config-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;max-width:500px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.config-box h1{font-size:22px;font-weight:700;margin-bottom:6px}
+.config-box .sub{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+.config-step{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start}
+.config-num{width:26px;height:26px;border-radius:50%;background:var(--accent);color:white;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.config-step-body{flex:1}
+.config-step-body label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);display:block;margin-bottom:6px}
+.config-step-body input{width:100%;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Mono',monospace;font-size:13px;outline:none;transition:border-color .15s}
+.config-step-body input:focus{border-color:var(--accent)}
+.config-step-body .hint{font-size:11px;color:var(--muted2);margin-top:5px;line-height:1.5}
+.config-step-body .hint code{background:var(--surface3);padding:1px 6px;border-radius:4px;font-family:'DM Mono',monospace;font-size:11px;color:var(--accent)}
+.config-btn{width:100%;padding:12px;border-radius:10px;border:none;background:var(--accent);color:white;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-top:8px;transition:all .15s}
+.config-btn:hover{background:#3a7de8}
+.config-err{font-size:12px;color:#f05c6e;margin-top:10px;min-height:18px;text-align:center;line-height:1.5}
+.security-note{margin-top:16px;padding:12px;background:rgba(62,207,142,.08);border:1px solid rgba(62,207,142,.2);border-radius:8px;font-size:11px;color:#3ecf8e;line-height:1.6}
+
+/* HEADER */
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:14px;height:56px;position:sticky;top:0;z-index:200}
+.logo{font-size:15px;font-weight:600;display:flex;align-items:center;gap:10px}
+.logo-badge{background:var(--accent);color:white;font-family:'DM Mono',monospace;font-size:11px;padding:3px 8px;border-radius:4px}
+.header-center{flex:1;display:flex;justify-content:center}
+.mode-toggle{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--surface2)}
+.mode-btn{padding:6px 18px;background:transparent;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--muted);transition:all .15s}
+.mode-btn.active{background:var(--accent);color:white}
+.mode-btn.faculty-active{background:var(--gray-dk);color:#1a1200}
+.header-right{display:flex;align-items:center;gap:8px}
+.btn-sm{padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:all .15s}
+.btn-sm:hover{background:var(--surface2);color:var(--text)}
+.btn-sm.gold{background:var(--gray-dk);color:#1a1200;border-color:var(--gray-dk);font-weight:700}
+.btn-sm.outlook{border-color:#0078d433;color:#4f8ef7}
+.faculty-badge{background:var(--gray-dk);color:#1a1200;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* STATUS */
+.status-bar{background:var(--surface2);border-bottom:1px solid var(--border);padding:6px 24px;display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted)}
+.status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.status-dot.live{background:#3ecf8e;box-shadow:0 0 6px #3ecf8e88;animation:blink 2s infinite}
+.status-dot.offline{background:var(--muted2)}
+.status-dot.loading{background:var(--gray-dk);animation:blink 1s infinite}
+.status-right{margin-left:auto;font-size:10px;color:var(--muted2)}
+
+/* LAYOUT */
+.layout{display:flex;min-height:calc(100vh - 56px)}
+
+/* SIDEBAR */
+.sidebar{width:220px;flex-shrink:0;background:var(--surface);border-right:1px solid var(--border);padding:20px 0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;display:flex;flex-direction:column}
+.sb-section{margin-bottom:8px}
+.sb-heading{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted2);padding:8px 20px 5px}
+.sb-item{display:flex;align-items:center;gap:10px;padding:8px 20px;font-size:13px;color:var(--muted);cursor:pointer;transition:all .12s;border-left:3px solid transparent}
+.sb-item:hover{color:var(--text);background:var(--surface2)}
+.sb-item.active{color:var(--text);background:rgba(79,142,247,.09);border-left-color:var(--accent)}
+.sb-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.sb-count{margin-left:auto;font-size:10px;color:var(--muted2);font-family:'DM Mono',monospace}
+
+/* MAIN */
+.main{flex:1;padding:24px;overflow-x:auto;min-width:0}
+.toolbar{display:flex;align-items:flex-start;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.toolbar-left{flex:1;min-width:0}
+.toolbar-title{font-size:20px;font-weight:600;letter-spacing:-.5px}
+.toolbar-sub{font-size:12px;color:var(--muted);margin-top:3px}
+.view-toggle{display:flex;border:1px solid var(--border);border-radius:7px;overflow:hidden}
+.vt-btn{padding:6px 14px;background:transparent;border:none;font-size:12px;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--muted);transition:all .12s;font-weight:500}
+.vt-btn.active{background:var(--accent);color:white}
+.vt-btn:not(.active):hover{background:var(--surface2);color:var(--text)}
+.week-drawer{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px}
+.wk-btn{padding:4px 11px;border-radius:20px;border:1px solid var(--border);font-size:11px;cursor:pointer;background:transparent;color:var(--muted);transition:all .15s;font-family:'DM Sans',sans-serif;font-weight:500;white-space:nowrap}
+.wk-btn:hover{color:var(--text);border-color:var(--muted2)}
+.wk-btn.active{color:white;border-color:transparent;font-weight:600}
+.filter-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
+.filter-label{font-size:10px;color:var(--muted2);font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.filter-chip{padding:4px 12px;border-radius:20px;border:1px solid var(--border);font-size:11px;cursor:pointer;background:transparent;color:var(--muted);transition:all .12s;font-family:'DM Sans',sans-serif;font-weight:500}
+.filter-chip:hover{color:var(--text);border-color:var(--muted2)}
+.filter-chip.active{color:white;background:var(--maroon);border-color:var(--maroon)}
+.week-nav{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.nav-btn{width:30px;height:30px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s}
+.nav-btn:hover{background:var(--surface2);color:var(--text)}
+.week-label{font-size:14px;font-weight:700;font-family:'DM Mono',monospace}
+.block-pill{font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px}
+.week-dates{font-size:12px;color:var(--muted)}
+
+/* CALENDAR */
+.cal-wrap{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;min-width:640px}
+.cal-header{display:grid;grid-template-columns:64px repeat(5,1fr);background:var(--surface2);border-bottom:1px solid var(--border)}
+.ch-cell{padding:10px 8px;text-align:center;border-right:1px solid var(--border)}
+.ch-cell:last-child{border-right:none}
+.ch-day{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.ch-num{font-size:20px;font-weight:300;color:var(--text);line-height:1.2;margin-top:2px}
+.ch-cell.today .ch-num{background:var(--accent);color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;margin:2px auto 0;font-weight:600;font-size:14px}
+.cal-row{display:grid;grid-template-columns:64px repeat(5,1fr);border-bottom:1px solid var(--border);min-height:52px}
+.cal-row:last-child{border-bottom:none}
+.cal-time{padding:8px 6px 8px 6px;font-size:10px;color:var(--muted2);border-right:1px solid var(--border);text-align:right;font-family:'DM Mono',monospace;display:flex;align-items:flex-start;justify-content:flex-end}
+.cal-cell{border-right:1px solid var(--border);padding:3px;position:relative;min-height:52px}
+.cal-cell:last-child{border-right:none}
+.faculty-mode .cal-cell:hover .add-slot-btn{display:flex}
+.add-slot-btn{display:none;position:absolute;inset:3px;border-radius:5px;border:2px dashed var(--gray-dk);background:rgba(247,201,79,.05);color:var(--gray-dk);font-size:18px;cursor:pointer;align-items:center;justify-content:center;z-index:5}
+.add-slot-btn:hover{background:rgba(247,201,79,.12)}
+
+/* EVENTS */
+.event{border-radius:5px;padding:5px 7px;font-size:11px;font-weight:500;cursor:pointer;transition:transform .1s,box-shadow .15s;line-height:1.3;height:100%;min-height:44px;display:flex;flex-direction:column;justify-content:center;border-left:3px solid;position:relative;z-index:2;animation:fadeIn .2s ease}
+.event:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.35)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(2px)}to{opacity:1;transform:none}}
+.ev-tag{font-size:9px;text-transform:uppercase;letter-spacing:.7px;font-weight:700;opacity:1;margin-bottom:2px}
+.ev-title{font-size:11px;line-height:1.3}
+.ev-time{font-size:9px;margin-top:3px;opacity:.85;font-family:'DM Mono',monospace}
+.ev-controls{display:none;position:absolute;top:3px;right:3px;gap:3px;z-index:10}
+.faculty-mode .event:hover .ev-controls{display:flex}
+.ev-ctrl-btn{width:20px;height:20px;border-radius:4px;border:none;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .12s}
+.ev-edit-btn{background:rgba(0,0,0,.4);color:var(--gray-dk)}
+.ev-edit-btn:hover{background:var(--gray-dk);color:#1a1200}
+.ev-del-btn{background:rgba(0,0,0,.4);color:#f05c6e}
+.ev-del-btn:hover{background:#f05c6e;color:white}
+.event.Mandatory{background:rgba(79,142,247,.15);border-color:#4f8ef7;color:#1a3a70}
+.event.Faculty{background:rgba(62,207,142,.15);border-color:#3ecf8e;color:#0a4a28}
+.event.TBL{background:rgba(185,124,247,.15);border-color:#b97cf7;color:#3a1a6a}
+.event.CBSE{background:rgba(240,92,110,.15);border-color:#f05c6e;color:#7a0a18}
+.event.Session{background:rgba(122,130,154,.15);border-color:#4a5168;color:#1a1f30}
+.event.ITDE{background:rgba(79,214,247,.15);border-color:#4fd6f7;color:#003a50}
+.event.ExamReview{background:rgba(247,161,79,.15);border-color:#f7a14f;color:#5a2a00}
+.event.GrandRounds{background:rgba(247,161,79,.15);border-color:#f7a14f;color:#5a2a00}
+
+/* FACULTY PANEL */
+.faculty-panel{display:none;width:340px;flex-shrink:0;background:var(--surface);border-left:2px solid var(--gray-dk);overflow-y:auto;flex-direction:column;position:sticky;top:56px;height:calc(100vh - 56px)}
+.faculty-panel.open{display:flex}
+.fp-header{padding:18px 20px 14px;border-bottom:1px solid var(--border);background:linear-gradient(135deg,rgba(247,201,79,.1) 0%,transparent 60%)}
+.fp-title{font-size:15px;font-weight:700;color:var(--gray-dk)}
+.fp-sub{font-size:11px;color:var(--muted);margin-top:4px}
+.fp-body{padding:20px;flex:1}
+.fp-section{margin-bottom:24px}
+.fp-section-title{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.form-group{margin-bottom:14px}
+.form-label{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.5px}
+.form-input,.form-select{width:100%;padding:9px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;transition:border-color .15s;outline:none}
+.form-input:focus,.form-select:focus{border-color:var(--gray-dk);box-shadow:0 0 0 3px rgba(247,201,79,.1)}
+.form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a829a' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.form-select option{background:var(--surface2)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.color-preview{display:flex;align-items:center;gap:8px;margin-top:6px}
+.color-dot{width:12px;height:12px;border-radius:50%}
+.btn-full{width:100%;padding:10px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;margin-bottom:8px}
+.btn-save{background:var(--gray-dk);color:#1a1200}
+.btn-save:hover{background:#f0bc3a}
+.btn-cancel{background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+.btn-delete-full{background:rgba(240,92,110,.15);color:#f05c6e;border:1px solid rgba(240,92,110,.3)}
+.change-item{padding:10px 12px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);margin-bottom:8px;font-size:12px}
+.change-item .ch-type{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.change-item .ch-title{color:var(--text);font-weight:500}
+.change-item .ch-meta{color:var(--muted);font-size:11px;margin-top:2px}
+.change-added .ch-type{color:#3ecf8e}
+.change-edited .ch-type{color:var(--gray-dk)}
+.change-deleted .ch-type{color:#f05c6e}
+.fp-footer{padding:16px 20px;border-top:1px solid var(--border);background:var(--surface2)}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:14px;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:modalIn .2s cubic-bezier(.34,1.56,.64,1)}
+@keyframes modalIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.modal-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:12px}
+.modal-bar{width:4px;border-radius:4px;flex-shrink:0;align-self:stretch;min-height:40px}
+.modal-title{font-size:16px;font-weight:600;line-height:1.4;flex:1}
+.modal-close{width:28px;height:28px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--surface2);color:var(--text)}
+.modal-body{padding:20px 24px}
+.modal-row{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+.m-icon{font-size:16px;width:22px;flex-shrink:0;margin-top:1px}
+.m-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.m-val{font-size:13px;color:var(--text)}
+.modal-footer{padding:0 24px 20px}
+.modal-week{font-size:11px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;font-family:'DM Mono',monospace}
+
+/* MISC */
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state .big{font-size:40px;margin-bottom:12px}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);color:var(--text);padding:12px 22px;border-radius:30px;font-size:13px;font-weight:500;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:opacity .3s;white-space:nowrap;pointer-events:none}
+.login-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:700;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.login-overlay.open{display:flex}
+.login-box{background:var(--surface);border:1px solid var(--gray-dk);border-radius:14px;padding:32px;max-width:320px;width:90%;text-align:center;animation:modalIn .2s ease}
+.login-box h2{font-size:18px;font-weight:700;color:var(--gray-dk);margin-bottom:6px}
+.login-box p{font-size:12px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+.login-box input{width:100%;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Mono',monospace;font-size:16px;text-align:center;letter-spacing:4px;outline:none;margin-bottom:14px;transition:border-color .15s}
+.login-box input:focus{border-color:var(--gray-dk)}
+.login-err{font-size:12px;color:#f05c6e;margin-bottom:10px;min-height:18px}
+.login-submit{width:100%;padding:10px;border-radius:8px;border:none;background:var(--gray-dk);color:#1a1200;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer}
+.confirm-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:600;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.confirm-overlay.open{display:flex}
+.confirm-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:28px;max-width:340px;width:90%;text-align:center;animation:modalIn .15s ease}
+.confirm-box h3{font-size:16px;font-weight:600;margin-bottom:8px;color:#f05c6e}
+.confirm-box p{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+.confirm-btns{display:flex;gap:10px;justify-content:center}
+.confirm-btns button{padding:9px 22px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--border)}
+#confirmYes{background:#f05c6e;color:white;border-color:#f05c6e}
+#confirmNo{background:var(--surface2);color:var(--muted)}
+@media(max-width:768px){.sidebar{display:none}.main{padding:16px}.cal-wrap{min-width:0}.cal-header,.cal-row{grid-template-columns:44px repeat(5,1fr)}.ev-tag,.ev-time{display:none}.ev-title{font-size:10px}.faculty-panel{width:100%}}
+
+/* TWO-TIER CALENDAR TABS */
+/* Tier 1: M1 / M2 */
+/* YEAR + M1/M2 FILTER SYSTEM */
+.year-checks{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:10px 0 12px;border-bottom:3px solid var(--border);margin-bottom:0}
+.yr-check-label{display:flex;align-items:center;gap:6px;padding:6px 13px;border-radius:8px;border:2px solid var(--border);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;color:var(--muted);background:var(--surface2);transition:all .15s;user-select:none;white-space:nowrap}
+.yr-check-label:hover{border-color:var(--muted2);color:var(--text);background:var(--surface)}
+.yr-check-box{width:15px;height:15px;border-radius:3px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;background:var(--surface)}
+.yr-check-box::after{content:'';width:7px;height:7px;border-radius:1px;display:none}
+.yr-check-label.checked .yr-check-box::after{display:block}
+.yr-check-label[data-yr="All"].checked{border-color:var(--maroon);color:var(--maroon);background:rgba(80,0,0,.07)}
+.yr-check-label[data-yr="All"].checked .yr-check-box{border-color:var(--maroon);background:var(--maroon)}
+.yr-check-label[data-yr="All"].checked .yr-check-box::after{background:white}
+
+.yr-check-label[data-yr="2029"].checked{border-color:#C62828;color:#C62828;background:rgba(198,40,40,.07)}
+.yr-check-label[data-yr="2029"].checked .yr-check-box{border-color:#C62828;background:#C62828}
+.yr-check-label[data-yr="2029"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2030"].checked{border-color:#1565C0;color:#1565C0;background:rgba(21,101,192,.07)}
+.yr-check-label[data-yr="2030"].checked .yr-check-box{border-color:#1565C0;background:#1565C0}
+.yr-check-label[data-yr="2030"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2031"].checked{border-color:#2E7D32;color:#2E7D32;background:rgba(46,125,50,.07)}
+.yr-check-label[data-yr="2031"].checked .yr-check-box{border-color:#2E7D32;background:#2E7D32}
+.yr-check-label[data-yr="2031"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2032"].checked{border-color:#6A1B9A;color:#6A1B9A;background:rgba(106,27,154,.07)}
+.yr-check-label[data-yr="2032"].checked .yr-check-box{border-color:#6A1B9A;background:#6A1B9A}
+.yr-check-label[data-yr="2032"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2033"].checked{border-color:#BF360C;color:#BF360C;background:rgba(191,54,12,.07)}
+.yr-check-label[data-yr="2033"].checked .yr-check-box{border-color:#BF360C;background:#BF360C}
+.yr-check-label[data-yr="2033"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2034"].checked{border-color:#00695C;color:#00695C;background:rgba(0,105,92,.07)}
+.yr-check-label[data-yr="2034"].checked .yr-check-box{border-color:#00695C;background:#00695C}
+.yr-check-label[data-yr="2034"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2035"].checked{border-color:#4527A0;color:#4527A0;background:rgba(69,39,160,.07)}
+.yr-check-label[data-yr="2035"].checked .yr-check-box{border-color:#4527A0;background:#4527A0}
+.yr-check-label[data-yr="2035"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2036"].checked{border-color:#E65100;color:#E65100;background:rgba(230,81,0,.07)}
+.yr-check-label[data-yr="2036"].checked .yr-check-box{border-color:#E65100;background:#E65100}
+.yr-check-label[data-yr="2036"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2037"].checked{border-color:#00838F;color:#00838F;background:rgba(0,131,143,.07)}
+.yr-check-label[data-yr="2037"].checked .yr-check-box{border-color:#00838F;background:#00838F}
+.yr-check-label[data-yr="2037"].checked .yr-check-box::after{background:white}
+.yr-check-label[data-yr="2038"].checked{border-color:#558B2F;color:#558B2F;background:rgba(85,139,47,.07)}
+.yr-check-label[data-yr="2038"].checked .yr-check-box{border-color:#558B2F;background:#558B2F}
+.yr-check-label[data-yr="2038"].checked .yr-check-box::after{background:white}
+.mcal-divider{width:1px;height:26px;background:var(--border);margin:0 2px;flex-shrink:0}
+/* M1/M2 sub-filter */
+.m-sub-row{display:none;gap:6px;padding:8px 0 10px;border-bottom:1px solid var(--border);margin-bottom:10px;align-items:center;flex-wrap:wrap}
+.m-sub-row.visible{display:flex}
+.m-sub-btn{padding:5px 16px;border-radius:20px;border:1px solid var(--border);font-size:11px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;background:transparent;color:var(--muted);transition:all .12s}
+.m-sub-btn:hover{color:var(--text);border-color:var(--muted2)}
+.m-sub-btn.active{color:white;border-color:transparent}
+/* Visibility toggle in faculty panel */
+.vis-toggle{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:12px;cursor:pointer;border-bottom:1px solid var(--border)}
+.vis-toggle:last-child{border-bottom:none}
+.vis-switch{width:32px;height:18px;border-radius:9px;background:var(--border);position:relative;flex-shrink:0;transition:background .2s}
+.vis-switch::after{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:white;top:2px;left:2px;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.vis-toggle.on .vis-switch{background:#3ecf8e}
+.vis-toggle.on .vis-switch::after{left:16px}
+.vis-yr-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+/* Tier 2: Year 1 / Year 2 / Year 3 */
+.yr-subtabs{display:none;gap:6px;padding:10px 0 10px;border-bottom:1px solid var(--border);margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.yr-subtabs.visible{display:flex}
+.yr-subtab{padding:5px 14px;border-radius:20px;border:1px solid var(--border);font-size:11px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .12s;color:var(--muted);background:transparent}
+.yr-subtab:hover{color:var(--text);border-color:var(--muted2)}
+.yr-subtab.active{color:white;border-color:transparent}
+.yr-subtabs[data-parent="M1"] .yr-subtab.active{background:#1565C0;border-color:#1565C0;color:white}
+.yr-subtabs[data-parent="M2"] .yr-subtab.active{background:#2E7D32;border-color:#2E7D32;color:white}
+.yr-subtab.active{background:#888;color:white}
+/* color dots */
+.yr1-dot{background:#1565C0}.yr2-dot{background:#2E7D32}.yr3-dot{background:#6A1B9A;display:none}.yrs-dot{background:#BF360C}
+.m1-dot{background:#1565C0}.m2-dot{background:#2E7D32}.m3-dot{background:#6A1B9A;display:none}
+.ev-yr-badge{font-size:8px;font-weight:800;padding:1px 5px;border-radius:3px;margin-left:4px;vertical-align:middle;opacity:.85}
+.ev-yr-badge.yr1{background:#1565C0;color:white}
+.ev-yr-badge.yr2{background:#2E7D32;color:white}
+
+.ev-yr-badge.yrs{background:#BF360C;color:white}
+
+/* MONTH GRID */
+.month-nav{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.month-nav-label{font-size:16px;font-weight:700;font-family:'DM Mono',monospace;flex:1;text-align:center}
+.month-grid{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;min-width:0}
+.month-grid-header{display:grid;grid-template-columns:repeat(7,1fr);background:var(--surface2);border-bottom:1px solid var(--border)}
+.mg-dow{padding:8px 4px;text-align:center;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.month-grid-body{display:grid;grid-template-columns:repeat(7,1fr)}
+.mg-cell{min-height:100px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:5px;position:relative;vertical-align:top}
+.mg-cell:nth-child(7n){border-right:none}
+.mg-cell.other-month{background:var(--surface2);opacity:.55}
+.mg-cell.today-cell{background:rgba(80,0,0,.06)}
+.mg-date{font-size:11px;font-weight:700;color:var(--muted2);margin-bottom:3px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.mg-cell.today-cell .mg-date{background:var(--accent);color:white}
+.mg-event{font-size:9px;font-weight:600;padding:2px 5px;border-radius:3px;margin-bottom:2px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4;border-left:3px solid}
+.mg-event:hover{opacity:.85;transform:translateX(1px)}
+.mg-more{font-size:9px;color:var(--muted2);padding:1px 4px;cursor:pointer;font-weight:600}
+.mg-more:hover{color:var(--accent)}
+.mg-add-btn{display:none;position:absolute;bottom:3px;right:3px;width:18px;height:18px;border-radius:50%;border:none;background:var(--gray-dk);color:#1a1200;font-size:12px;cursor:pointer;align-items:center;justify-content:center;line-height:1}
+.faculty-mode .mg-cell:hover .mg-add-btn{display:flex}
+
+/* SESSION CATALOG */
+.catalog-panel{margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.catalog-source{width:100%;padding:8px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;appearance:none;outline:none;margin-bottom:8px}
+.catalog-list{max-height:160px;overflow-y:auto;border:1px solid var(--border);border-radius:7px;background:var(--surface)}
+.catalog-item{padding:7px 10px;font-size:11px;cursor:pointer;border-bottom:1px solid var(--border);line-height:1.4;transition:background .1s}
+.catalog-item:last-child{border-bottom:none}
+.catalog-item:hover{background:var(--surface2)}
+.catalog-item .ci-loc{font-size:10px;color:var(--muted2);margin-top:1px}
+
+
+/* M-YEAR FILTER & SEARCH */
+.toolbar-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.m-year-select{padding:6px 28px 6px 12px;border-radius:8px;border:2px solid var(--accent);background:var(--surface);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23500000' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;outline:none;min-width:130px}
+.search-wrap{position:relative;flex:1;max-width:280px}
+.search-input{width:100%;padding:6px 12px 6px 30px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px;outline:none;transition:border-color .15s}
+.search-input:focus{border-color:var(--accent)}
+.search-icon{position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:13px;pointer-events:none;opacity:.5}
+.search-results{position:absolute;top:calc(100% + 4px);left:0;right:0;background:var(--surface);border:1px solid var(--border);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.2);z-index:300;max-height:260px;overflow-y:auto;display:none}
+.search-results.open{display:block}
+.sr-item{padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--border);font-size:12px;transition:background .1s}
+.sr-item:last-child{border-bottom:none}
+.sr-item:hover{background:var(--surface2)}
+.sr-title{font-weight:600;color:var(--text)}
+.sr-meta{font-size:10px;color:var(--muted2);margin-top:2px}
+.today-btn{padding:6px 14px;border-radius:8px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap}
+.today-btn:hover{background:var(--accent);color:white}
+
+/* EVENT COUNT BADGES ON TABS */
+.yr-count{font-size:9px;font-weight:600;opacity:.75;margin-left:4px;font-family:'DM Mono',monospace}
+
+/* COLOR LEGEND */
+.legend-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center;padding:8px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+.legend-label{font-size:10px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px;margin-right:4px}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--muted);white-space:nowrap}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
+
+/* CATEGORY DOT ON EVENTS */
+.ev-cat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;display:inline-block;margin-right:4px;vertical-align:middle;box-shadow:0 0 0 1px rgba(255,255,255,.4)}
+.mg-event .ev-cat-dot{width:6px;height:6px;margin-right:3px}
+
+
+/* BULK UPLOAD */
+.bulk-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:600;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.bulk-overlay.open{display:flex}
+.bulk-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;max-width:680px;width:95%;max-height:85vh;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:modalIn .2s ease}
+.bulk-title{font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
+.bulk-drop{border:2px dashed var(--border);border-radius:10px;padding:32px;text-align:center;cursor:pointer;transition:all .2s;background:var(--surface2)}
+.bulk-drop:hover,.bulk-drop.drag{border-color:var(--accent);background:rgba(80,0,0,.04)}
+.bulk-drop input{display:none}
+.bulk-drop p{font-size:13px;color:var(--muted);margin-top:8px}
+.bulk-preview{flex:1;overflow-y:auto;border:1px solid var(--border);border-radius:8px;font-size:11px}
+.bulk-preview table{width:100%;border-collapse:collapse}
+.bulk-preview th{background:var(--surface2);padding:7px 10px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);border-bottom:1px solid var(--border);position:sticky;top:0}
+.bulk-preview td{padding:6px 10px;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+.bulk-preview tr:last-child td{border-bottom:none}
+.bulk-preview tr.err td{background:rgba(240,92,110,.08);color:#f05c6e}
+.bulk-preview tr.ok td{background:rgba(62,207,142,.05)}
+.bulk-stats{font-size:12px;color:var(--muted);display:flex;gap:16px;align-items:center}
+.bulk-stat{font-weight:700;color:var(--text)}
+.bulk-actions{display:flex;gap:10px}
+.bulk-btn{padding:9px 20px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.bulk-btn-primary{background:var(--maroon);color:white}
+.bulk-btn-primary:hover{background:var(--maroon-dk)}
+.bulk-btn-primary:disabled{opacity:.5;cursor:not-allowed}
+.bulk-btn-cancel{background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+
+
+/* BLOCK FILTER DROPDOWN */
+.block-filter-select{width:100%;padding:7px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;outline:none;transition:border-color .15s}
+.block-filter-select:focus{border-color:var(--accent)}
+.block-filter-select option{background:var(--surface);color:var(--text)}
+
+
+/* Session name datalist */
+input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' fill='none' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+
+
+/* NOTES TEXTAREA */
+.form-input[rows]{font-family:'DM Sans',sans-serif;font-size:12px}
+.m-val[style*="pre-wrap"]{font-size:12px;color:var(--muted);background:var(--surface2);padding:8px 10px;border-radius:6px;border:1px solid var(--border);margin-top:2px}
+
+
+.m-sub-btn[data-m="M0"].active{background:#E65100 !important;border-color:#E65100 !important;color:white !important}
+
+
+/* MCAL FILTER CHECKS */
+.yr-check-label[data-mc="All"].checked{border-color:var(--maroon);color:var(--maroon);background:rgba(80,0,0,.07)}
+.yr-check-label[data-mc="All"].checked .yr-check-box{border-color:var(--maroon);background:var(--maroon)}
+.yr-check-label[data-mc="M0"].checked{border-color:#E65100;color:#E65100;background:rgba(230,81,0,.07)}
+.yr-check-label[data-mc="M0"].checked .yr-check-box{border-color:#E65100;background:#E65100}
+.yr-check-label[data-mc="M1"].checked{border-color:#1565C0;color:#1565C0;background:rgba(21,101,192,.07)}
+.yr-check-label[data-mc="M1"].checked .yr-check-box{border-color:#1565C0;background:#1565C0}
+.yr-check-label[data-mc="M2"].checked{border-color:#2E7D32;color:#2E7D32;background:rgba(46,125,50,.07)}
+.yr-check-label[data-mc="M2"].checked .yr-check-box{border-color:#2E7D32;background:#2E7D32}
+.yr-check-label[data-mc="Student Affairs"].checked{border-color:#6A1B9A;color:#6A1B9A;background:rgba(106,27,154,.07)}
+.yr-check-label[data-mc="Student Affairs"].checked .yr-check-box{border-color:#6A1B9A;background:#6A1B9A}
+.yr-check-label .yr-check-box::after{background:white}
+
+</style>
 </body>
 </html>
