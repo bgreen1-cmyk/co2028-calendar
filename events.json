@@ -84,18 +84,6 @@
     "_id": "e141"
   },
   {
-    "title": "ENGR Events",
-    "date": "09/05/2025",
-    "start": "10:00",
-    "end": "11:00",
-    "block": "Renal",
-    "week": "Renal Week 2 (36)",
-    "weekNum": 36,
-    "category": "Session",
-    "desc": "ENGR Events",
-    "_id": "e144"
-  },
-  {
     "title": "ENGR",
     "date": "09/12/2025",
     "start": "08:00",
