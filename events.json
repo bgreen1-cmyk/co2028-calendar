@@ -1,17 +1,5 @@
 [
   {
-    "title": "Faculty Discussion",
-    "date": "09/05/2025",
-    "start": "13:00",
-    "end": "14:00",
-    "block": "Renal",
-    "week": "Renal Week 2 (36)",
-    "weekNum": 36,
-    "category": "Faculty Discussion",
-    "desc": "Faculty Discussion",
-    "_id": "e132"
-  },
-  {
     "title": "Renal/GU EXAM I",
     "date": "09/05/2025",
     "start": "13:00",
