@@ -12,18 +12,6 @@
     "_id": "e190"
   },
   {
-    "title": "PoM",
-    "date": "09/26/2025",
-    "start": "14:00",
-    "end": "15:00",
-    "block": "GI",
-    "week": "GI WEEK 1(39)",
-    "weekNum": 39,
-    "category": "Session",
-    "desc": "PoM",
-    "_id": "e195"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "09/26/2025",
     "start": "16:00",
