@@ -12,18 +12,6 @@
     "_id": "e363"
   },
   {
-    "title": "PoM",
-    "date": "12/05/2025",
-    "start": "14:00",
-    "end": "15:00",
-    "block": "MSK",
-    "week": "MSK Week 1(49)",
-    "weekNum": 49,
-    "category": "Session",
-    "desc": "PoM",
-    "_id": "e365"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "12/05/2025",
     "start": "15:00",
