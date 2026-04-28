@@ -84,18 +84,6 @@
     "_id": "e234"
   },
   {
-    "title": "ENGR Lab",
-    "date": "10/10/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "GI",
-    "week": "GI WEEK 3(41)",
-    "weekNum": 41,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e235"
-  },
-  {
     "title": "ENGR Events",
     "date": "10/10/2025",
     "start": "10:00",
