@@ -120,18 +120,6 @@
     "_id": "e141"
   },
   {
-    "title": "Labor Day Holiday",
-    "date": "09/01/2025",
-    "start": "08:00",
-    "end": "17:00",
-    "block": "Renal",
-    "week": "Renal Week 2 (36)",
-    "weekNum": 36,
-    "category": "Session",
-    "desc": "Labor Day Holiday",
-    "_id": "e142"
-  },
-  {
     "title": "POM 3 Practice Workshop (1/2 Class) &     Preceptorships (1/2 Class)",
     "date": "09/02/2025",
     "start": "13:00",
