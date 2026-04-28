@@ -96,18 +96,6 @@
     "_id": "e178"
   },
   {
-    "title": "ENGR",
-    "date": "09/19/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "block": "Renal",
-    "week": "Renal Week 4 (38)",
-    "weekNum": 38,
-    "category": "Session",
-    "desc": "ENGR",
-    "_id": "e179"
-  },
-  {
     "title": "Last Day Renal",
     "date": "09/19/2025",
     "start": "08:00",
