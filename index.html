@@ -1760,30 +1760,61 @@ function handleBulkFile(file){
       const wb=XLSX.read(data,{type:'array',cellDates:true});
       const ws=wb.Sheets['Events']||wb.Sheets[wb.SheetNames[0]];
       // Read from row 8 (index 7) - skip title, subtitle, header, notes, samples
-      const rows=XLSX.utils.sheet_to_json(ws,{header:1,range:7,defval:''});
-      parseBulkRows(rows);
+      // Read header row (row 3, index 2) to map columns dynamically
+      const allRows=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});
+      // Find header row (contains 'Session Name' or 'MAND')
+      let headerRow=2; // default row 3 (0-indexed)
+      for(let i=0;i<Math.min(5,allRows.length);i++){
+        const r=allRows[i].join(' ').toLowerCase();
+        if(r.includes('session name')||r.includes('mand')){headerRow=i;break;}
+      }
+      const headers=allRows[headerRow].map(h=>String(h||'').toLowerCase().trim());
+      // Map column names to indices
+      const colIdx={};
+      headers.forEach((h,i)=>{
+        if(h.includes('mand'))colIdx.mand=i;
+        else if(h.includes('session name')||h.includes('session name'))colIdx.title=i;
+        else if(h.includes('group'))colIdx.group=i;
+        else if(h.includes('location'))colIdx.location=i;
+        else if(h.includes('cohort')||h.includes('year'))colIdx.calYear=i;
+        else if(h.includes('class'))colIdx.mCal=i;
+        else if(h.includes('date'))colIdx.date=i;
+        else if(h.includes('start'))colIdx.start=i;
+        else if(h.includes('end'))colIdx.end=i;
+        else if(h.includes('category'))colIdx.category=i;
+        else if(h.includes('block')||h.includes('course'))colIdx.block=i;
+        else if(h.includes('week'))colIdx.week=i;
+        else if(h.includes('presenter'))colIdx.presenter=i;
+        else if(h.includes('additional')||h.includes('info')||h.includes('note'))colIdx.notes=i;
+      });
+      // Data starts after header + note row
+      const dataRows=allRows.slice(headerRow+2).filter(r=>r.some(v=>v!==''));
+      parseBulkRows(dataRows,colIdx);
     }catch(err){showToast('❌ Could not read file: '+err.message);}
   };
   reader.readAsArrayBuffer(file);
 }
-function parseBulkRows(rows){
+function parseBulkRows(rows,colIdx){
+  // Default column indices (new template format)
+  const ci=colIdx||{};
+  const gi=(name,def)=>ci[name]!==undefined?ci[name]:def;
   bulkParsed=[];
   const BLK_LIST=BLOCKS_LIST;
 
   rows.forEach((row,i)=>{
     if(!row[0]&&!row[5]&&!row[7])return; // skip fully empty rows
-    const mand=String(row[0]||'No').trim()||'No';
-    const title=String(row[1]||'').trim();
-    const group=String(row[2]||'').trim();
-    const location=String(row[3]||'').trim();
-    const calYear=String(row[4]||'').trim();
-    const mCal=String(row[5]||'M1').trim();
-    const presenter=String(row[12]||'').trim();
-    const notes=String(row[13]||'').trim();
+    const mand=String(row[gi('mand',0)]||'No').trim()||'No';
+    const title=String(row[gi('title',1)]||'').trim();
+    const group=String(row[gi('group',2)]||'').trim();
+    const location=String(row[gi('location',3)]||'').trim();
+    const calYear=String(row[gi('calYear',4)]||'').trim();
+    const mCal=String(row[gi('mCal',5)]||'M1').trim();
+    const presenter=String(row[gi('presenter',12)]||'').trim();
+    const notes=String(row[gi('notes',13)]||'').trim();
     
     // Date parsing — handle Excel serial numbers and string dates
     let dateStr='';
-    const rawDate=row[6];  // col G = index 6
+    const rawDate=row[gi('date',6)];
     if(rawDate instanceof Date){
       const mo=String(rawDate.getMonth()+1).padStart(2,'0');
       const dy=String(rawDate.getDate()).padStart(2,'0');
@@ -1816,11 +1847,11 @@ function parseBulkRows(rows){
       if(ts.match(/^\d:\d{2}$/))return'0'+ts;
       return ts;
     }
-    const start=parseTime(row[7]);
-    const end=parseTime(row[8]);
-    const category=String(row[9]||'Mandatory').trim();
-    const block=String(row[10]||'').trim();
-    const weekNum=parseInt(row[11])||null;
+    const start=parseTime(row[gi('start',7)]);
+    const end=parseTime(row[gi('end',8)]);
+    const category=String(row[gi('category',9)]||'Mandatory').trim();
+    const block=String(row[gi('block',10)]||'').trim();
+    const weekNum=parseInt(row[gi('week',11)])||null;
 
     // Validate
     const errs=[];
