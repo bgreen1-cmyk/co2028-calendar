@@ -12,18 +12,6 @@
     "_id": "e98"
   },
   {
-    "title": "PoM",
-    "date": "08/22/2025",
-    "start": "14:00",
-    "end": "15:00",
-    "block": "Respiratory",
-    "week": "Resp Week 4 (34)",
-    "weekNum": 34,
-    "category": "Session",
-    "desc": "PoM",
-    "_id": "e100"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "08/22/2025",
     "start": "15:00",
