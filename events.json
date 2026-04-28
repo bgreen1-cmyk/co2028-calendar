@@ -48,18 +48,6 @@
     "_id": "e100"
   },
   {
-    "title": "EnMed Correlation (Gotur)",
-    "date": "08/18/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 4 (34)",
-    "weekNum": 34,
-    "category": "Mandatory",
-    "desc": "Mandatory  EnMed Correlation  (Gotur)",
-    "_id": "e101"
-  },
-  {
     "title": "TBL",
     "date": "08/22/2025",
     "start": "11:00",
