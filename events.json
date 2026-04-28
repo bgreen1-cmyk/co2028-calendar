@@ -1,17 +1,5 @@
 [
   {
-    "title": "Clinic/Trip",
-    "date": "12/19/2025",
-    "start": "16:00",
-    "end": "17:00",
-    "block": "MSK",
-    "week": "MSK Week 3 (51)",
-    "weekNum": 51,
-    "category": "Session",
-    "desc": "Clinic/Trip",
-    "_id": "e402"
-  },
-  {
     "_id": "1777342011315_1",
     "title": "CV: Cardiac Physical Exam Clinic",
     "mand": "No",
