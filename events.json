@@ -4594,17 +4594,5 @@
     "category": "Session",
     "desc": "EBMSR / MSGR",
     "_id": "e418"
-  },
-  {
-    "title": "ENGR Events",
-    "date": "12/26/2025",
-    "start": "10:00",
-    "end": "11:00",
-    "block": "Break",
-    "week": "Break (25)",
-    "weekNum": 52,
-    "category": "Session",
-    "desc": "ENGR Events",
-    "_id": "e421"
   }
 ]
