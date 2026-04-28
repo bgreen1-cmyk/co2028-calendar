@@ -1,17 +1,5 @@
 [
   {
-    "title": "Clinic/Trip",
-    "date": "10/31/2025",
-    "start": "16:00",
-    "end": "17:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 2(44)",
-    "weekNum": 44,
-    "category": "Session",
-    "desc": "Clinic/Trip",
-    "_id": "e282"
-  },
-  {
     "title": "Faculty Discussion",
     "date": "11/07/2025",
     "start": "13:00",
