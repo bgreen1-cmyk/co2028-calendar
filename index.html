@@ -1784,7 +1784,7 @@ function parseBulkRows(rows){
     
     // Date parsing — handle Excel serial numbers and string dates
     let dateStr='';
-    const rawDate=row[7];
+    const rawDate=row[6];  // col G = index 6
     if(rawDate instanceof Date){
       const mo=String(rawDate.getMonth()+1).padStart(2,'0');
       const dy=String(rawDate.getDate()).padStart(2,'0');
@@ -1795,8 +1795,13 @@ function parseBulkRows(rows){
       dateStr=`${String(d.m).padStart(2,'0')}/${String(d.d).padStart(2,'0')}/${d.y}`;
     } else {
       dateStr=String(rawDate||'').trim();
+      // Handle ISO format: 2026-05-26 or 2026-05-26T00:00:00
+      if(dateStr.match(/^\d{4}-\d{2}-\d{2}/)){
+        const p=dateStr.split('T')[0].split('-');
+        dateStr=`${p[1]}/${p[2]}/${p[0]}`;
+      }
       // Normalize M/D/YYYY → MM/DD/YYYY
-      if(dateStr && !dateStr.match(/^\d{2}\//)){
+      else if(dateStr && !dateStr.match(/^\d{2}\//)){
         const dp=dateStr.split('/');
         if(dp.length===3)dateStr=`${dp[0].padStart(2,'0')}/${dp[1].padStart(2,'0')}/${dp[2]}`;
       }
@@ -1812,11 +1817,11 @@ function parseBulkRows(rows){
       if(ts.match(/^\d:\d{2}$/))return'0'+ts;
       return ts;
     }
-    const start=parseTime(row[8]);
-    const end=parseTime(row[9]);
-    const category=String(row[10]||'Mandatory').trim();
-    const block=String(row[11]||'').trim()||blockFromWeek(parseInt(row[12])||28);
-    const weekNum=parseInt(row[12])||null;
+    const start=parseTime(row[7]);
+    const end=parseTime(row[8]);
+    const category=String(row[9]||'Mandatory').trim();
+    const block=String(row[10]||'').trim();
+    const weekNum=parseInt(row[11])||null;
 
     // Validate
     const errs=[];
