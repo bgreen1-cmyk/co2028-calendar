@@ -144,18 +144,6 @@
     "_id": "e111"
   },
   {
-    "title": "PoM 3 HEAL",
-    "date": "08/19/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 4 (34)",
-    "weekNum": 34,
-    "category": "Mandatory",
-    "desc": "Mandatory PoM 3 HEAL",
-    "_id": "e112"
-  },
-  {
     "title": "Faculty Discussion                 Pharmacology                        Review of Diuretics                     (Rogers)",
     "date": "08/27/2025",
     "start": "09:00",
