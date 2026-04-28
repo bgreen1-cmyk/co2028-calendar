@@ -36,18 +36,6 @@
     "_id": "e70"
   },
   {
-    "title": "Respiratory Exam 1",
-    "date": "08/08/2025",
-    "start": "13:00",
-    "end": "17:00",
-    "block": "Respiratory",
-    "week": "Resp Week 2 (32)",
-    "weekNum": 32,
-    "category": "Mandatory",
-    "desc": "Mandatory Respiratory  Exam 1",
-    "_id": "e73"
-  },
-  {
     "title": "Respiratory: Active Learning (Rogers)",
     "date": "08/13/2025",
     "start": "11:00",
