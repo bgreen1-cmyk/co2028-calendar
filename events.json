@@ -48,18 +48,6 @@
     "_id": "e23"
   },
   {
-    "title": "ENGR Lab",
-    "date": "07/18/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "Heme/Onc",
-    "week": "Heme Week 2 (29)",
-    "weekNum": 29,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e24"
-  },
-  {
     "title": "ENGR Events",
     "date": "07/18/2025",
     "start": "10:00",
