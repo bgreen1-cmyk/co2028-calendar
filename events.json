@@ -168,18 +168,6 @@
     "_id": "e146"
   },
   {
-    "title": "PoM 3 HEAL",
-    "date": "09/02/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Renal",
-    "week": "Renal Week 2 (36)",
-    "weekNum": 36,
-    "category": "Mandatory",
-    "desc": "Mandatory PoM 3 HEAL",
-    "_id": "e147"
-  },
-  {
     "title": "ENGR",
     "date": "09/12/2025",
     "start": "08:00",
