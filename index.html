@@ -1869,7 +1869,7 @@ if(category && typeof CATS_LIST!=='undefined' && !CATS_LIST.includes(category))e
       _id:Date.now()+'_'+i,
       title,mand,group,location,mCal,calYear,presenter,notes,
       date:dateStr,start,end,
-      category:CAT_LIST.includes(category)?category:'Session',
+      category:(typeof CATS_LIST!=='undefined'&&CATS_LIST.includes(category))?category:(category||'Session'),
       block:BLK_LIST.includes(block)?block:blockFromWeek(weekNum||28),
       weekNum:weekNum||(WEEKS.length?WEEKS[0].num:28),
       week:weekNameFor(weekNum||(WEEKS.length?WEEKS[0].num:28)),
