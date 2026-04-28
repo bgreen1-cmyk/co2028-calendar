@@ -4548,18 +4548,6 @@
     "_id": "e409"
   },
   {
-    "title": "Break",
-    "date": "12/26/2025",
-    "start": "08:00",
-    "end": "17:00",
-    "block": "Break",
-    "week": "Break (25)",
-    "weekNum": 52,
-    "category": "Session",
-    "desc": "Break",
-    "_id": "e411"
-  },
-  {
     "title": "Faculty Discussion",
     "date": "12/26/2025",
     "start": "13:00",
