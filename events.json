@@ -1,17 +1,5 @@
 [
   {
-    "title": "PoM 3 HEAL",
-    "date": "10/21/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 1(43)",
-    "weekNum": 43,
-    "category": "Mandatory",
-    "desc": "Mandatory PoM 3 HEAL",
-    "_id": "e258"
-  },
-  {
     "title": "Active Learning: Endocrine Physiology             (Slivkoff)",
     "date": "10/22/2025",
     "start": "09:00",
