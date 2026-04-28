@@ -48,18 +48,6 @@
     "_id": "e70"
   },
   {
-    "title": "Case Based Interactive",
-    "date": "08/08/2025",
-    "start": "12:00",
-    "end": "13:00",
-    "block": "Respiratory",
-    "week": "Resp Week 2 (32)",
-    "weekNum": 32,
-    "category": "Session",
-    "desc": "Case Based Interactive",
-    "_id": "e71"
-  },
-  {
     "title": "Respiratory Exam 1",
     "date": "08/08/2025",
     "start": "13:00",
