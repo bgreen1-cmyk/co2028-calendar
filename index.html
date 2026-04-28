@@ -1757,7 +1757,7 @@ function handleBulkFile(file){
   reader.onload=function(e){
     try{
       const data=new Uint8Array(e.target.result);
-      const wb=XLSX.read(data,{type:'array',cellDates:true});
+      const wb=XLSX.read(data,{type:'array',cellDates:true,cellNF:false,cellFormula:false});
       const ws=wb.Sheets['Events']||wb.Sheets[wb.SheetNames[0]];
       // Read from row 8 (index 7) - skip title, subtitle, header, notes, samples
       // Read header row (row 3, index 2) to map columns dynamically
