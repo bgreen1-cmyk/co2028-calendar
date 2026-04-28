@@ -36,18 +36,6 @@
     "_id": "e365"
   },
   {
-    "title": "TBL",
-    "date": "12/05/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "MSK",
-    "week": "MSK Week 1(49)",
-    "weekNum": 49,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e366"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "12/05/2025",
     "start": "12:00",
