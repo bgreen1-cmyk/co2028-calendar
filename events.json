@@ -36,18 +36,6 @@
     "_id": "e40"
   },
   {
-    "title": "TBL",
-    "date": "07/25/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "Heme/Onc",
-    "week": "Heme Week 3 (30)",
-    "weekNum": 30,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e41"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "07/25/2025",
     "start": "16:00",
