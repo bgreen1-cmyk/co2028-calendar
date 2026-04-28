@@ -24,18 +24,6 @@
     "_id": "e381"
   },
   {
-    "title": "MSK/Integ Exam 1",
-    "date": "12/11/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "MSK",
-    "week": "MSK Week 2(50)",
-    "weekNum": 50,
-    "category": "Mandatory",
-    "desc": "Mandatory MSK/Integ Exam 1",
-    "_id": "e383"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "12/12/2025",
     "start": "15:00",
