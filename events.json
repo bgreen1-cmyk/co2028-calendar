@@ -1,17 +1,5 @@
 [
   {
-    "title": "ITDE 613",
-    "date": "11/25/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "GI",
-    "week": "Thanksgiving (48)",
-    "weekNum": 48,
-    "category": "Mandatory",
-    "desc": "Mandatory ITDE 613",
-    "_id": "e344"
-  },
-  {
     "title": "Thanksgiving",
     "date": "11/26/2025",
     "start": "08:00",
