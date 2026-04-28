@@ -108,18 +108,6 @@
     "_id": "e255"
   },
   {
-    "title": "ENGR",
-    "date": "10/17/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "block": "GI",
-    "week": "GI WEEK 4(42)",
-    "weekNum": 42,
-    "category": "Session",
-    "desc": "ENGR",
-    "_id": "e256"
-  },
-  {
     "title": "PoM 3 HEAL",
     "date": "10/21/2025",
     "start": "10:00",
