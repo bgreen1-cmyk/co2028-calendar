@@ -36,18 +36,6 @@
     "_id": "e51"
   },
   {
-    "title": "Case Based Interactive",
-    "date": "08/01/2025",
-    "start": "12:00",
-    "end": "13:00",
-    "block": "Respiratory",
-    "week": "Resp Week 1 (31)",
-    "weekNum": 31,
-    "category": "Session",
-    "desc": "Case Based Interactive",
-    "_id": "e55"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "08/01/2025",
     "start": "15:00",
