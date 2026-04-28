@@ -60,18 +60,6 @@
     "_id": "e26"
   },
   {
-    "title": "Heme/Onc Exam I",
-    "date": "07/18/2025",
-    "start": "09:00",
-    "end": "12:00",
-    "block": "Heme/Onc",
-    "week": "Heme Week 2 (29)",
-    "weekNum": 29,
-    "category": "Mandatory",
-    "desc": "Mandatory Heme/Onc  Exam I",
-    "_id": "e27"
-  },
-  {
     "title": "Faculty Discussion",
     "date": "07/18/2025",
     "start": "13:00",
