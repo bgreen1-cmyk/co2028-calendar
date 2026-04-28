@@ -60,18 +60,6 @@
     "_id": "e286"
   },
   {
-    "title": "MANDATORY ENDOCRINOLOGY EXAM",
-    "date": "10/31/2025",
-    "start": "08:00",
-    "end": "12:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 2(44)",
-    "weekNum": 44,
-    "category": "Mandatory",
-    "desc": "MANDATORY ENDOCRINOLOGY EXAM",
-    "_id": "e287"
-  },
-  {
     "title": "ENGR Lab",
     "date": "10/31/2025",
     "start": "09:00",
