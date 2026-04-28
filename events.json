@@ -36,18 +36,6 @@
     "_id": "e87"
   },
   {
-    "title": "TBL",
-    "date": "08/15/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 3 (33)",
-    "weekNum": 33,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e88"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "08/15/2025",
     "start": "16:00",
