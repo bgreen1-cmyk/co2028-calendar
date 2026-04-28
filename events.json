@@ -48,18 +48,6 @@
     "_id": "e320"
   },
   {
-    "title": "ENGR Lab",
-    "date": "11/14/2025",
-    "start": "09:00",
-    "end": "11:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 4(46)",
-    "weekNum": 46,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e323"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "11/14/2025",
     "start": "12:00",
