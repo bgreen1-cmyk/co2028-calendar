@@ -120,18 +120,6 @@
     "_id": "e76"
   },
   {
-    "title": "TBL 1 (Gotur)",
-    "date": "08/06/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 2 (32)",
-    "weekNum": 32,
-    "category": "TBL",
-    "desc": "Mandatory TBL 1 (Gotur)",
-    "_id": "e77"
-  },
-  {
     "title": "Respiratory: Active Learning (Rogers)",
     "date": "08/13/2025",
     "start": "11:00",
