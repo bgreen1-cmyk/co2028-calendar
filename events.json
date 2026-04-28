@@ -72,18 +72,6 @@
     "_id": "e392"
   },
   {
-    "title": "ENGR Events",
-    "date": "12/12/2025",
-    "start": "10:00",
-    "end": "11:00",
-    "block": "MSK",
-    "week": "MSK Week 2(50)",
-    "weekNum": 50,
-    "category": "Session",
-    "desc": "ENGR Events",
-    "_id": "e394"
-  },
-  {
     "title": "ENGR",
     "date": "12/19/2025",
     "start": "08:00",
