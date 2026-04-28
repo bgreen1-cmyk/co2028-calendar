@@ -428,7 +428,7 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .yr-check-label .yr-check-box::after{background:white}
 
 
-/* BULK DELETE */
+/* BULK SELECT & DELETE */
 .bulk-delete-bar{display:none;align-items:center;gap:10px;padding:8px 14px;background:rgba(240,92,110,.1);border:1px solid rgba(240,92,110,.3);border-radius:8px;margin-bottom:10px;flex-wrap:wrap}
 .bulk-delete-bar.visible{display:flex}
 .bulk-count{font-size:12px;font-weight:700;color:#f05c6e;flex:1}
@@ -436,12 +436,7 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
 .bulk-del-btn:hover{background:#d94050}
 .bulk-cancel-btn{padding:6px 14px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer}
 .bulk-select-all-btn{padding:6px 14px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer}
-.event-checkbox{display:none;position:absolute;top:5px;left:5px;width:16px;height:16px;cursor:pointer;z-index:20;accent-color:#f05c6e}
-.bulk-select-mode .event-checkbox{display:block}
-.bulk-select-mode .event{padding-left:26px}
-.bulk-select-mode .mg-event{padding-left:20px;position:relative}
-.mg-event-cb{display:none;position:absolute;left:4px;top:50%;transform:translateY(-50%);width:12px;height:12px;cursor:pointer;accent-color:#f05c6e}
-.bulk-select-mode .mg-event-cb{display:block}
+.ev-selected{outline:2px solid #f05c6e !important}
 
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -656,7 +651,6 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     <div class="fp-footer">
       <div style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.5">Changes save directly to GitHub — everyone sees updates within seconds.</div>
       <button class="btn-full" onclick="openBulkUpload()" style="background:#1565C0;color:white;padding:10px;border-radius:8px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;margin-top:0">📤 Bulk Upload (.xlsx)</button>
-      <button class="btn-full" onclick="enterBulkSelect()" style="background:rgba(240,92,110,.15);color:#f05c6e;padding:10px;border-radius:8px;border:1px solid rgba(240,92,110,.3);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;margin-top:0">☑ Select & Delete Events</button>
     </div>
   </div>
 </div>
@@ -684,8 +678,8 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
     <div class="modal-footer">
       <div class="modal-week" id="modalWeek"></div>
       <div style="display:flex;gap:8px;margin-top:12px">
-        <button id="modalEditBtn" style="display:none;flex:1;padding:8px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer" onclick="modalEdit()">✎ Edit</button>
-        <button id="modalDeleteBtn" style="display:none;flex:1;padding:8px;border-radius:7px;border:none;background:rgba(240,92,110,.15);color:#f05c6e;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer" onclick="modalDelete()">🗑 Delete</button>
+        <button id="modalEditBtn" style="display:none;flex:1;padding:8px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer" onclick="modalEdit()">&#9998; Edit</button>
+        <button id="modalDeleteBtn" style="display:none;flex:1;padding:8px;border-radius:7px;border:none;background:rgba(240,92,110,.15);color:#f05c6e;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer" onclick="modalDelete()">&#128465; Delete</button>
         <button onclick="document.getElementById('modalOverlay').classList.remove('open')" style="flex:1;padding:8px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer">Close</button>
       </div>
     </div>
@@ -845,8 +839,7 @@ async function loadEvents(){
       const parts=first.split('/');
       if(parts.length===3){currentMonth=parseInt(parts[0])-1;currentMonthYear=parseInt(parts[2]);}
     }
-    // Always render — even if empty
-    if(currentView==='month'){renderMonth();}else{render();}
+    render();
   }catch(err){
     setStatus('offline','Error: '+err.message.substring(0,60));
     showToast('❌ '+err.message);
@@ -980,15 +973,7 @@ function getWeekDates(){
 
 // ── RENDER ────────────────────────────────────────────────────
 function render(){
-  if(!WEEKS.length){
-    if(currentView==='month'){renderMonth();return;}
-    document.getElementById('calView').innerHTML=`<div class="empty-state">
-      <div class="big">📅</div>
-      <p style="font-weight:600;margin-bottom:8px">No events yet</p>
-      <p style="font-size:12px;color:var(--muted)">Enter Edit mode to add events or use Bulk Upload.</p>
-    </div>`;
-    return;
-  }
+  if(!WEEKS.length)return;
   if(currentView==='month'){
     const filtEvs=filteredEvents();
     const mLabel=currentMSub&&currentMSub!=='All'?' · '+currentMSub:'';
@@ -1034,9 +1019,7 @@ function renderWeek(dates){
         const ej=JSON.stringify(e).replace(/'/g,'&#39;').replace(/"/g,'&quot;');
         const mcalCol=mCalColor(e);
         const catCol=CAT_COLOR[e.category]||'#4a5168';
-        const isSel=selectedEventIds.has(e._id);
-        html+=`<div class="event ${ec}" style="min-height:${hp}px;background:${mcalCol}18;border-left:none;padding-left:${bulkSelectMode?'28':'12'}px;background-image:linear-gradient(to right,${catCol} 0px,${catCol} 4px,${mcalCol} 4px,${mcalCol} 8px,${mcalCol}18 8px);color:${mcalCol};${isSel?'outline:2px solid #f05c6e;':''}" onclick="${bulkSelectMode?`toggleEventSelect('${e._id}')`:''};${!bulkSelectMode?`handleEventClick(event,${ej})`:''}" >
-          ${bulkSelectMode?`<input type="checkbox" class="event-checkbox" id="cb_${e._id}" ${isSel?'checked':''} onclick="event.stopPropagation();toggleEventSelect('${e._id}')" />`:''}
+        html+=`<div class="event ${ec}" style="min-height:${hp}px;background:${mcalCol}18;border-left:none;padding-left:12px;background-image:linear-gradient(to right,${catCol} 0px,${catCol} 4px,${mcalCol} 4px,${mcalCol} 8px,${mcalCol}18 8px);color:${mcalCol}" onclick="if(bulkSelectMode){toggleEventSelect('${e._id}',event);}else{handleEventClick(event,${ej});}" id="bsev_${e._id}">
           <div class="ev-tag" style="color:${catCol}">${e.category}</div>
           <div class="ev-title">${e.title.replace(/Heme\/Onc:\s*/i,'').replace(/\s{2,}/g,' ').trim()}</div>
           <div class="ev-time">${fmtTime(e.start)} – ${fmtTime(e.end)}</div>
@@ -1106,7 +1089,6 @@ function openModal(e){
   if(document.getElementById('modalYearRow')){const yr=e.calYear||'';document.getElementById('modalYearRow').style.display=yr?'flex':'none';document.getElementById('modalYear').textContent=yr;}
   document.getElementById('modalBlock').innerHTML=`<span style="color:${BLOCK_COLOR[e.block]||'#fff'}">${e.block}</span>`;
   document.getElementById('modalWeek').textContent=e.week;
-  // Show edit/delete only in faculty mode
   document.getElementById('modalEditBtn').style.display=isFacultyMode?'':'none';
   document.getElementById('modalDeleteBtn').style.display=isFacultyMode?'':'none';
   document.getElementById('modalOverlay').classList.add('open');
@@ -1590,11 +1572,7 @@ function renderMonth(){
         const col=mCalColor(e);
         const catC=CAT_COLOR[e.category]||'#4a5168';
         const ej=JSON.stringify(e).replace(/'/g,"&#39;").replace(/"/g,"&quot;");
-        const isSelected=selectedEventIds.has(e._id);
-        return`<div class="mg-event" style="border-left:none;padding-left:8px;background-image:linear-gradient(to right,${catC} 0px,${catC} 3px,${col} 3px,${col} 6px,${col}22 6px);color:${col};${isSelected?'outline:2px solid #f05c6e;':''}" onclick="event.stopPropagation();${bulkSelectMode?`toggleEventSelect('${e._id}')`:''};${!bulkSelectMode?`handleEventClick(event,${ej})`:''}" title="${bulkSelectMode?'Click to select':'Click for details'}">
-          ${bulkSelectMode?`<input type="checkbox" class="mg-event-cb" id="cb_${e._id}" ${isSelected?'checked':''} onclick="event.stopPropagation();toggleEventSelect('${e._id}')" />`:''}
-          ${e.title.replace(/Heme\/Onc:\s*/i,'').replace(/\s{2,}/g,' ').trim()}
-        </div>`;
+        return`<div class="mg-event" style="border-left:none;padding-left:8px;background-image:linear-gradient(to right,${catC} 0px,${catC} 3px,${col} 3px,${col} 6px,${col}22 6px);color:${col}" onclick="if(bulkSelectMode){toggleEventSelect('${e._id}',event);}else{event.stopPropagation();handleEventClick(event,${ej});}" id="bsev_${e._id}">${bulkSelectMode?'<input type="checkbox" id="bscb_'+e._id+'" style="margin-right:3px;accent-color:#f05c6e" '+(selectedEventIds.has(e._id)?'checked':'')+' onclick="toggleEventSelect('+"'"+e._id+"'"+',event)" />':''}${e.title.replace(/Heme\/Onc:\s*/i,'').replace(/\s{2,}/g,' ').trim()}</div>`;
       }).join('')}
       ${more>0?`<div class="mg-more">+${more} more</div>`:''}
       ${isFacultyMode?`<button class="mg-add-btn" onclick="openAddForm('${ds}','08:00');event.stopPropagation()">+</button>`:''}
@@ -1685,7 +1663,6 @@ let selectedEventIds=new Set();
 function enterBulkSelect(){
   bulkSelectMode=true;
   selectedEventIds=new Set();
-  document.getElementById('layout').classList.add('bulk-select-mode');
   document.getElementById('bulkDeleteBar').classList.add('visible');
   updateBulkCount();
   render();
@@ -1693,22 +1670,23 @@ function enterBulkSelect(){
 function exitBulkSelect(){
   bulkSelectMode=false;
   selectedEventIds=new Set();
-  document.getElementById('layout').classList.remove('bulk-select-mode');
   document.getElementById('bulkDeleteBar').classList.remove('visible');
   render();
 }
-function toggleEventSelect(id){
+function toggleEventSelect(id,ev){
+  if(ev)ev.stopPropagation();
   if(selectedEventIds.has(id)) selectedEventIds.delete(id);
   else selectedEventIds.add(id);
   updateBulkCount();
-  // Update checkbox visual
-  const cb=document.getElementById('cb_'+id);
+  // Just toggle class on the element rather than full re-render
+  const el=document.getElementById('bsev_'+id);
+  if(el)el.classList.toggle('ev-selected',selectedEventIds.has(id));
+  const cb=document.getElementById('bscb_'+id);
   if(cb)cb.checked=selectedEventIds.has(id);
 }
 function bulkSelectAll(){
   const visible=filteredEvents();
-  if(selectedEventIds.size===visible.length){
-    // Deselect all
+  if(selectedEventIds.size>=visible.length){
     selectedEventIds=new Set();
   } else {
     visible.forEach(e=>selectedEventIds.add(e._id));
@@ -1723,26 +1701,26 @@ function updateBulkCount(){
   const btn=document.querySelector('.bulk-select-all-btn');
   if(btn){
     const total=filteredEvents().length;
-    btn.textContent=selectedEventIds.size===total&&total>0?'Deselect All':'Select All';
+    btn.textContent=(selectedEventIds.size>=total&&total>0)?'Deselect All':'Select All';
   }
 }
 async function bulkDeleteSelected(){
   if(!selectedEventIds.size){showToast('No events selected.');return;}
   const n=selectedEventIds.size;
-  if(!confirm(`Delete ${n} event${n!==1?'s':''}? This cannot be undone.`))return;
+  if(!confirm('Delete '+n+' event'+(n!==1?'s':'')+'? This cannot be undone.'))return;
   const btn=document.querySelector('.bulk-del-btn');
   btn.textContent='Deleting...';btn.disabled=true;
+  const before=[...EVENTS];
   try{
-    const before=[...EVENTS];
     EVENTS=EVENTS.filter(e=>!selectedEventIds.has(e._id));
     await saveEventsToGitHub();
-    showToast(`🗑 ${n} event${n!==1?'s':''} deleted!`);
+    showToast('Deleted '+n+' event'+(n!==1?'s':'')+'!');
     exitBulkSelect();
     WEEKS=buildWeeks();buildWeekDrawer();updateTabCounts();render();
   }catch(err){
-    EVENTS=[...before];
-    showToast('❌ '+err.message);
-    btn.textContent='🗑 Delete Selected';btn.disabled=false;
+    EVENTS=before;
+    showToast('Error: '+err.message);
+    btn.textContent='Delete Selected';btn.disabled=false;
   }
 }
 
@@ -2049,22 +2027,22 @@ initApp();
 </div>
 
 </body>
-</html    tbl+=`<tr class="${cls}">
-      <td>${r.mand||'No'}</td>
-      <td>${r.title.substring(0,35)}</td>
-      <td>${r.group}</td>
-      <td>${(r.location||'').substring(0,20)}</td>
-      <td>${r.calYear}</td>
-      <td>${r.mCal}</td>
-      <td>${r.date}</td>
-      <td>${r.start}</td>
-      <td>${r.end}</td>
-      <td>${r.category}</td>
-      <td>${(r.block||'').substring(0,15)}</td>
-      <td>${r.weekNum||''}</td>
-      <td>${(r.presenter||'').substring(0,15)}</td>
-      <td>${(r.notes||'').substring(0,20)}</td>
-      <td style="color:${r._valid?'#3ecf8e':'#f05c6e'}">${errText}</td>
+</html    tbl+=`<tr class="\${cls}">
+      <td>\${r.mand||'No'}</td>
+      <td>\${r.title.substring(0,35)}</td>
+      <td>\${r.group}</td>
+      <td>\${(r.location||'').substring(0,20)}</td>
+      <td>\${r.calYear}</td>
+      <td>\${r.mCal}</td>
+      <td>\${r.date}</td>
+      <td>\${r.start}</td>
+      <td>\${r.end}</td>
+      <td>\${r.category}</td>
+      <td>\${(r.block||'').substring(0,15)}</td>
+      <td>\${r.weekNum||''}</td>
+      <td>\${(r.presenter||'').substring(0,15)}</td>
+      <td>\${(r.notes||'').substring(0,20)}</td>
+      <td style="color:\${r._valid?'#3ecf8e':'#f05c6e'}">\${errText}</td>
     </tr>`;YPE html>
 <html lang="en">
 <head>
