@@ -1,17 +1,5 @@
 [
   {
-    "title": "Clinic/Trip",
-    "date": "08/22/2025",
-    "start": "16:00",
-    "end": "17:00",
-    "block": "Respiratory",
-    "week": "Resp Week 4 (34)",
-    "weekNum": 34,
-    "category": "Session",
-    "desc": "Clinic/Trip",
-    "_id": "e98"
-  },
-  {
     "title": "Faculty Discussion                 Pharmacology                        Review of Diuretics                     (Rogers)",
     "date": "08/27/2025",
     "start": "09:00",
