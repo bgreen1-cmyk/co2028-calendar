@@ -36,18 +36,6 @@
     "_id": "e51"
   },
   {
-    "title": "TBL",
-    "date": "08/01/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 1 (31)",
-    "weekNum": 31,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e52"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "08/01/2025",
     "start": "12:00",
