@@ -4584,18 +4584,6 @@
     "_id": "e412"
   },
   {
-    "title": "Clinic/Trip",
-    "date": "12/26/2025",
-    "start": "16:00",
-    "end": "17:00",
-    "block": "Break",
-    "week": "Break (25)",
-    "weekNum": 52,
-    "category": "Session",
-    "desc": "Clinic/Trip",
-    "_id": "e413"
-  },
-  {
     "title": "PoM",
     "date": "12/26/2025",
     "start": "14:00",
