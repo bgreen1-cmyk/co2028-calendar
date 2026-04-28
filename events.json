@@ -60,18 +60,6 @@
     "_id": "e299"
   },
   {
-    "title": "ITDE 613",
-    "date": "11/03/2025",
-    "start": "13:00",
-    "end": "15:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 3(45)",
-    "weekNum": 45,
-    "category": "Mandatory",
-    "desc": "Mandatory ITDE 613",
-    "_id": "e300"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "11/07/2025",
     "start": "12:00",
