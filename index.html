@@ -1768,7 +1768,6 @@ function handleBulkFile(file){
 }
 function parseBulkRows(rows){
   bulkParsed=[];
-  const CAT_LIST=['Mandatory','Faculty Discussion','TBL','CBSE','ITDE','Exam Review','Session','Grand Rounds'];
   const BLK_LIST=BLOCKS_LIST;
 
   rows.forEach((row,i)=>{
@@ -1827,12 +1826,13 @@ function parseBulkRows(rows){
     const errs=[];
     if(!title)errs.push('Missing session name');
     if(!['M0','M1','M2'].includes(mCal))errs.push(`Invalid class: "${mCal}" — use M0, M1, or M2`);
-    if(!['2026','2027','2028','2029','2030','2031'].includes(calYear))errs.push(`Invalid cohort year: "${calYear}" — use 2029–2038`);
+    if(!['2029','2030','2031','2032','2033','2034','2035','2036','2037','2038'].includes(calYear))errs.push(`Invalid cohort year: "${calYear}" — use 2029–2038`);
     if(!/^\d{2}\/\d{2}\/\d{4}$/.test(dateStr))errs.push(`Invalid date: "${dateStr}"`);
     if(!/^\d{2}:\d{2}$/.test(start))errs.push(`Invalid start time: "${start}"`);
     if(!/^\d{2}:\d{2}$/.test(end))errs.push(`Invalid end time: "${end}"`);
     if(start&&end&&start>=end)errs.push('Start must be before end');
-    if(!CAT_LIST.includes(category))errs.push(`Unknown category: "${category}" — defaulting to Session`);
+    // Category is optional — warn but don't block if not in list
+if(category && typeof CATS_LIST!=='undefined' && !CATS_LIST.includes(category))errs.push(`Unknown category: "${category}" — check spelling or leave blank`);
 
     bulkParsed.push({
       _id:Date.now()+'_'+i,
@@ -1843,7 +1843,7 @@ function parseBulkRows(rows){
       weekNum:weekNum||(WEEKS.length?WEEKS[0].num:28),
       week:weekNameFor(weekNum||(WEEKS.length?WEEKS[0].num:28)),
       desc:title,
-      _errors:errs,_valid:errs.filter(e=>!e.includes('defaulting')).length===0
+      _errors:errs,_valid:errs.filter(e=>!e.includes('Unknown category')&&!e.includes('defaulting')).length===0
     });
   });
 
