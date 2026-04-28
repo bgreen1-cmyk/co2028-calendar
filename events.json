@@ -36,18 +36,6 @@
     "_id": "e350"
   },
   {
-    "title": "TBL",
-    "date": "11/28/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "GI",
-    "week": "Thanksgiving (48)",
-    "weekNum": 48,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e351"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "11/28/2025",
     "start": "12:00",
