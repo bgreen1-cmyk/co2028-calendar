@@ -36,18 +36,6 @@
     "_id": "e209"
   },
   {
-    "title": "TBL",
-    "date": "10/03/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e211"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "10/03/2025",
     "start": "12:00",
