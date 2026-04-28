@@ -987,9 +987,14 @@ function render(){
   pill.textContent=w.block;pill.style.background=col+'22';pill.style.color=col;pill.style.border='1px solid '+col+'55';
   const dates=getWeekDates();
   if(dates[0]){
-    const[mo1,dy1]=dates[0].split('/');const[mo2,dy2]=dates[4].split('/');
-    const d1=new Date(2025,+mo1-1,+dy1),d2=new Date(2025,+mo2-1,+dy2);
-    document.getElementById('weekDates').textContent=d1.toLocaleDateString('en-US',{month:'short',day:'numeric'})+' – '+d2.toLocaleDateString('en-US',{month:'short',day:'numeric'})+', 2025';
+    // Get actual dates from events in this week for accurate year
+    const weekEvs=EVENTS.filter(e=>e.weekNum===w.num).sort((a,b)=>a.date.localeCompare(b.date));
+    const firstDate=weekEvs.length?weekEvs[0].date:dates[0];
+    const lastDate=weekEvs.length?weekEvs[weekEvs.length-1].date:dates[4]||dates[0];
+    const[mo1,dy1,yr1]=firstDate.split('/');
+    const[mo2,dy2,yr2]=lastDate.split('/');
+    const d1=new Date(+yr1,+mo1-1,+dy1),d2=new Date(+yr2,+mo2-1,+dy2);
+    document.getElementById('weekDates').textContent=d1.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' – '+d2.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
   }
   document.getElementById('toolbarSub').textContent=`${EVENTS.length} events · ${EVENTS.filter(e=>e.weekNum===w.num).length} this week`;
   renderChangeLog();
@@ -1075,7 +1080,7 @@ function openModal(e){
   const catColModal=CAT_COLOR[e.category]||'#4a5168';
   document.getElementById('modalBar').style.background=`linear-gradient(to bottom,${catColModal} 0%,${catColModal} 50%,${col} 50%,${col} 100%)`;
   document.getElementById('modalCat').style.color=col;
-  document.getElementById('modalTitle').textContent=e.title.replace(/\s{2,}/g,' ').trim();
+  document.getElementById('modalTitle').textContent=displayTitle(e);
   document.getElementById('modalCat').textContent=`${e.calYear||'2028'} ${e.mCal||'M1'} · ${e.category}`;document.getElementById('modalCat').style.color=col;
   document.getElementById('modalDate').textContent=`${fmtDate(e.date)}, ${fmtTime(e.start)} – ${fmtTime(e.end)}`;
   const mand=e.mand||'No';const grp=e.group||'';const loc=e.location||'';const notes=e.notes||'';const presenter=e.presenter||'';
@@ -1576,7 +1581,7 @@ function renderMonth(){
         const col=mCalColor(e);
         const catC=CAT_COLOR[e.category]||'#4a5168';
         const ej=JSON.stringify(e).replace(/'/g,"&#39;").replace(/"/g,"&quot;");
-        return`<div class="mg-event" style="border-left:none;padding-left:8px;background-image:linear-gradient(to right,${catC} 0px,${catC} 3px,${col} 3px,${col} 6px,${col}22 6px);color:${col}" id="bev_${e._id}" onclick="bulkSelectMode?bulkToggleEvent('${e._id}'):(event.stopPropagation(),handleEventClick(event,${ej}))">${e.title.replace(/Heme\/Onc:\s*/i,'').replace(/\s{2,}/g,' ').trim()}</div>`;
+        return`<div class="mg-event" style="border-left:none;padding-left:8px;background-image:linear-gradient(to right,${catC} 0px,${catC} 3px,${col} 3px,${col} 6px,${col}22 6px);color:${col}" id="bev_${e._id}" onclick="bulkSelectMode?bulkToggleEvent('${e._id}'):(event.stopPropagation(),handleEventClick(event,${ej}))">${displayTitle(e)}</div>`;
       }).join('')}
       ${more>0?`<div class="mg-more">+${more} more</div>`:''}
       ${isFacultyMode?`<button class="mg-add-btn" onclick="openAddForm('${ds}','08:00');event.stopPropagation()">+</button>`:''}
