@@ -821,7 +821,8 @@ async function loadEvents(){
       const parts=first.split('/');
       if(parts.length===3){currentMonth=parseInt(parts[0])-1;currentMonthYear=parseInt(parts[2]);}
     }
-    render();
+    // Always render — even if empty
+    if(currentView==='month'){renderMonth();}else{render();}
   }catch(err){
     setStatus('offline','Error: '+err.message.substring(0,60));
     showToast('❌ '+err.message);
@@ -955,7 +956,15 @@ function getWeekDates(){
 
 // ── RENDER ────────────────────────────────────────────────────
 function render(){
-  if(!WEEKS.length)return;
+  if(!WEEKS.length){
+    if(currentView==='month'){renderMonth();return;}
+    document.getElementById('calView').innerHTML=`<div class="empty-state">
+      <div class="big">📅</div>
+      <p style="font-weight:600;margin-bottom:8px">No events yet</p>
+      <p style="font-size:12px;color:var(--muted)">Enter Edit mode to add events or use Bulk Upload.</p>
+    </div>`;
+    return;
+  }
   if(currentView==='month'){
     const filtEvs=filteredEvents();
     const mLabel=currentMSub&&currentMSub!=='All'?' · '+currentMSub:'';
