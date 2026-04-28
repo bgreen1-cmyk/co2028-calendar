@@ -72,18 +72,6 @@
     "_id": "e211"
   },
   {
-    "title": "ITDE 613",
-    "date": "09/29/2025",
-    "start": "13:00",
-    "end": "15:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "Mandatory",
-    "desc": "Mandatory ITDE 613",
-    "_id": "e212"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "10/03/2025",
     "start": "12:00",
