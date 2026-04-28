@@ -1,17 +1,5 @@
 [
   {
-    "title": "ENGR",
-    "date": "10/10/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "block": "GI",
-    "week": "GI WEEK 3(41)",
-    "weekNum": 41,
-    "category": "Session",
-    "desc": "ENGR",
-    "_id": "e224"
-  },
-  {
     "title": "TBL 2 Lower GI Disorders/Pathology (Dacha/Kodali/McCarty?)",
     "date": "10/10/2025",
     "start": "10:00",
