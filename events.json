@@ -12,18 +12,6 @@
     "_id": "e207"
   },
   {
-    "title": "PoM",
-    "date": "10/03/2025",
-    "start": "14:00",
-    "end": "15:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "Session",
-    "desc": "PoM",
-    "_id": "e209"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "10/03/2025",
     "start": "15:00",
