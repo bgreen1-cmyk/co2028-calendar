@@ -1,17 +1,5 @@
 [
   {
-    "title": "Clinic/Trip",
-    "date": "07/11/2025",
-    "start": "16:00",
-    "end": "17:00",
-    "block": "Heme/Onc",
-    "week": "Heme Week 1 (28)",
-    "weekNum": 28,
-    "category": "Session",
-    "desc": "Clinic/Trip",
-    "_id": "e4"
-  },
-  {
     "title": "Heme/Onc:                 Exam Review",
     "date": "07/16/2025",
     "start": "09:00",
