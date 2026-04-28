@@ -168,18 +168,6 @@
     "_id": "e221"
   },
   {
-    "title": "PoM 3 HEAL",
-    "date": "09/30/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "Mandatory",
-    "desc": "Mandatory PoM 3 HEAL",
-    "_id": "e222"
-  },
-  {
     "title": "Active Learning         Digestion and Absorption of Nutrients, Fluid, and Electrolytes (Derry)",
     "date": "10/08/2025",
     "start": "11:00",
