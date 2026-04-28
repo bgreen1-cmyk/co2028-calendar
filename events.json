@@ -60,18 +60,6 @@
     "_id": "e24"
   },
   {
-    "title": "TBL 1: HEMATOLOGY",
-    "date": "07/16/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Heme/Onc",
-    "week": "Heme Week 2 (29)",
-    "weekNum": 29,
-    "category": "TBL",
-    "desc": "Mandatory TBL 1: HEMATOLOGY",
-    "_id": "e25"
-  },
-  {
     "title": "ENGR Events",
     "date": "07/18/2025",
     "start": "10:00",
