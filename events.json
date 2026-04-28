@@ -1,17 +1,5 @@
 [
   {
-    "title": "PoM 3 Remediation-if needed",
-    "date": "12/11/2025",
-    "start": "13:00",
-    "end": "17:00",
-    "block": "MSK",
-    "week": "MSK Week 2(50)",
-    "weekNum": 50,
-    "category": "Session",
-    "desc": "PoM 3 Remediation-if needed",
-    "_id": "e380"
-  },
-  {
     "title": "ENGR",
     "date": "12/12/2025",
     "start": "08:00",
