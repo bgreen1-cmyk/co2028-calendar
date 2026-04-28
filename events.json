@@ -96,18 +96,6 @@
     "_id": "e357"
   },
   {
-    "title": "ENGR",
-    "date": "11/28/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "block": "GI",
-    "week": "Thanksgiving (48)",
-    "weekNum": 48,
-    "category": "Session",
-    "desc": "ENGR",
-    "_id": "e359"
-  },
-  {
     "title": "EBM: Faculty discussion (Active Session)",
     "date": "12/05/2025",
     "start": "09:00",
