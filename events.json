@@ -1,17 +1,5 @@
 [
   {
-    "title": "Clinic/Trip",
-    "date": "10/03/2025",
-    "start": "16:00",
-    "end": "17:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "Session",
-    "desc": "Clinic/Trip",
-    "_id": "e207"
-  },
-  {
     "title": "Active Learning         Digestion and Absorption of Nutrients, Fluid, and Electrolytes (Derry)",
     "date": "10/08/2025",
     "start": "11:00",
