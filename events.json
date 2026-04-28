@@ -72,18 +72,6 @@
     "_id": "e371"
   },
   {
-    "title": "ENGR Events",
-    "date": "12/05/2025",
-    "start": "10:00",
-    "end": "11:00",
-    "block": "MSK",
-    "week": "MSK Week 1(49)",
-    "weekNum": 49,
-    "category": "Session",
-    "desc": "ENGR Events",
-    "_id": "e374"
-  },
-  {
     "title": "ITDE 613 Final Exam",
     "date": "12/08/2025",
     "start": "13:00",
