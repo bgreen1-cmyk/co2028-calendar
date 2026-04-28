@@ -60,18 +60,6 @@
     "_id": "e213"
   },
   {
-    "title": "Met/GI/Nut Exam I",
-    "date": "10/03/2025",
-    "start": "08:00",
-    "end": "12:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "Mandatory",
-    "desc": "Mandatory Met/GI/Nut  Exam I",
-    "_id": "e214"
-  },
-  {
     "title": "ENGR Lab",
     "date": "10/03/2025",
     "start": "09:00",
