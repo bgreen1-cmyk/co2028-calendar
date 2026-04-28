@@ -36,18 +36,6 @@
     "_id": "e80"
   },
   {
-    "title": "EnMed Respiratory Workshop at HMH (1 hr med, 1 hr eng)",
-    "date": "08/12/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 3 (33)",
-    "weekNum": 33,
-    "category": "Mandatory",
-    "desc": "Mandatory EnMed Respiratory Workshop at HMH (1 hr med, 1 hr eng)",
-    "_id": "e81"
-  },
-  {
     "title": "POM 3 Practice Workshop (whole class)",
     "date": "08/13/2025",
     "start": "13:00",
