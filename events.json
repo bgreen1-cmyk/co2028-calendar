@@ -72,18 +72,6 @@
     "_id": "e268"
   },
   {
-    "title": "ENGR Lab",
-    "date": "10/24/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 1(43)",
-    "weekNum": 43,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e269"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "10/24/2025",
     "start": "15:00",
