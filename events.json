@@ -1,17 +1,5 @@
 [
   {
-    "title": "Faculty Discussion",
-    "date": "09/19/2025",
-    "start": "13:00",
-    "end": "14:00",
-    "block": "Renal",
-    "week": "Renal Week 4 (38)",
-    "weekNum": 38,
-    "category": "Faculty Discussion",
-    "desc": "Faculty Discussion",
-    "_id": "e165"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "09/19/2025",
     "start": "16:00",
