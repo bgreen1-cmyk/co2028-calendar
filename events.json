@@ -60,18 +60,6 @@
     "_id": "e213"
   },
   {
-    "title": "ENGR Lab",
-    "date": "10/03/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e215"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "10/03/2025",
     "start": "15:00",
