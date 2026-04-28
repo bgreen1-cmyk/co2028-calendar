@@ -1,17 +1,5 @@
 [
   {
-    "title": "EBM: Faculty discussion (Active Session)",
-    "date": "12/05/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "MSK",
-    "week": "MSK Week 1(49)",
-    "weekNum": 49,
-    "category": "Faculty Discussion",
-    "desc": "EBM: Faculty discussion (Active Session)",
-    "_id": "e360"
-  },
-  {
     "title": "Faculty Discussion",
     "date": "12/05/2025",
     "start": "13:00",
