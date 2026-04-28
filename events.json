@@ -1,17 +1,5 @@
 [
   {
-    "title": "Clinic/Trip",
-    "date": "11/07/2025",
-    "start": "16:00",
-    "end": "17:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 3(45)",
-    "weekNum": 45,
-    "category": "Session",
-    "desc": "Clinic/Trip",
-    "_id": "e296"
-  },
-  {
     "title": "ENGR",
     "date": "11/14/2025",
     "start": "08:00",
