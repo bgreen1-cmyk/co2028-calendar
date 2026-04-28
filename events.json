@@ -46,17 +46,5 @@
     "category": "Session",
     "desc": "Clinic/Trip",
     "_id": "e402"
-  },
-  {
-    "title": "Case Based Interactive",
-    "date": "12/19/2025",
-    "start": "12:00",
-    "end": "13:00",
-    "block": "MSK",
-    "week": "MSK Week 3 (51)",
-    "weekNum": 51,
-    "category": "Session",
-    "desc": "Case Based Interactive",
-    "_id": "e404"
   }
 ]
