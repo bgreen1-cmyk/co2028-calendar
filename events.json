@@ -1,17 +1,5 @@
 [
   {
-    "title": "Faculty Discussion",
-    "date": "10/03/2025",
-    "start": "13:00",
-    "end": "14:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "Faculty Discussion",
-    "desc": "Faculty Discussion",
-    "_id": "e206"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "10/03/2025",
     "start": "16:00",
