@@ -24,18 +24,6 @@
     "_id": "e98"
   },
   {
-    "title": "Respiratory Exam 2",
-    "date": "08/22/2025",
-    "start": "09:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 4 (34)",
-    "weekNum": 34,
-    "category": "Mandatory",
-    "desc": "Mandatory Respiratory Exam 2",
-    "_id": "e99"
-  },
-  {
     "title": "PoM",
     "date": "08/22/2025",
     "start": "14:00",
