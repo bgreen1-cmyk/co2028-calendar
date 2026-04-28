@@ -1,17 +1,5 @@
 [
   {
-    "title": "Faculty Discussion",
-    "date": "08/22/2025",
-    "start": "13:00",
-    "end": "14:00",
-    "block": "Respiratory",
-    "week": "Resp Week 4 (34)",
-    "weekNum": 34,
-    "category": "Faculty Discussion",
-    "desc": "Faculty Discussion",
-    "_id": "e96"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "08/22/2025",
     "start": "16:00",
