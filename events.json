@@ -36,18 +36,6 @@
     "_id": "e231"
   },
   {
-    "title": "TBL",
-    "date": "10/10/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "GI",
-    "week": "GI WEEK 3(41)",
-    "weekNum": 41,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e232"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "10/10/2025",
     "start": "16:00",
