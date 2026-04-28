@@ -1,17 +1,5 @@
 [
   {
-    "title": "Renal/GU EXAM I",
-    "date": "09/05/2025",
-    "start": "13:00",
-    "end": "16:00",
-    "block": "Renal",
-    "week": "Renal Week 2 (36)",
-    "weekNum": 36,
-    "category": "Mandatory",
-    "desc": "Mandatory Renal/GU  EXAM I",
-    "_id": "e133"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "09/05/2025",
     "start": "16:00",
