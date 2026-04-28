@@ -1,17 +1,5 @@
 [
   {
-    "title": "Clinic/Trip",
-    "date": "11/28/2025",
-    "start": "16:00",
-    "end": "17:00",
-    "block": "GI",
-    "week": "Thanksgiving (48)",
-    "weekNum": 48,
-    "category": "Session",
-    "desc": "Clinic/Trip",
-    "_id": "e349"
-  },
-  {
     "title": "EBM: Faculty discussion (Active Session)",
     "date": "12/05/2025",
     "start": "09:00",
