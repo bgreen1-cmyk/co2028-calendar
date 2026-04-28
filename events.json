@@ -180,18 +180,6 @@
     "_id": "e130"
   },
   {
-    "title": "PoM 3 HEAL",
-    "date": "08/26/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Renal",
-    "week": "Renal Week 1 (35)",
-    "weekNum": 35,
-    "category": "Mandatory",
-    "desc": "Mandatory PoM 3 HEAL",
-    "_id": "e131"
-  },
-  {
     "title": "Faculty Discussion",
     "date": "09/05/2025",
     "start": "13:00",
