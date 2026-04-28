@@ -70,17 +70,5 @@
     "category": "Session",
     "desc": "Case Based Interactive",
     "_id": "e404"
-  },
-  {
-    "title": "ENGR Events",
-    "date": "12/19/2025",
-    "start": "10:00",
-    "end": "11:00",
-    "block": "MSK",
-    "week": "MSK Week 3 (51)",
-    "weekNum": 51,
-    "category": "Session",
-    "desc": "ENGR Events",
-    "_id": "e409"
   }
 ]
