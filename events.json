@@ -1,17 +1,5 @@
 [
   {
-    "title": "EBMSR / MSGR",
-    "date": "10/10/2025",
-    "start": "15:00",
-    "end": "16:00",
-    "block": "GI",
-    "week": "GI WEEK 3(41)",
-    "weekNum": 41,
-    "category": "Session",
-    "desc": "EBMSR / MSGR",
-    "_id": "e228"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "10/10/2025",
     "start": "16:00",
