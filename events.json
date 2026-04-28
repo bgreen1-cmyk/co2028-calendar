@@ -72,18 +72,6 @@
     "_id": "e83"
   },
   {
-    "title": "ITDE 613-GRP A (EIC)",
-    "date": "08/11/2025",
-    "start": "13:00",
-    "end": "15:00",
-    "block": "Respiratory",
-    "week": "Resp Week 3 (33)",
-    "weekNum": 33,
-    "category": "Mandatory",
-    "desc": "Mandatory ITDE 613-GRP A (EIC)",
-    "_id": "e84"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "08/15/2025",
     "start": "15:00",
