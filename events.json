@@ -1,17 +1,5 @@
 [
   {
-    "title": "EBMSR / MSGR",
-    "date": "07/25/2025",
-    "start": "15:00",
-    "end": "16:00",
-    "block": "Heme/Onc",
-    "week": "Heme Week 3 (30)",
-    "weekNum": 30,
-    "category": "Session",
-    "desc": "EBMSR / MSGR",
-    "_id": "e36"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "07/25/2025",
     "start": "16:00",
