@@ -12,18 +12,6 @@
     "_id": "e50"
   },
   {
-    "title": "PoM",
-    "date": "08/01/2025",
-    "start": "14:00",
-    "end": "15:00",
-    "block": "Respiratory",
-    "week": "Resp Week 1 (31)",
-    "weekNum": 31,
-    "category": "Session",
-    "desc": "PoM",
-    "_id": "e51"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "08/01/2025",
     "start": "15:00",
