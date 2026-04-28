@@ -36,18 +36,6 @@
     "_id": "e387"
   },
   {
-    "title": "TBL",
-    "date": "12/12/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "MSK",
-    "week": "MSK Week 2(50)",
-    "weekNum": 50,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e389"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "12/12/2025",
     "start": "16:00",
