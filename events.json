@@ -72,18 +72,6 @@
     "_id": "e139"
   },
   {
-    "title": "ENGR Lab",
-    "date": "09/05/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "Renal",
-    "week": "Renal Week 2 (36)",
-    "weekNum": 36,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e140"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "09/05/2025",
     "start": "15:00",
