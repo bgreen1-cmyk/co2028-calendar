@@ -36,18 +36,6 @@
     "_id": "e119"
   },
   {
-    "title": "TBL",
-    "date": "08/29/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "Renal",
-    "week": "Renal Week 1 (35)",
-    "weekNum": 35,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e121"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "08/29/2025",
     "start": "12:00",
