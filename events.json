@@ -84,18 +84,6 @@
     "_id": "e121"
   },
   {
-    "title": "ITDE 613",
-    "date": "08/25/2025",
-    "start": "13:00",
-    "end": "15:00",
-    "block": "Renal",
-    "week": "Renal Week 1 (35)",
-    "weekNum": 35,
-    "category": "Mandatory",
-    "desc": "Mandatory ITDE 613",
-    "_id": "e122"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "08/29/2025",
     "start": "12:00",
