@@ -1,17 +1,5 @@
 [
   {
-    "title": "Faculty Discussion",
-    "date": "12/05/2025",
-    "start": "13:00",
-    "end": "14:00",
-    "block": "MSK",
-    "week": "MSK Week 1(49)",
-    "weekNum": 49,
-    "category": "Faculty Discussion",
-    "desc": "Faculty Discussion",
-    "_id": "e361"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "12/05/2025",
     "start": "16:00",
