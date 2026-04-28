@@ -36,25 +36,6 @@
     "_id": "e402"
   },
   {
-    "_id": "1777342011315_0",
-    "title": "POM 1: What's a Physician — HEAL",
-    "mand": "Yes",
-    "group": "All Students",
-    "location": "Room 212 A/B, EnMed Tower",
-    "mCal": "M1",
-    "calYear": "2029",
-    "presenter": "Dr. Smith",
-    "notes": "Required pre-reading: Ch. 1",
-    "date": "08/25/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "category": "TBL",
-    "block": "POM I Week 1",
-    "weekNum": 1,
-    "week": "Week 1",
-    "desc": "POM 1: What's a Physician — HEAL"
-  },
-  {
     "_id": "1777342011315_1",
     "title": "CV: Cardiac Physical Exam Clinic",
     "mand": "No",
