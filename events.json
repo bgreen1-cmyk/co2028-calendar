@@ -36,18 +36,6 @@
     "_id": "e5"
   },
   {
-    "title": "TBL",
-    "date": "07/11/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "Heme/Onc",
-    "week": "Heme Week 1 (28)",
-    "weekNum": 28,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e6"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "07/11/2025",
     "start": "12:00",
