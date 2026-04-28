@@ -1,17 +1,5 @@
 [
   {
-    "title": "TBL 2 (Gotur/Ganguly/Rogers)",
-    "date": "08/15/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 3 (33)",
-    "weekNum": 33,
-    "category": "TBL",
-    "desc": "Mandatory TBL 2 (Gotur/Ganguly/Rogers)",
-    "_id": "e79"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "08/15/2025",
     "start": "15:00",
