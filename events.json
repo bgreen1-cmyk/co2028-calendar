@@ -60,18 +60,6 @@
     "_id": "e104"
   },
   {
-    "title": "ENGR Lab",
-    "date": "08/22/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "Respiratory",
-    "week": "Resp Week 4 (34)",
-    "weekNum": 34,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e106"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "08/22/2025",
     "start": "15:00",
