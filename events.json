@@ -48,18 +48,6 @@
     "_id": "e265"
   },
   {
-    "title": "TBL",
-    "date": "10/24/2025",
-    "start": "11:00",
-    "end": "12:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 1(43)",
-    "weekNum": 43,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e267"
-  },
-  {
     "title": "Case Based Interactive",
     "date": "10/24/2025",
     "start": "12:00",
