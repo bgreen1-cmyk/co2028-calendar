@@ -96,18 +96,6 @@
     "_id": "e291"
   },
   {
-    "title": "ENGR",
-    "date": "10/31/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 2(44)",
-    "weekNum": 44,
-    "category": "Session",
-    "desc": "ENGR",
-    "_id": "e292"
-  },
-  {
     "title": "Faculty Discussion",
     "date": "11/07/2025",
     "start": "13:00",
