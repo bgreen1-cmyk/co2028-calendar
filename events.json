@@ -1,17 +1,5 @@
 [
   {
-    "title": "PoM 3 HEAL",
-    "date": "10/28/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 2(44)",
-    "weekNum": 44,
-    "category": "Mandatory",
-    "desc": "Mandatory PoM 3 HEAL",
-    "_id": "e277"
-  },
-  {
     "title": "Active Learning:            Pathology Exam Review         (Pathology)",
     "date": "10/29/2025",
     "start": "09:00",
