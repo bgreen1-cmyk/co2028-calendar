@@ -1,17 +1,5 @@
 [
   {
-    "title": "ENGR",
-    "date": "12/12/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "block": "MSK",
-    "week": "MSK Week 2(50)",
-    "weekNum": 50,
-    "category": "Session",
-    "desc": "ENGR",
-    "_id": "e381"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "12/12/2025",
     "start": "15:00",
