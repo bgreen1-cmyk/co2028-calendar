@@ -664,7 +664,14 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
       <div class="modal-row" id="modalYearRow" style="display:none"><div class="m-icon">🎓</div><div><div class="m-label">Calendar</div><div class="m-val" id="modalYear"></div></div></div>
       <div class="modal-row"><div class="m-icon">📚</div><div><div class="m-label">Block</div><div class="m-val" id="modalBlock"></div></div></div>
     </div>
-    <div class="modal-footer"><div class="modal-week" id="modalWeek"></div></div>
+    <div class="modal-footer">
+      <div class="modal-week" id="modalWeek"></div>
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button id="modalEditBtn" style="display:none;flex:1;padding:8px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer" onclick="modalEdit()">✎ Edit</button>
+        <button id="modalDeleteBtn" style="display:none;flex:1;padding:8px;border-radius:7px;border:none;background:rgba(240,92,110,.15);color:#f05c6e;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer" onclick="modalDelete()">🗑 Delete</button>
+        <button onclick="document.getElementById('modalOverlay').classList.remove('open')" style="flex:1;padding:8px;border-radius:7px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer">Close</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1058,7 +1065,9 @@ function renderList(){
 // ── INTERACTIONS ──────────────────────────────────────────────
 function handleEventClick(ev,e){ev.stopPropagation();if(isFacultyMode)return;openModal(e);}
 function handleCellClick(ev,date,hour){if(!isFacultyMode)return;if(ev.target.closest('.event'))return;openAddForm(date,hour);}
+let _modalEvent=null;
 function openModal(e){
+  _modalEvent=e;
   const col=mCalColor(e);
   const catColModal=CAT_COLOR[e.category]||'#4a5168';
   document.getElementById('modalBar').style.background=`linear-gradient(to bottom,${catColModal} 0%,${catColModal} 50%,${col} 50%,${col} 100%)`;
@@ -1078,6 +1087,9 @@ function openModal(e){
   if(document.getElementById('modalYearRow')){const yr=e.calYear||'';document.getElementById('modalYearRow').style.display=yr?'flex':'none';document.getElementById('modalYear').textContent=yr;}
   document.getElementById('modalBlock').innerHTML=`<span style="color:${BLOCK_COLOR[e.block]||'#fff'}">${e.block}</span>`;
   document.getElementById('modalWeek').textContent=e.week;
+  // Show edit/delete only in faculty mode
+  document.getElementById('modalEditBtn').style.display=isFacultyMode?'':'none';
+  document.getElementById('modalDeleteBtn').style.display=isFacultyMode?'':'none';
   document.getElementById('modalOverlay').classList.add('open');
 }
 
@@ -1559,7 +1571,7 @@ function renderMonth(){
         const col=mCalColor(e);
         const catC=CAT_COLOR[e.category]||'#4a5168';
         const ej=JSON.stringify(e).replace(/'/g,"&#39;").replace(/"/g,"&quot;");
-        return`<div class="mg-event" style="border-left:none;padding-left:8px;background-image:linear-gradient(to right,${catC} 0px,${catC} 3px,${col} 3px,${col} 6px,${col}22 6px);color:${col}" onclick="event.stopPropagation();handleEventClick(event,${ej})">${e.title.replace(/Heme\/Onc:\s*/i,'').replace(/\s{2,}/g,' ').trim()}</div>`;
+        return`<div class="mg-event" style="border-left:none;padding-left:8px;background-image:linear-gradient(to right,${catC} 0px,${catC} 3px,${col} 3px,${col} 6px,${col}22 6px);color:${col}" onclick="event.stopPropagation();handleEventClick(event,${ej})" title="${isFacultyMode?'Click to edit':'Click for details'}">${e.title.replace(/Heme\/Onc:\s*/i,'').replace(/\s{2,}/g,' ').trim()}</div>`;
       }).join('')}
       ${more>0?`<div class="mg-more">+${more} more</div>`:''}
       ${isFacultyMode?`<button class="mg-add-btn" onclick="openAddForm('${ds}','08:00');event.stopPropagation()">+</button>`:''}
@@ -1847,6 +1859,17 @@ async function saveForm(){
 }
 
 // ── DELETE ────────────────────────────────────────────────────
+
+function modalEdit(){
+  if(!_modalEvent)return;
+  document.getElementById('modalOverlay').classList.remove('open');
+  openEditForm(null,_modalEvent);
+}
+function modalDelete(){
+  if(!_modalEvent)return;
+  document.getElementById('modalOverlay').classList.remove('open');
+  confirmDelete(null,_modalEvent._id);
+}
 function confirmDelete(ev,id){
   if(ev)ev.stopPropagation();
   pendingDeleteId=id;
