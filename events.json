@@ -24,18 +24,6 @@
     "_id": "e314"
   },
   {
-    "title": "TBL",
-    "date": "11/14/2025",
-    "start": "11:00",
-    "end": "13:00",
-    "block": "Endocrinology",
-    "week": "Endo Week 4(46)",
-    "weekNum": 46,
-    "category": "TBL",
-    "desc": "TBL",
-    "_id": "e318"
-  },
-  {
     "title": "PoM",
     "date": "11/14/2025",
     "start": "14:00",
