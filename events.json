@@ -12,18 +12,6 @@
     "_id": "e154"
   },
   {
-    "title": "PoM",
-    "date": "09/12/2025",
-    "start": "14:00",
-    "end": "15:00",
-    "block": "Renal",
-    "week": "Renal Week 3 (37)",
-    "weekNum": 37,
-    "category": "Session",
-    "desc": "PoM",
-    "_id": "e156"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "09/12/2025",
     "start": "16:00",
