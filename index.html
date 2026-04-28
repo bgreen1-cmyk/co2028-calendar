@@ -479,7 +479,7 @@ input[list].form-input{background-image:url("data:image/svg+xml,%3Csvg xmlns='ht
       <div class="config-num">4</div>
       <div class="config-step-body">
         <label>Faculty PIN</label>
-        <input id="cfgPin" type="password" placeholder="Set a PIN" value="2028">
+        <input id="cfgPin" type="password" placeholder="Set a PIN" value="3255">
         <div class="hint">Faculty enter this PIN to unlock the edit panel.</div>
       </div>
     </div>
@@ -776,7 +776,7 @@ function saveConfig(){
   const pin=document.getElementById('cfgPin').value.trim();
   if(!user){document.getElementById('cfgErr').textContent='Please enter your GitHub username.';return;}
   if(!repo){document.getElementById('cfgErr').textContent='Please enter your repository name.';return;}
-  CFG={user,repo,token,pin:pin||'2028'};
+  CFG={user,repo,token,pin:pin||'3255'};
   localStorage.setItem('co2028_gh_cfg',JSON.stringify(CFG));
   document.getElementById('configOverlay').style.display='none';
   loadEvents(); // reload with token so SHA gets fetched
@@ -786,7 +786,7 @@ function openConfig(){
   document.getElementById('cfgUser').value=CFG.user||'';
   document.getElementById('cfgRepo').value=CFG.repo||'co2028-calendar';
   document.getElementById('cfgToken').value=CFG.token||'';
-  document.getElementById('cfgPin').value=CFG.pin||'2028';
+  document.getElementById('cfgPin').value=CFG.pin||'3255';
   document.getElementById('cfgErr').textContent='';
   document.getElementById('configOverlay').style.display='flex';
 }
@@ -888,7 +888,8 @@ function buildWeeks(){
 function buildWeekDrawer(){
   document.getElementById('weekDrawer').style.display=currentView==='month'?'none':'';
 
-  document.getElementById('weekDrawer').innerHTML=WEEKS.map((w,i)=>{
+  const allBtn=currentView==='list'?`<button class="wk-btn${currentWeekIdx===-1?' active':''}" style="${currentWeekIdx===-1?'background:var(--accent);border-color:var(--accent)':''}" onclick="jumpToWeek(-1)">All Weeks</button>`:'';
+  document.getElementById('weekDrawer').innerHTML=allBtn+WEEKS.map((w,i)=>{
     const col=BLOCK_COLOR[w.block]||'#7a829a';
     const lbl=w.name.replace(/\s*\(\d+\)/,'').replace(/WEEK/i,'Wk').replace(/Week/,'Wk');
     return `<button class="wk-btn${i===currentWeekIdx?' active':''}" style="${i===currentWeekIdx?'background:'+col+';border-color:'+col:''}" onclick="jumpToWeek(${i})">${lbl}</button>`;
@@ -953,6 +954,12 @@ function updateFpViewBtns(v){
 
 // ── TIME ──────────────────────────────────────────────────────
 function fmtTime(t){const[h,m]=t.split(':').map(Number);return`${h>12?h-12:h===0?12:h}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`;}
+
+function displayTitle(e){
+  const mand=e.mand==='Yes'?'[MAND] ':'';
+  const grp=e.group&&e.group!=='All Students'?` — ${e.group}`:'';
+  return mand + e.title.replace(/\s{2,}/g,' ').trim() + grp;
+}
 function fmtDate(d){const[mo,dy,yr]=d.split('/');return new Date(yr,mo-1,dy).toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});}
 function getWeekDates(){
   const w=WEEKS[currentWeekIdx];
@@ -974,7 +981,7 @@ function render(){
     document.getElementById('toolbarSub').textContent=`${filtEvs.length} event${filtEvs.length!==1?'s':''} shown · ${selectedYears.has('All')?'All Years':[...selectedYears].sort().join(', ')}${mLabel}`;
     renderChangeLog();renderMonth();return;
   }
-  const w=WEEKS[currentWeekIdx],col=BLOCK_COLOR[w.block]||'#7a829a';
+  const w=currentWeekIdx>=0?WEEKS[currentWeekIdx]:WEEKS[0];const col=w?(BLOCK_COLOR[w.block]||'#7a829a'):'#7a829a';
   document.getElementById('weekLabel').textContent=`Week ${w.num}`;
   const pill=document.getElementById('blockPill');
   pill.textContent=w.block;pill.style.background=col+'22';pill.style.color=col;pill.style.border='1px solid '+col+'55';
@@ -1015,7 +1022,7 @@ function renderWeek(dates){
         const catCol=CAT_COLOR[e.category]||'#4a5168';
         html+=`<div class="event ${ec}" style="min-height:${hp}px;background:${mcalCol}18;border-left:none;padding-left:12px;background-image:linear-gradient(to right,${catCol} 0px,${catCol} 4px,${mcalCol} 4px,${mcalCol} 8px,${mcalCol}18 8px);color:${mcalCol}" id="bev_${e._id}" onclick="bulkSelectMode?bulkToggleEvent('${e._id}'):handleEventClick(event,${ej})">
           <div class="ev-tag" style="color:${catCol}">${e.category}</div>
-          <div class="ev-title">${e.title.replace(/Heme\/Onc:\s*/i,'').replace(/\s{2,}/g,' ').trim()}</div>
+          <div class="ev-title">${displayTitle(e)}</div>
           <div class="ev-time">${fmtTime(e.start)} – ${fmtTime(e.end)}</div>
           ${isFacultyMode?`<div class="ev-controls">
             <button class="ev-ctrl-btn ev-edit-btn" onclick="openEditForm(event,${ej})">✎</button>
@@ -1034,7 +1041,7 @@ function renderWeek(dates){
 
 function renderList(){
   const w=WEEKS[currentWeekIdx];
-  const evs=filteredEvents().filter(e=>e.weekNum===w.num).sort((a,b)=>a.date.localeCompare(b.date)||a.start.localeCompare(b.start));
+  const evs=(currentWeekIdx===-1?filteredEvents():filteredEvents().filter(e=>e.weekNum===w.num)).sort((a,b)=>a.date.localeCompare(b.date)||a.start.localeCompare(b.start));
   if(!evs.length){document.getElementById('calView').innerHTML=`<div class="empty-state"><div class="big">📭</div><p>No events found.</p></div>`;return;}
   const byDate={};evs.forEach(e=>{if(!byDate[e.date])byDate[e.date]=[];byDate[e.date].push(e);});
   let html='<div style="max-width:700px">';
@@ -1046,7 +1053,7 @@ function renderList(){
       const catColL=CAT_COLOR[e.category]||'#4a5168';
       html+=`<div class="event ${ec}" style="min-height:auto;flex-direction:row;align-items:center;gap:14px;margin-bottom:7px;padding:10px 10px 10px 14px;border-radius:8px;border-left:none;background-image:linear-gradient(to right,${catColL} 0px,${catColL} 4px,${col} 4px,${col} 8px,${col}18 8px)" onclick="handleEventClick(event,${ej})">
         <div style="font-family:'DM Mono',monospace;font-size:10px;color:${col};white-space:nowrap;min-width:90px">${fmtTime(e.start)}<br>${fmtTime(e.end)}</div>
-        <div style="flex:1"><div class="ev-tag" style="color:${catColL}">${e.category}</div><div style="font-size:13px;font-weight:500;color:${col}">${e.title.replace(/\s{2,}/g,' ').trim()}</div></div>
+        <div style="flex:1"><div class="ev-tag" style="color:${catColL}">${e.category}</div><div style="font-size:13px;font-weight:500;color:${col}">${displayTitle(e)}</div></div>
         ${isFacultyMode?`<div style="display:flex;gap:5px;flex-shrink:0">
           <button class="ev-ctrl-btn ev-edit-btn" style="width:28px;height:28px" onclick="openEditForm(event,${ej})">✎</button>
           <button class="ev-ctrl-btn ev-del-btn" style="width:28px;height:28px" onclick="confirmDelete(event,'${e._id}')">✕</button>
@@ -1092,7 +1099,7 @@ function openModal(e){
 
 // ── FACULTY AUTH ──────────────────────────────────────────────
 function requestFacultyMode(){document.getElementById('pinInput').value='';document.getElementById('pinErr').textContent='';document.getElementById('loginOverlay').classList.add('open');setTimeout(()=>document.getElementById('pinInput').focus(),100);}
-function checkPin(){const val=document.getElementById('pinInput').value.trim();if(val===(CFG.pin||'2028')){document.getElementById('loginOverlay').classList.remove('open');setMode('faculty');}else{document.getElementById('pinErr').textContent='Incorrect PIN.';document.getElementById('pinInput').value='';}}
+function checkPin(){const val=document.getElementById('pinInput').value.trim();if(val===(CFG.pin||'3255')){document.getElementById('loginOverlay').classList.remove('open');setMode('faculty');}else{document.getElementById('pinErr').textContent='Incorrect PIN.';document.getElementById('pinInput').value='';}}
 function setMode(mode){
   isFacultyMode=mode==='faculty';
   document.querySelectorAll('.mode-btn').forEach(b=>{b.classList.remove('active','faculty-active');});
