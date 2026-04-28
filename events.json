@@ -12,18 +12,6 @@
     "_id": "e165"
   },
   {
-    "title": "PoM 3 HEAL",
-    "date": "09/16/2025",
-    "start": "10:00",
-    "end": "13:00",
-    "block": "Renal",
-    "week": "Renal Week 4 (38)",
-    "weekNum": 38,
-    "category": "Mandatory",
-    "desc": "Mandatory PoM 3 HEAL",
-    "_id": "e167"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "09/19/2025",
     "start": "16:00",
