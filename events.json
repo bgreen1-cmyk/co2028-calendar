@@ -12,18 +12,6 @@
     "_id": "e385"
   },
   {
-    "title": "PoM",
-    "date": "12/12/2025",
-    "start": "14:00",
-    "end": "15:00",
-    "block": "MSK",
-    "week": "MSK Week 2(50)",
-    "weekNum": 50,
-    "category": "Session",
-    "desc": "PoM",
-    "_id": "e387"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "12/12/2025",
     "start": "16:00",
