@@ -4584,18 +4584,6 @@
     "_id": "e412"
   },
   {
-    "title": "PoM",
-    "date": "12/26/2025",
-    "start": "14:00",
-    "end": "15:00",
-    "block": "Break",
-    "week": "Break (25)",
-    "weekNum": 52,
-    "category": "Session",
-    "desc": "PoM",
-    "_id": "e414"
-  },
-  {
     "title": "TBL",
     "date": "12/26/2025",
     "start": "11:00",
