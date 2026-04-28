@@ -24,18 +24,6 @@
     "_id": "e207"
   },
   {
-    "title": "TBL 1 Upper GI and Liver Pathology (Basra/Kodali/McCarty?)",
-    "date": "10/01/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "GI",
-    "week": "GI WEEK 2(40)",
-    "weekNum": 40,
-    "category": "TBL",
-    "desc": "Mandatory TBL 1 Upper GI and Liver Pathology (Basra/Kodali/McCarty?)",
-    "_id": "e208"
-  },
-  {
     "title": "PoM",
     "date": "10/03/2025",
     "start": "14:00",
