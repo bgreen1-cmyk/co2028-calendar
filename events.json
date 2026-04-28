@@ -1,17 +1,5 @@
 [
   {
-    "title": "EBMSR / MSGR",
-    "date": "09/12/2025",
-    "start": "15:00",
-    "end": "16:00",
-    "block": "Renal",
-    "week": "Renal Week 3 (37)",
-    "weekNum": 37,
-    "category": "Session",
-    "desc": "EBMSR / MSGR",
-    "_id": "e154"
-  },
-  {
     "title": "Clinic/Trip",
     "date": "09/12/2025",
     "start": "16:00",
