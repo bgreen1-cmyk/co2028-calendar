@@ -12,18 +12,6 @@
     "_id": "e79"
   },
   {
-    "title": "ENGR",
-    "date": "08/15/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "block": "Respiratory",
-    "week": "Resp Week 3 (33)",
-    "weekNum": 33,
-    "category": "Session",
-    "desc": "ENGR",
-    "_id": "e80"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "08/15/2025",
     "start": "15:00",
