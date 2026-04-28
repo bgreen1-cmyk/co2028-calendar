@@ -72,18 +72,6 @@
     "_id": "e392"
   },
   {
-    "title": "ENGR Lab",
-    "date": "12/12/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "MSK",
-    "week": "MSK Week 2(50)",
-    "weekNum": 50,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e393"
-  },
-  {
     "title": "ENGR Events",
     "date": "12/12/2025",
     "start": "10:00",
