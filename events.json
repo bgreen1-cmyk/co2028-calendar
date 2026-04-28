@@ -12,18 +12,6 @@
     "_id": "e63"
   },
   {
-    "title": "PoM 3 HEAL",
-    "date": "08/05/2025",
-    "start": "10:00",
-    "end": "12:00",
-    "block": "Respiratory",
-    "week": "Resp Week 2 (32)",
-    "weekNum": 32,
-    "category": "Mandatory",
-    "desc": "Mandatory PoM 3 HEAL",
-    "_id": "e64"
-  },
-  {
     "title": "EBMSR / MSGR",
     "date": "08/08/2025",
     "start": "15:00",
