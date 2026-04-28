@@ -72,18 +72,6 @@
     "_id": "e71"
   },
   {
-    "title": "ENGR Lab",
-    "date": "08/08/2025",
-    "start": "09:00",
-    "end": "10:00",
-    "block": "Respiratory",
-    "week": "Resp Week 2 (32)",
-    "weekNum": 32,
-    "category": "Session",
-    "desc": "ENGR Lab",
-    "_id": "e72"
-  },
-  {
     "title": "Respiratory Exam 1",
     "date": "08/08/2025",
     "start": "13:00",
