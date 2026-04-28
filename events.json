@@ -4618,17 +4618,5 @@
     "category": "Session",
     "desc": "ENGR Events",
     "_id": "e421"
-  },
-  {
-    "title": "ENGR",
-    "date": "12/26/2025",
-    "start": "08:00",
-    "end": "09:00",
-    "block": "Break",
-    "week": "Break (25)",
-    "weekNum": 52,
-    "category": "Session",
-    "desc": "ENGR",
-    "_id": "e423"
   }
 ]
