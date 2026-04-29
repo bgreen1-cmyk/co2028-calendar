@@ -425,15 +425,7 @@
     "_id": "1777342011315_27"
   },
   {
-    "_id": "1777342011315_28",
     "title": "Workshop 11 - Machine Learning",
-    "mand": "No",
-    "group": "Section 100",
-    "location": "Room 106 (EIC)",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Omar Mohtar",
-    "notes": "",
     "date": "06/12/2026",
     "start": "09:00",
     "end": "12:00",
@@ -441,7 +433,13 @@
     "block": "Pre-Matriculation Week 3",
     "weekNum": 3,
     "week": "Week 3",
-    "desc": "Workshop 11 - Machine Learning"
+    "desc": "Workshop 11 - Machine Learning",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "Section 100",
+    "location": "Room 106 (EIC)",
+    "_id": "1777342011315_28"
   },
   {
     "_id": "1777342011315_29",
