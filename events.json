@@ -612,15 +612,7 @@
     "_id": "1777342011315_38"
   },
   {
-    "_id": "1777342011315_39",
     "title": "Workshop 12 - AI-Assisted Coding",
-    "mand": "No",
-    "group": "Section 100",
-    "location": "Room 106 (EIC)",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Omar Mohtar",
-    "notes": "",
     "date": "06/26/2026",
     "start": "09:00",
     "end": "12:00",
@@ -628,7 +620,13 @@
     "block": "Pre-Matriculation Week 5",
     "weekNum": 5,
     "week": "Week 5",
-    "desc": "Workshop 12 - AI-Assisted Coding"
+    "desc": "Workshop 12 - AI-Assisted Coding",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "Section 100",
+    "location": "Room 106 (EIC)",
+    "_id": "1777342011315_39"
   },
   {
     "_id": "1777342011315_40",
