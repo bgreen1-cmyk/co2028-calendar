@@ -527,15 +527,7 @@
     "_id": "1777342011315_33"
   },
   {
-    "_id": "1777342011315_34",
     "title": "Workshop 5 - Casting & MRI",
-    "mand": "No",
-    "group": "Section 100",
-    "location": "Room 106 (EIC)",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Shannon Wilson",
-    "notes": "",
     "date": "06/22/2026",
     "start": "09:00",
     "end": "12:00",
@@ -543,7 +535,13 @@
     "block": "Pre-Matriculation Week 5",
     "weekNum": 5,
     "week": "Week 5",
-    "desc": "Workshop 5 - Casting & MRI"
+    "desc": "Workshop 5 - Casting & MRI",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "Section 100",
+    "location": "Room 106 (EIC)",
+    "_id": "1777342011315_34"
   },
   {
     "_id": "1777342011315_35",
