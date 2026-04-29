@@ -323,15 +323,7 @@
     "_id": "1777342011315_21"
   },
   {
-    "_id": "1777342011315_22",
     "title": "Workshop 10 - Coding Introduction (Python)",
-    "mand": "No",
-    "group": "Section 101",
-    "location": "Room 106 (EIC)",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Omar Mohtar",
-    "notes": "",
     "date": "06/05/2026",
     "start": "13:00",
     "end": "16:00",
@@ -339,7 +331,13 @@
     "block": "Pre-Matriculation Week 2",
     "weekNum": 2,
     "week": "Week 2",
-    "desc": "Workshop 10 - Coding Introduction (Python)"
+    "desc": "Workshop 10 - Coding Introduction (Python)",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "Section 101",
+    "location": "Room 106 (EIC)",
+    "_id": "1777342011315_22"
   },
   {
     "_id": "1777342011315_23",
