@@ -459,15 +459,7 @@
     "_id": "1777342011315_29"
   },
   {
-    "_id": "1777342011315_30",
     "title": "Workshop 4 - Mold Assembly & Design",
-    "mand": "No",
-    "group": "Section 100",
-    "location": "Room 106 (EIC)",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Shannon Wilson",
-    "notes": "",
     "date": "06/15/2026",
     "start": "09:00",
     "end": "12:00",
@@ -475,7 +467,13 @@
     "block": "Pre-Matriculation Week 4",
     "weekNum": 4,
     "week": "Week 4",
-    "desc": "Workshop 4 - Mold Assembly & Design"
+    "desc": "Workshop 4 - Mold Assembly & Design",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "Section 100",
+    "location": "Room 106 (EIC)",
+    "_id": "1777342011315_30"
   },
   {
     "_id": "1777342011315_31",
