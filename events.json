@@ -748,15 +748,7 @@
     "_id": "1777342011315_46"
   },
   {
-    "_id": "1777342011315_47",
     "title": "Biodesign Session 7",
-    "mand": "No",
-    "group": "All Students",
-    "location": "",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Omar Mohtar",
-    "notes": "",
     "date": "06/30/2026",
     "start": "13:00",
     "end": "16:00",
@@ -764,7 +756,13 @@
     "block": "Pre-Matriculation Week 6",
     "weekNum": 6,
     "week": "Week 6",
-    "desc": "Biodesign Session 7"
+    "desc": "Biodesign Session 7",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "All Students",
+    "location": "",
+    "_id": "1777342011315_47"
   },
   {
     "_id": "1777342011315_48",
