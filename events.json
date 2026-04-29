@@ -374,15 +374,7 @@
     "_id": "1777342011315_24"
   },
   {
-    "_id": "1777342011315_25",
     "title": "Lecture 5 - Design Outputs - Verification",
-    "mand": "No",
-    "group": "All Students",
-    "location": "Auditorium",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Nicholas Sears\nDr. Shannon Wilson",
-    "notes": "",
     "date": "06/09/2026",
     "start": "11:00",
     "end": "12:00",
@@ -390,7 +382,13 @@
     "block": "Pre-Matriculation Week 3",
     "weekNum": 3,
     "week": "Week 3",
-    "desc": "Lecture 5 - Design Outputs - Verification"
+    "desc": "Lecture 5 - Design Outputs - Verification",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "All Students",
+    "location": "Auditorium",
+    "_id": "1777342011315_25"
   },
   {
     "_id": "1777342011315_26",
