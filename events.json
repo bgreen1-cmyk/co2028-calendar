@@ -561,15 +561,7 @@
     "_id": "1777342011315_35"
   },
   {
-    "_id": "1777342011315_36",
     "title": "Lecture 6 - FDA Design Process & Ethics",
-    "mand": "No",
-    "group": "All Students",
-    "location": "Auditorium",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Nicholas Sears\nDr. Shannon Wilson",
-    "notes": "",
     "date": "06/23/2026",
     "start": "11:00",
     "end": "12:00",
@@ -577,7 +569,13 @@
     "block": "Pre-Matriculation Week 5",
     "weekNum": 5,
     "week": "Week 5",
-    "desc": "Lecture 6 - FDA Design Process & Ethics"
+    "desc": "Lecture 6 - FDA Design Process & Ethics",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "All Students",
+    "location": "Auditorium",
+    "_id": "1777342011315_36"
   },
   {
     "_id": "1777342011315_37",
