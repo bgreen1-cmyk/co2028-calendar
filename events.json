@@ -1,24 +1,5 @@
 [
   {
-    "_id": "1777342011315_1",
-    "title": "CV: Cardiac Physical Exam Clinic",
-    "mand": "No",
-    "group": "Group A",
-    "location": "Room 216 A/B",
-    "mCal": "M2",
-    "calYear": "2029",
-    "presenter": "Dr. Jones",
-    "notes": "Bring stethoscope",
-    "date": "09/10/2025",
-    "start": "09:00",
-    "end": "11:00",
-    "category": "Cardiovascular: CBL",
-    "block": "CV Week 2",
-    "weekNum": 2,
-    "week": "Week 2",
-    "desc": "CV: Cardiac Physical Exam Clinic"
-  },
-  {
     "title": "CV Clinical Application Session",
     "date": "05/26/2026",
     "start": "09:00",
