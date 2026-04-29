@@ -803,15 +803,7 @@
     "desc": "[OPT] Workshop Open Lab"
   },
   {
-    "_id": "1777342011315_50",
     "title": "Engineering Design Workshop Showcase",
-    "mand": "No",
-    "group": "",
-    "location": "EnMed Lobby",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Shannon Wilson\nDr. Nicholas Sears\nDr. Omar Mohtar",
-    "notes": "",
     "date": "07/02/2026",
     "start": "09:00",
     "end": "12:00",
@@ -819,7 +811,13 @@
     "block": "Pre-Matriculation Week 6",
     "weekNum": 6,
     "week": "Week 6",
-    "desc": "Engineering Design Workshop Showcase"
+    "desc": "Engineering Design Workshop Showcase",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "",
+    "location": "EnMed Lobby",
+    "_id": "1777342011315_50"
   },
   {
     "_id": "1777342011315_51",
