@@ -221,15 +221,7 @@
     "_id": "1777342011315_15"
   },
   {
-    "_id": "1777342011315_16",
     "title": "Lecture 2 - Clinical Needs - Design Inputs",
-    "mand": "No",
-    "group": "All Students",
-    "location": "Auditorium",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Nicholas Sears\nDr. Shannon Wilson",
-    "notes": "",
     "date": "06/02/2026",
     "start": "10:00",
     "end": "11:00",
@@ -237,7 +229,13 @@
     "block": "Pre-Matriculation Week 2",
     "weekNum": 2,
     "week": "Week 2",
-    "desc": "Lecture 2 - Clinical Needs - Design Inputs"
+    "desc": "Lecture 2 - Clinical Needs - Design Inputs",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "All Students",
+    "location": "Auditorium",
+    "_id": "1777342011315_16"
   },
   {
     "_id": "1777342011315_17",
