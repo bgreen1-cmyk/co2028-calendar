@@ -238,15 +238,7 @@
     "_id": "1777342011315_16"
   },
   {
-    "_id": "1777342011315_17",
     "title": "Lecture 3 - Ideation and Concept Development",
-    "mand": "No",
-    "group": "All Students",
-    "location": "Auditorium",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Nicholas Sears\nDr. Shannon Wilson\nTyler Melton",
-    "notes": "",
     "date": "06/02/2026",
     "start": "11:00",
     "end": "12:00",
@@ -254,7 +246,13 @@
     "block": "Pre-Matriculation Week 2",
     "weekNum": 2,
     "week": "Week 2",
-    "desc": "Lecture 3 - Ideation and Concept Development"
+    "desc": "Lecture 3 - Ideation and Concept Development",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "All Students",
+    "location": "Auditorium",
+    "_id": "1777342011315_17"
   },
   {
     "_id": "1777342011315_18",
