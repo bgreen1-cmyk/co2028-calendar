@@ -289,15 +289,7 @@
     "_id": "1777342011315_19"
   },
   {
-    "_id": "1777342011315_20",
     "title": "Lecture 4 - Intellectual Property",
-    "mand": "No",
-    "group": "All Students",
-    "location": "Auditorium",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Nicholas Sears\nDr. Shannon Wilson\nKebbeh Darpolor",
-    "notes": "",
     "date": "06/04/2026",
     "start": "11:00",
     "end": "12:00",
@@ -305,7 +297,13 @@
     "block": "Pre-Matriculation Week 2",
     "weekNum": 2,
     "week": "Week 2",
-    "desc": "Lecture 4 - Intellectual Property"
+    "desc": "Lecture 4 - Intellectual Property",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "All Students",
+    "location": "Auditorium",
+    "_id": "1777342011315_20"
   },
   {
     "_id": "1777342011315_21",
