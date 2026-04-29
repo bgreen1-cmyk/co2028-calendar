@@ -136,15 +136,7 @@
     "_id": "1777342011315_10"
   },
   {
-    "_id": "1777342011315_11",
     "title": "ENGR Correlation Session 6",
-    "mand": "No",
-    "group": "All Students",
-    "location": "Room 212 A/B",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Ashutosh Agrawal",
-    "notes": "",
     "date": "05/29/2026",
     "start": "10:00",
     "end": "12:00",
@@ -152,7 +144,13 @@
     "block": "Pre-Matriculation Week 1",
     "weekNum": 1,
     "week": "Week 1",
-    "desc": "ENGR Correlation Session 6"
+    "desc": "ENGR Correlation Session 6",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "All Students",
+    "location": "Room 212 A/B",
+    "_id": "1777342011315_11"
   },
   {
     "_id": "1777342011315_12",
