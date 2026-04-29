@@ -340,15 +340,7 @@
     "_id": "1777342011315_22"
   },
   {
-    "_id": "1777342011315_23",
     "title": "Workshop 3 - DICOM, D# Image Reconstruction",
-    "mand": "No",
-    "group": "Section 100",
-    "location": "Room 106 (EIC)",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Shannon Wilson",
-    "notes": "",
     "date": "06/08/2026",
     "start": "09:00",
     "end": "12:00",
@@ -356,7 +348,13 @@
     "block": "Pre-Matriculation Week 3",
     "weekNum": 3,
     "week": "Week 3",
-    "desc": "Workshop 3 - DICOM, D# Image Reconstruction"
+    "desc": "Workshop 3 - DICOM, D# Image Reconstruction",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "Section 100",
+    "location": "Room 106 (EIC)",
+    "_id": "1777342011315_23"
   },
   {
     "_id": "1777342011315_24",
