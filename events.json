@@ -204,15 +204,7 @@
     "_id": "1777342011315_14"
   },
   {
-    "_id": "1777342011315_15",
     "title": "Workshop 1: Reverse Engineering",
-    "mand": "No",
-    "group": "Section 101",
-    "location": "Room 106 (EIC)",
-    "mCal": "M0",
-    "calYear": "2030",
-    "presenter": "Dr. Shannon Wilson",
-    "notes": "",
     "date": "06/01/2026",
     "start": "13:00",
     "end": "16:00",
@@ -220,7 +212,13 @@
     "block": "Pre-Matriculation Week 2",
     "weekNum": 2,
     "week": "Week 2",
-    "desc": "Workshop 1: Reverse Engineering"
+    "desc": "Workshop 1: Reverse Engineering",
+    "calYear": "2030",
+    "mCal": "M0",
+    "mand": "Yes",
+    "group": "Section 101",
+    "location": "Room 106 (EIC)",
+    "_id": "1777342011315_15"
   },
   {
     "_id": "1777342011315_16",
