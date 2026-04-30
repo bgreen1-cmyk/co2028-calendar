@@ -941,7 +941,15 @@ function populateBlockDropdown(){
 }
 function setSidebarCat(el,cat){currentFilter=cat;document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));const ch=document.querySelector(`.filter-chip[data-cat="${cat}"]`);if(ch)ch.classList.add('active');render();}
 function setFilter(el,cat){currentFilter=cat;document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');render();}
-function setView(v,btn){currentView=v;document.querySelectorAll('.vt-btn').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');document.getElementById('weekDrawer').style.display=v==='month'?'none':'';buildWeekDrawer();render();}
+function setView(v,btn){
+  currentView=v;
+  document.querySelectorAll('.vt-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  const isMonth=v==='month';
+  document.getElementById('weekDrawer').style.display=isMonth?'none':'';
+  document.querySelector('.week-nav').style.display=isMonth?'none':'';
+  buildWeekDrawer();render();
+}
 function updateFpViewBtns(v){
   const wb=document.getElementById('fpWeekBtn');
   const lb=document.getElementById('fpListBtn');
@@ -975,46 +983,66 @@ function getWeekDates(){
 // ── RENDER ────────────────────────────────────────────────────
 function render(){
   if(!WEEKS.length)return;
+
+  // ── Month view ──────────────────────────────────────────────
   if(currentView==='month'){
     const filtEvs=filteredEvents();
     const mLabel=currentMSub&&currentMSub!=='All'?' · '+currentMSub:'';
     document.getElementById('toolbarSub').textContent=`${filtEvs.length} event${filtEvs.length!==1?'s':''} shown · ${selectedYears.has('All')?'All Years':[...selectedYears].sort().join(', ')}${mLabel}`;
+    const wn=document.querySelector('.week-nav');if(wn)wn.style.display='none';
     renderChangeLog();renderMonth();return;
   }
-  const w=currentWeekIdx>=0?WEEKS[currentWeekIdx]:null;
-  const col=w?(BLOCK_COLOR[w.block]||'#7a829a'):'#7a829a';
+
+  // ── Week / List view ─────────────────────────────────────────
+  const wn=document.querySelector('.week-nav');if(wn)wn.style.display='';
+
+  // All Weeks mode (list only)
   if(currentWeekIdx===-1){
-    // All Weeks mode
-    document.getElementById('weekLabel').textContent='All Weeks';
-    const pill=document.getElementById('blockPill');
-    pill.textContent='';pill.style.background='';pill.style.color='';pill.style.border='';
-    document.getElementById('weekDates').textContent='All Events';
     const allEvs=filteredEvents();
+    document.getElementById('weekLabel').textContent='All Events';
+    document.getElementById('weekDates').textContent='';
+    document.getElementById('blockPill').textContent='';
     document.getElementById('toolbarSub').textContent=`${allEvs.length} event${allEvs.length!==1?'s':''} shown`;
-  } else {
-    document.getElementById('weekLabel').textContent=`Week ${w.num}`;
-    const pill=document.getElementById('blockPill');
-    pill.textContent=w.block;pill.style.background=col+'22';pill.style.color=col;pill.style.border='1px solid '+col+'55';
-    const dates=getWeekDates();
-    if(dates[0]){
-      const weekEvs=EVENTS.filter(e=>e.weekNum===w.num).sort((a,b)=>a.date.localeCompare(b.date));
-      const firstDate=weekEvs.length?weekEvs[0].date:dates[0];
-      const lastDate=weekEvs.length?weekEvs[weekEvs.length-1].date:dates[4]||dates[0];
-      const[mo1,dy1,yr1]=firstDate.split('/');
-      const[mo2,dy2,yr2]=lastDate.split('/');
-      const d1=new Date(+yr1,+mo1-1,+dy1),d2=new Date(+yr2,+mo2-1,+dy2);
-      document.getElementById('weekDates').textContent=d1.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+' – '+d2.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
-    }
-    document.getElementById('toolbarSub').textContent=`${EVENTS.length} events · ${EVENTS.filter(e=>e.weekNum===w.num).length} this week`;
+    renderChangeLog();
+    renderList();
+    return;
   }
+
+  // Normal week
+  if(currentWeekIdx<0||currentWeekIdx>=WEEKS.length)currentWeekIdx=0;
+  const w=WEEKS[currentWeekIdx];
+  const col=BLOCK_COLOR[w.block]||'#7a829a';
+  document.getElementById('weekLabel').textContent=`Week ${w.num}`;
+  const pill=document.getElementById('blockPill');
+  pill.textContent=w.block;pill.style.background=col+'22';pill.style.color=col;pill.style.border='1px solid '+col+'55';
+
+  // Date range from actual events
+  const weekEvs=EVENTS.filter(e=>e.weekNum===w.num).sort((a,b)=>a.date.localeCompare(b.date));
+  const dates=getWeekDates();
+  if(weekEvs.length){
+    const[mo1,dy1,yr1]=weekEvs[0].date.split('/');
+    const[mo2,dy2,yr2]=weekEvs[weekEvs.length-1].date.split('/');
+    const d1=new Date(+yr1,+mo1-1,+dy1),d2=new Date(+yr2,+mo2-1,+dy2);
+    document.getElementById('weekDates').textContent=
+      d1.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})+
+      ' – '+d2.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+  } else if(dates[0]){
+    document.getElementById('weekDates').textContent=dates[0]+' – '+(dates[4]||dates[0]);
+  }
+  document.getElementById('toolbarSub').textContent=`${EVENTS.length} events · ${weekEvs.length} this week`;
+
   renderChangeLog();
-  if(currentView==='week')renderWeek(dates);else renderList();
+  if(currentView==='week')renderWeek(dates);
+  else renderList();
 }
 
 function evClass(e){if(e.category==='Faculty Discussion')return'Faculty';if(e.category==='Exam Review')return'ExamReview';if(e.category==='Grand Rounds')return'GrandRounds';return e.category.replace(/\s/g,'');}
 
 function renderWeek(dates){
+  // If we somehow got to week view with -1 index, reset to 0
+  if(currentWeekIdx<0)currentWeekIdx=0;
   const w=WEEKS[currentWeekIdx];
+  if(!w||!dates||!dates.length){document.getElementById('calView').innerHTML='<div class="empty-state"><div class="big">📭</div><p>No week data available.</p></div>';return;}
   const evs=filteredEvents().filter(e=>e.weekNum===w.num);
   const today=new Date();
   const todayStr=`${String(today.getMonth()+1).padStart(2,'0')}/${String(today.getDate()).padStart(2,'0')}/${today.getFullYear()}`;
