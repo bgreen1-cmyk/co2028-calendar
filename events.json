@@ -357,7 +357,7 @@
     "_id": "1777342011315_23"
   },
   {
-    "title": "Workshop 3 - DICOM, D# Image Reconstruction",
+    "title": "Workshop 3 - DICOM, 3D Image Reconstruction",
     "date": "06/08/2026",
     "start": "13:00",
     "end": "16:00",
@@ -365,7 +365,7 @@
     "block": "Pre-Matriculation Week 3",
     "weekNum": 3,
     "week": "Week 3",
-    "desc": "Workshop 3 - DICOM, D# Image Reconstruction",
+    "desc": "Workshop 3 - DICOM, 3D Image Reconstruction",
     "calYear": "2030",
     "mCal": "M0",
     "mand": "Yes",
