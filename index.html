@@ -890,9 +890,9 @@ function buildWeekDrawer(){
     return `<button class="wk-btn${i===currentWeekIdx?' active':''}" style="${i===currentWeekIdx?'background:'+col+';border-color:'+col:''}" onclick="jumpToWeek(${i})">${lbl}</button>`;
   }).join('');
 }
-function jumpToWeek(i){currentWeekIdx=i;buildWeekDrawer();render();}
-function prevWeek(){if(currentWeekIdx>0){currentWeekIdx--;buildWeekDrawer();render();}}
-function nextWeek(){if(currentWeekIdx<WEEKS.length-1){currentWeekIdx++;buildWeekDrawer();render();}}
+function jumpToWeek(i){currentWeekIdx=i;if(i>=0)weekToMonth(i);buildWeekDrawer();render();}
+function prevWeek(){if(currentWeekIdx>0){currentWeekIdx--;weekToMonth(currentWeekIdx);buildWeekDrawer();render();}}
+function nextWeek(){if(currentWeekIdx<WEEKS.length-1){currentWeekIdx++;weekToMonth(currentWeekIdx);buildWeekDrawer();render();}}
 function setSidebarBlock(el,block){} // legacy stub
 let currentBlockFilter='All';
 function setBlockFilter(block){
@@ -937,12 +937,21 @@ function populateBlockDropdown(){
 function setSidebarCat(el,cat){currentFilter=cat;document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));const ch=document.querySelector(`.filter-chip[data-cat="${cat}"]`);if(ch)ch.classList.add('active');render();}
 function setFilter(el,cat){currentFilter=cat;document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');render();}
 function setView(v,btn){
+  const prev=currentView;
   currentView=v;
   document.querySelectorAll('.vt-btn').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
   const isMonth=v==='month';
   document.getElementById('weekDrawer').style.display=isMonth?'none':'';
-  document.querySelector('.week-nav').style.display=isMonth?'none':'';
+  const wn=document.querySelector('.week-nav');if(wn)wn.style.display=isMonth?'none':'';
+  // Sync position when switching views
+  if(prev==='month'&&!isMonth){
+    // Coming FROM month → find matching week
+    currentWeekIdx=monthToWeek(currentMonth,currentMonthYear);
+  } else if(prev!=='month'&&isMonth){
+    // Coming TO month → sync month from current week
+    weekToMonth(currentWeekIdx);
+  }
   buildWeekDrawer();render();
 }
 function updateFpViewBtns(v){
@@ -1632,8 +1641,49 @@ function renderMonth(){
   document.getElementById('weekLabel').textContent='';
   document.getElementById('blockPill').textContent='';
 }
-function prevMonth(){currentMonth--;if(currentMonth<0){currentMonth=11;currentMonthYear--;}render();}
-function nextMonth(){currentMonth++;if(currentMonth>11){currentMonth=0;currentMonthYear++;}render();}
+
+// ── SYNCED NAVIGATION HELPERS ────────────────────────────────
+// dates are MM/DD/YYYY — parse correctly
+function parseDateParts(dateStr){
+  const p=dateStr.split('/');
+  return{mo:parseInt(p[0])-1, dy:parseInt(p[1]), yr:parseInt(p[2])};
+}
+// Sync month view FROM a week index
+function weekToMonth(weekIdx){
+  if(weekIdx<0||weekIdx>=WEEKS.length)return;
+  const w=WEEKS[weekIdx];
+  // Use first event date in this week
+  const evs=EVENTS.filter(e=>e.weekNum===w.num).sort((a,b)=>a.date.localeCompare(b.date));
+  if(evs.length){
+    const p=parseDateParts(evs[0].date);
+    currentMonth=p.mo; currentMonthYear=p.yr;
+  }
+}
+// Sync week index FROM a month/year — find first week with events in that month
+function monthToWeek(mo,yr){
+  // Score each week: prefer weeks that have events in this exact month+year
+  let best=-1;
+  for(let i=0;i<WEEKS.length;i++){
+    const w=WEEKS[i];
+    const hasMatch=EVENTS.some(e=>{
+      if(e.weekNum!==w.num)return false;
+      const p=parseDateParts(e.date);
+      return p.mo===mo && p.yr===yr;
+    });
+    if(hasMatch){best=i;break;} // take first matching week
+  }
+  // Fallback: find nearest week by year only
+  if(best===-1){
+    for(let i=0;i<WEEKS.length;i++){
+      const w=WEEKS[i];
+      const hasYear=EVENTS.some(e=>e.weekNum===w.num&&parseDateParts(e.date).yr===yr);
+      if(hasYear){best=i;break;}
+    }
+  }
+  return best>=0?best:(currentWeekIdx>=0?currentWeekIdx:0);
+}
+function prevMonth(){currentMonth--;if(currentMonth<0){currentMonth=11;currentMonthYear--;}currentWeekIdx=monthToWeek(currentMonth,currentMonthYear);buildWeekDrawer();render();}
+function nextMonth(){currentMonth++;if(currentMonth>11){currentMonth=0;currentMonthYear++;}currentWeekIdx=monthToWeek(currentMonth,currentMonthYear);buildWeekDrawer();render();}
 
 // ── CATALOG HELPERS ───────────────────────────────────────────
 
