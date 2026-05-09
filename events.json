@@ -949,5 +949,22 @@
     "group": "Section 100",
     "location": "Room 106 (EIC)",
     "_id": "1778286067352"
+  },
+  {
+    "title": "Test 2",
+    "date": "05/13/2026",
+    "start": "08:00",
+    "end": "09:00",
+    "category": "Mandatory",
+    "block": "POM I",
+    "weekNum": 1,
+    "week": "Week 1",
+    "desc": "Test 2",
+    "calYear": "2029",
+    "mCal": "M1",
+    "mand": "No",
+    "group": "",
+    "location": "",
+    "_id": "1778286154482"
   }
 ]
